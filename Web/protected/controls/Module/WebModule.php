@@ -5,6 +5,7 @@ class WebModule extends TWebControl
 	public $cssClass;
 	public $type;
 	public $header;
+	public $position;
 	
 	
 	public function onLoad($param)

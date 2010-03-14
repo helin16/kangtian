@@ -6,7 +6,6 @@ class Home extends EshopPage
 	{
 		if(!$this->isPostBack)
 		{
-			$this->title->Text = $content;
 		}
 	}
 }
