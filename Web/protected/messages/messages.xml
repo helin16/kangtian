@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file original="I18N Example IndexPage" source-language="EN" datatype="plaintext" date="2009-06-21T23:53:10Z">
+        <body>
+        	//-- start of Menu ----------------------------------------------------- 
+				<trans-unit>
+					<source>Menu.home</source>
+					<target>Home</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.lotteryResult</source>
+					<target>Result</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.contactus</source>
+					<target>Contact Us</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.aboutus</source>
+					<target>About Us</target>
+				</trans-unit>
+        	//-- end of Menu ----------------------------------------------------- 
+			
+			//-- start of contact us ----------------------------------------------------- 
+				<trans-unit>
+					<source>ContactUs.title</source>
+					<target>Please feel free to contact us!</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.yourname</source>
+					<target>Your Name</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.youremail</source>
+					<target>Your Email</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.emailcontent</source>
+					<target>Email Content</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.submitbutton</source>
+					<target>Send Message</target>
+				</trans-unit>
+			
+				<trans-unit>
+					<source>ContactUs.successfullSent</source>
+					<target>Your email has been successfully sent! Thank you!</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.spamChecking</source>
+					<target>Please help us to stop spam</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.spamCheckingError</source>
+					<target>Please Type In </target>
+				</trans-unit>
+			//-- end of contact us ----------------------------------------------------- 
+			
+			//-- start of about us ----------------------------------------------------- 
+				<trans-unit>
+					<source>AboutUs.aboutUs</source>
+					<target>About Us</target>
+				</trans-unit>
+			//-- end of about us -----------------------------------------------------
+			
+			<trans-unit>
+				<source>login</source>
+				<target>Login</target>
+			</trans-unit>
+			
+			<trans-unit>
+				<source>register</source>
+				<target>Register</target>
+			</trans-unit>
+			
+			<trans-unit>
+				<source>myAccount</source>
+				<target>My Account</target>
+			</trans-unit>
+			
+			<trans-unit>
+				<source>helpCenter</source>
+				<target>Help Center</target>
+			</trans-unit>
+        	
+        	<trans-unit>
+				<source>welcome</source>
+				<target>Welcome</target>
+			</trans-unit>
+			
+        	<trans-unit>
+				<source>copyright_owner</source>
+				<target>Built by Budget PC Pty Ltd</target>
+			</trans-unit>
+        	
+        	<trans-unit>
+				<source>copyright_time</source>
+				<target>Copyright 2009</target>
+			</trans-unit>
+			
+			
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+			//-- Admin ----------------------------------------------------- 
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+				<trans-unit>
+					<source>Admin.Menu.UserAccount</source>
+					<target>User Accounts</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Admin.Menu.Content</source>
+					<target>Content</target>
+				</trans-unit>
+				
+				//-- Content Listing ----------------------------------------------------- 
+				<trans-unit>
+					<source>Admin.List.Content.title</source>
+					<target>Title</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Admin.List.Content.Content</source>
+					<target>Content</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Admin.List.Content.Publish</source>
+					<target>Publish</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Admin.List.Content.OnFrontPage</source>
+					<target>Show On Front Page</target>
+				</trans-unit>
+				
+				
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+			//-- end of about us -----------------------------------------------------
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+			//-------------------------------------------------------------------------------------------------------------------------------------- 
+			
+			
+		</body>
+    </file>
+</xliff>

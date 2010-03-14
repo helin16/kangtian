@@ -1,0 +1,5 @@
+<com:TContent ID="MainContent">
+	<div ID="aboutUs_wrapper">
+		<com:TLabel ID="contactusTitle" Text="<%[AboutUs.aboutUs]%>" />
+	</div>
+</com:TContent>

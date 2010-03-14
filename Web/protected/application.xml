@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<application id="eshop" mode="Debug">
+  <!-- alias definitions and namespace usings
+  <paths>
+    <alias id="myalias" path="./lib" />
+    <using namespace="Application.common.*" />
+  </paths>
+  -->
+
+	<paths>
+	    <using namespace="System.I18N.*" />
+	    <using namespace="System.Web.UI.ActiveControls.*" />
+	</paths>
+
+	<!-- configurations for modules -->
+	<modules>
+		<module id="security" class="TSecurityManager" EncryptionKey="EshopCool" ValidationKey="EshopCool" />
+		
+		<module id="request" class="THttpRequest" UrlManager="friendly-url" />
+	
+		<module id="friendly-url" class="System.Web.TUrlMapping" EnableCustomUrl="true" UrlPrefix="/">	
+			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
+			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
+			
+			<url ServiceParameter="Login.Login" pattern="login.html" />
+			
+			<url ServiceParameter="admin.home.AdminHome" pattern="admin/" />
+			<url ServiceParameter="admin.Listing.Listing" pattern="admin/list/{entityName}.html" parameters.entityName="\w+" />
+			
+			<url ServiceParameter="CssRedirector.CssRedirector" pattern="default.css"/>
+		</module>
+	
+		<module id="globalization" class="TGlobalization">
+		    <translation type="XLIFF"
+		        source="Application.messages"
+		        marker="@@"
+		        autosave="true" cache="true" />
+		</module>
+		
+		<module id="security" class="TSecurityManager" ValidationKey="kang tian property(ARG)!" />
+		
+	</modules>
+
+	<!-- configuration for available services -->
+	<services>
+		<service id="page" class="TPageService" DefaultPage="Home">
+			<modules>
+			  <module id="auth" class="System.Security.TAuthManager" UserManager="users" ReturnUrl="/login.html" LoginPage="Login.Login" AuthExpire="3600"/>
+			  <module id="users" class="Application.classes.WebUser.WebUserManager"/>
+			</modules>
+		</service>
+	</services>
+	<!-- application parameters -->
+	<parameters>
+	  <parameter id="AppTitle" value="kang tian property(ARG)" />
+	  <parameter id="AppVersion" value="3.0.1"/>
+	</parameters>
+
+</application>

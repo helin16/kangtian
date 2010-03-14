@@ -1,0 +1,96 @@
+<com:TContent ID="MainContent">
+	<script type="text/javascript">
+		function checkSpam()
+		{
+			var input = document.getElementById('<%=$this->spamCheckingInput->getClientId()%>').value;
+			var checkingNo = document.getElementById('<%=$this->spamCheckingNo->getClientId()%>').value;
+			if(input!=checkingNo)
+			{
+				var checking = document.getElementById('<%=$this->spamError->getClientId()%>');
+				checking.innerHTML='<%[ContactUs.spamCheckingError]%> \''+ checkingNo +'\'';
+				return false;
+			}
+			return true;
+		}
+	</script>
+	<center>
+	<div ID="aboutUs_wrapper" style="width:100%;text-align:left;">
+		<table width="100%">
+			<tr>
+				<td colspan="2">
+					<com:TLabel ID="contactusTitle" Text="<%[ContactUs.title]%>" />
+					<br />
+					<br />
+					<b><com:TLabel ID="result" ForeColor="green" Text="<%[ContactUs.successfullSent]%>"/></b>
+				</td>
+			</tr>
+			<tr>
+				<td width="15%"><%[ContactUs.yourname]%>:</td>
+				<td>
+					<com:TTextBox ID="name" /> 
+					<com:TRequiredFieldValidator    
+						ValidationGroup="Group1"
+						ControlToValidate="name"
+						Display="Dynamic"
+						Text="* Field required." />
+				</td>
+			</tr>
+			<tr>
+				<td><%[ContactUs.youremail]%>:</td>
+				<td>
+					<com:TTextBox ID="emailAddr" />
+					<com:TRequiredFieldValidator    
+						ValidationGroup="Group1"
+						ControlToValidate="emailAddr"
+						Display="Dynamic"
+						Text="* Field required." />
+					<com:TEmailAddressValidator   
+						ValidationGroup="Group1"
+						ControlToValidate="emailAddr"
+						Display="Dynamic"
+						Text="Invalid email address." />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<%[ContactUs.emailcontent]%>: 
+					<com:TRequiredFieldValidator    
+						ValidationGroup="Group1"
+						Display="Dynamic"
+						ControlToValidate="emailContent"
+						Text="* Field required." />
+					<br />
+					<com:TTextBox ID="emailContent" TextMode="MultiLine" width="100%" height="100px"/>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table width="100%">
+						<tr>
+							<td width="35%">
+								<%[ContactUs.spamChecking]%>: 
+							</td>
+							<td align="left">
+								<com:TLabel ID="spamCheckingLabel" />
+								<com:TTextBox ID="spamCheckingInput" style="width:40px;"/>
+								<com:TTextBox ID="spamCheckingNo" style="display:none;" />
+							</td>
+							<td align="left" width="40%">
+								<com:TLabel ID="spamError" style="width:100%; color:red;" />
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<com:TButton ID="email" Text="<%[ContactUs.submitbutton]%>"
+						OnClick="Page.sendEmail"
+						Attributes.OnClick="checkSpam()"
+						ValidationGroup="Group1"/>
+				</td>
+			</tr>
+		</table>
+	</div>
+	</center>
+</com:TContent>
