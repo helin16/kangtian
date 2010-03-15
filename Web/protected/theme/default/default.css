@@ -2,7 +2,9 @@ body
 {
 	font-family:arial,"lucida console",sans-serif;
 	font-size:11px;
-	background:#000000 url("images/bg.jpg") repeat-x scroll top left;
+	background:#ffffff url("/ajax?method=getImage&imagePath=images/bg.jpg") repeat-x top left;
+	margin:0px;
+	padding:0px;
 }
 
 table#wrapper
