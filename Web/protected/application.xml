@@ -28,7 +28,7 @@
 			<url ServiceParameter="admin.home.AdminHome" pattern="admin/" />
 			<url ServiceParameter="admin.Listing.Listing" pattern="admin/list/{entityName}.html" parameters.entityName="\w+" />
 			
-			<url ServiceId='ajax' ServiceParameter="" pattern="ajax" />
+			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>
 	
 		<module id="globalization" class="TGlobalization">
@@ -50,7 +50,7 @@
 			  <module id="users" class="Application.classes.WebUser.WebUserManager"/>
 			</modules>
 		</service>
-		<service id="ajax" class="Application.pages.Stream.StreamController">
+		<service id="stream" class="Application.pages.Stream.StreamController">
 		</service>
 	</services>
 	<!-- application parameters -->
