@@ -10,54 +10,20 @@
 <body>
 	<center>
 		<com:TForm>
-			<table ID="wrapper" border='1' cellspacing="0" cellpadding="0" >
+			<table ID="wrapper" border='0' cellspacing="0" cellpadding="0" >
 				<tr>
-					<td ID="left">
-						<table width="100%" cellspacing="0" cellpadding="0">
-							<tr class="header">
-								<td ID="Logo"></td>
-							</tr>
-							<tr>
-								<td> 
-									<com:Application.controls.Module.WebModule ID="left" type="Div" Position="Left"/>
-								</td>
-							</tr>
-						</table>
-					</td>
-					<td class="gap" />
-					<td ID="mid">
-						<table width="100%" cellspacing="0" cellpadding="0">
-							<tr class="header">
-								<td>
-									<com:Application.controls.Module.WebModule ID="header" type="Div"/>
-								</td>
-							</tr>
-							<tr>
-								<td> 
-									<div ID="bodyWrapper">
-										<com:TContentPlaceHolder ID="MainContent" />
-									</div>
-								</td>
-							</tr>
-						</table>
-					</td>
-					<td class="gap" />
-					<td ID="right">
-						<table width="100%" cellspacing="0" cellpadding="0">
-							<tr class="header">
-								<td ID="contactUs"></td>
-							</tr>
-							<tr>
-								<td> 
-									<com:Application.controls.Module.WebModule ID="right" type="Div"  Position="right"/>
-								</td>
-							</tr>
-						</table>
+					<td>
+						<com:Application.controls.Module.WebModule ID="top" type="Div"/>
 					</td>
 				</tr>
 				<tr>
-					<td colspan="5">
-						<com:Application.controls.Module.WebModule ID="footer" type="Div"/>
+					<td>
+						<com:TContentPlaceHolder ID="MainContent" />
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<com:Application.controls.Module.WebModule ID="bottom" type="Div"/>
 					</td>
 				</tr>
 			</table>
