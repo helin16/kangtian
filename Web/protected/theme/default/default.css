@@ -2,18 +2,63 @@ body
 {
 	font-family:arial,"lucida console",sans-serif;
 	font-size:11px;
-	background:#ffffff url("/ajax?method=getImage&imagePath=images/bg.jpg") repeat-x top left;
 	margin:0px;
 	padding:0px;
 }
 
 table#wrapper
 {
-	width:960px;
+	width:100%;
 	text-align:left;
 }
 
 table td
 {
 	vertical-align: top;
+}
+
+table#wrapper td#top,
+table#wrapper td#mid,
+table#wrapper td#bottom
+{
+	height:350px;
+	padding: 0 0 0 60px;
+}
+
+table#wrapper td#top{background:#9e9c9c;}
+table#wrapper td#bottom{background:#F3F2ED;}
+
+table#wrapper div.wrapper_container
+{
+	/*border:1px #000000 solid;*/
+	width:100%;
+}
+
+td.menu
+{
+	background: transparent url(/stream?method=getImage&imagePath=images/menu_bg.png) repeat-x left top;
+	padding:13px 0 16px 0;
+}
+td.menu div ul
+{
+	list-style: none;
+	margin:0px;
+	padding:0px;
+}
+td.menu div ul li
+{
+	float: left;
+}
+
+td.menu div ul li a,
+td.menu div ul li a:link
+{
+	padding:0 15px 0 15px;
+	text-decoration: none;
+	font-size:14px;
+	color:#ffffff;
+}
+td.menu div ul li a:hover
+{
+	color:#A40404;
 }
