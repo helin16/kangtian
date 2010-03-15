@@ -50,7 +50,7 @@
 			  <module id="users" class="Application.classes.WebUser.WebUserManager"/>
 			</modules>
 		</service>
-		<service id="ajax" class="Application.pages.Ajax.AjaxController">
+		<service id="ajax" class="Application.pages.Stream.StreamController">
 		</service>
 	</services>
 	<!-- application parameters -->
