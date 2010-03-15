@@ -28,7 +28,7 @@
 			<url ServiceParameter="admin.home.AdminHome" pattern="admin/" />
 			<url ServiceParameter="admin.Listing.Listing" pattern="admin/list/{entityName}.html" parameters.entityName="\w+" />
 			
-			<url ServiceParameter="CssRedirector.CssRedirector" pattern="default.css"/>
+			<url ServiceId='ajax' ServiceParameter="" pattern="ajax" />
 		</module>
 	
 		<module id="globalization" class="TGlobalization">
@@ -49,6 +49,8 @@
 			  <module id="auth" class="System.Security.TAuthManager" UserManager="users" ReturnUrl="/login.html" LoginPage="Login.Login" AuthExpire="3600"/>
 			  <module id="users" class="Application.classes.WebUser.WebUserManager"/>
 			</modules>
+		</service>
+		<service id="ajax" class="Application.pages.Ajax.AjaxController">
 		</service>
 	</services>
 	<!-- application parameters -->

@@ -2,7 +2,7 @@ body
 {
 	font-family:arial,"lucida console",sans-serif;
 	font-size:11px;
-	background:#ffffff;
+	background:#000000 url("images/bg.jpg") repeat-x scroll top left;
 }
 
 table#wrapper

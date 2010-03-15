@@ -5,7 +5,7 @@
 	<meta http-equiv="Cache-Control" content="no-cache"/>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<meta http-equiv="content-language" content="en"/>
-	<link rel="stylesheet" type="text/css" href="http://localhost/default.css" />
+	<link rel="stylesheet" type="text/css" href="/ajax?method=getCss" />
 </com:THead>
 <body>
 	<center>
