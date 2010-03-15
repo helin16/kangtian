@@ -27,12 +27,6 @@ class StreamController extends TService
 	 
 	public function run()
 	{
-
-		//  		if(!isset($_SESSION['hydra_user']) || !isset($_SESSION['hydra_role']))
-		//  			throw new Exception("No defined access.");
-		//
-		//  		Core::setUser($_SESSION['hydra_user'],$_SESSION['hydra_role']);
-
 		if(sizeof($_POST) > 0)
 		{
 			$this->__processPostBack($_POST);
@@ -67,7 +61,6 @@ class StreamController extends TService
 
 	public function getCss()
 	{
-
 		try
 		{
 			$theme = Config::get("theme","name");
