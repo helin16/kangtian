@@ -1,5 +1,5 @@
 <?php
-class content extends ProjectEntity 
+class Content extends ProjectEntity 
 {
 	/**
 	 * getter title
