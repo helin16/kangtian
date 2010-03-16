@@ -38,7 +38,7 @@
 		        autosave="true" cache="true" />
 		</module>
 		
-		<module id="security" class="TSecurityManager" ValidationKey="kang tian property(ARG)!" />
+		<module id="security" class="TSecurityManager" ValidationKey="Australian Realty Group(ARG)!" />
 		
 	</modules>
 
@@ -55,7 +55,7 @@
 	</services>
 	<!-- application parameters -->
 	<parameters>
-	  <parameter id="AppTitle" value="kang tian property(ARG)" />
+	  <parameter id="AppTitle" value="Australian Realty Group(ARG)" />
 	  <parameter id="AppVersion" value="3.0.1"/>
 	</parameters>
 

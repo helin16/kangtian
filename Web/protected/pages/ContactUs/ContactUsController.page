@@ -13,12 +13,11 @@
 			return true;
 		}
 	</script>
-	<center>
-	<div ID="aboutUs_wrapper" style="width:100%;text-align:left;">
+	<div ID="aboutUs_wrapper" style="width:100%;text-align:left;height:400px;">
 		<table width="100%">
 			<tr>
 				<td colspan="2">
-					<com:TLabel ID="contactusTitle" Text="<%[ContactUs.title]%>" />
+					<com:TLabel ID="contactusTitle" style="font-size:18px;" Text="<%[ContactUs.title]%>" />
 					<br />
 					<br />
 					<b><com:TLabel ID="result" ForeColor="green" Text="<%[ContactUs.successfullSent]%>"/></b>
@@ -92,5 +91,4 @@
 			</tr>
 		</table>
 	</div>
-	</center>
 </com:TContent>

@@ -20,16 +20,19 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="menu">
+								<td class="menu" style="background:#191D26;">
 									<com:Application.controls.Module.Menu.MenuModule ID="topMenu"/>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div style="height:200px;padding:15px 0 15px 15px;">
-									fdsfdsa
-										<com:Application.controls.Module.WebModule ID="Banner" type="Div"/>
-									</div>
+									<table border='0' cellspacing="0" cellpadding="0" width="100%">
+										<tr>
+											<td>
+												<img src="/stream?method=getImage&imagePath=images/banner1.jpg" />
+											</td>
+										</tr>
+									</table>
 								</td>
 							</tr>
 						</table>
@@ -37,7 +40,7 @@
 				</tr>
 				<tr>
 					<td id="mid">
-						<div  style="padding: 40px 5px 40px 5px;width:970px;">
+						<div  style="padding: 40px 5px 40px 5px;width:970px;min-height:300px;">
 							<com:TContentPlaceHolder ID="MainContent" />
 						</div>
 					</td>
@@ -51,14 +54,14 @@
 								</td>
 							</tr>
 							<tr>
-								<td class="menu">
+								<td class="menu" style="background:#B8B7B2;">
 									<com:Application.controls.Module.Menu.MenuModule ID="bottomMenu"/>
 								</td>
 							</tr>
 							<tr>
 								<td>
-									<div style="height:200px;padding:15px 0 15px 15px;">
-										Copyright &copy; Australian Realty Group 2003 - 2012 
+									<div style="padding:15px 0 15px 15px;">
+										Copyright &copy; Australian Realty Group (ARG) 2003 - 2012 
 									</div>
 								</td>
 							</tr>

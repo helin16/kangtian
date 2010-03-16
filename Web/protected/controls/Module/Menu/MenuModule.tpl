@@ -19,7 +19,7 @@
 			<a href="/link.html"><%[Menu.links]%></a>
 		</li>
 		<li>
-			<a href="/aboutus.html"><%[Menu.contactus]%></a>
+			<a href="/aboutus.html"><%[Menu.aboutus]%></a>
 		</li>
 	</ul>
 </div>

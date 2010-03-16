@@ -12,8 +12,8 @@ class DefaultLayout extends TTemplateControl
 	
 	public function getProjects()
 	{
-		$html="<div  style=\"padding: 5px 0 5px 15px;width:885px;\">";
-			$html.="<table border='0' cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
+		$html="<div  style=\"padding: 5px 0 5px 10px;width:885px;\">";
+			$html.="<table border='0' cellspacing=\"0\" cellpadding=\"0\" width=\"970px;\">";
 				$html.="<tr>";
 					$html.="<td style='color:#323230;text-transform:uppercase;font-size:18px;border-bottom:1px #000000 solid;padding: 15px 0 15px 0;'>";
 						$html.="Our Projects";
@@ -25,18 +25,21 @@ class DefaultLayout extends TTemplateControl
 					$html.="</td>";
 				$html.="</tr>";
 				$html.="<tr>";
-					$html.="<td style='text-align: justify;padding: 35px 0 35px 0;'>";
+					$html.="<td style='padding: 35px 0 35px 0;'>";
 						$html.="<table border=\'0\' cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
 							$html.="<tr>";
 								$html.="<td width='30%' style='font-size:16px;'>";
+									$html.="<img src='/stream?method=getImage&imagePath=images/project1.jpg' />";
 									$html.="Fusce dui auctor mattis. Pellentesque mollis risus".$this->getMore();
 								$html.="</td>";
 								$html .= "<td style='width:25px;'>&nbsp;</td>";
 								$html.="<td width='30%' style='font-size:16px;'>";
+									$html.="<img src='/stream?method=getImage&imagePath=images/project2.jpg' />";
 									$html.="Fusce dui auctor mattis. Pellentesque mollis risus".$this->getMore();
 								$html.="</td>";
 								$html .= "<td style='width:25px;'>&nbsp;</td>";
 								$html.="<td width='30%' style='font-size:16px;'>";
+									$html.="<img src='/stream?method=getImage&imagePath=images/project3.jpg' />";
 									$html.="Fusce dui auctor mattis. Pellentesque mollis risus".$this->getMore();
 								$html.="</td>";
 							$html.="</tr>";

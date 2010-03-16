@@ -24,12 +24,12 @@ table#wrapper td#bottom
 	padding: 0 0 0 60px;
 }
 
-table#wrapper td#top{background:#c0c0c0;}
+table#wrapper td#top{background:#2D3444;}
 table#wrapper td#bottom{background:#F1F1E9;}
 
 td.menu
 {
-	background: transparent url(/stream?method=getImage&imagePath=images/menu_bg.png) repeat-x left top;
+	/*background: transparent url(/stream?method=getImage&imagePath=images/menu_bg.png) repeat-x left top;*/
 	padding:13px 0 16px 0;
 }
 td.menu div ul
