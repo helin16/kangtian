@@ -2,9 +2,9 @@
 
 class TString extends BaseDescriptor
 {
-	public function __construct($field,$width = 30,$default='')
+	public function __construct($field,$width = 30,$default='',$type='varchar')
 	{
-		parent::__construct($field,'varchar',$width,$default);
+		parent::__construct($field,$type,$width,$default);
 	}	
 
 	public function makeValue($value)

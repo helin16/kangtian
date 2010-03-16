@@ -2,123 +2,123 @@
 class Module extends ProjectEntity 
 {
 	/**
-	 * getter Title
+	 * getter title
 	 *
-	 * @return Title
+	 * @return title
 	 */
 	public function getTitle()
 	{
-		return $this->Title;
+		return $this->title;
 	}
 	
 	/**
-	 * setter Title
+	 * setter title
 	 *
-	 * @var Title
+	 * @var title
 	 */
-	public function setTitle($Title)
+	public function setTitle($title)
 	{
-		$this->Title = $Title;
+		$this->title = $title;
 	}
 	
 	/**
-	 * getter Position
+	 * getter position
 	 *
-	 * @return Position
+	 * @return position
 	 */
 	public function getPosition()
 	{
-		return $this->Position;
+		return $this->position;
 	}
 	
 	/**
-	 * setter Position
+	 * setter position
 	 *
-	 * @var Position
+	 * @var position
 	 */
-	public function setPosition($Position)
+	public function setPosition($position)
 	{
-		$this->Position = $Position;
+		$this->position = $position;
 	}
 	
 	/**
-	 * getter Content
+	 * getter content
 	 *
-	 * @return Content
+	 * @return content
 	 */
 	public function getContent()
 	{
-		return $this->Content;
+		return $this->content;
 	}
 	
 	/**
-	 * setter Content
+	 * setter content
 	 *
-	 * @var Content
+	 * @var content
 	 */
-	public function setContent($Content)
+	public function setContent($content)
 	{
-		$this->Content = $Content;
+		$this->content = $content;
 	}
 	
 	/**
-	 * getter Params
+	 * getter params
 	 *
-	 * @return Params
+	 * @return params
 	 */
 	public function getParams()
 	{
-		return $this->Params;
+		return $this->params;
 	}
 	
 	/**
-	 * setter Params
+	 * setter params
 	 *
-	 * @var Params
+	 * @var params
 	 */
-	public function setParams($Params)
+	public function setParams($params)
 	{
-		$this->Params = $Params;
+		$this->params = $params;
 	}
 	
 	/**
-	 * getter Publish
+	 * getter publish
 	 *
-	 * @return Publish
+	 * @return publish
 	 */
 	public function getPublish()
 	{
-		return $this->Publish;
+		return $this->publish;
 	}
 	
 	/**
-	 * setter Publish
+	 * setter publish
 	 *
-	 * @var Publish
+	 * @var publish
 	 */
-	public function setPublish($Publish)
+	public function setPublish($publish)
 	{
-		$this->Publish = $Publish;
+		$this->publish = $publish;
 	}
 	
 	/**
-	 * getter ShowTitle
+	 * getter showtitle
 	 *
-	 * @return ShowTitle
+	 * @return showtitle
 	 */
-	public function getShowTitle()
+	public function getShowtitle()
 	{
-		return $this->ShowTitle;
+		return $this->showtitle;
 	}
 	
 	/**
-	 * setter ShowTitle
+	 * setter showtitle
 	 *
-	 * @var ShowTitle
+	 * @var showtitle
 	 */
-	public function setShowTitle($ShowTitle)
+	public function setShowtitle($showtitle)
 	{
-		$this->ShowTitle = $ShowTitle;
+		$this->showtitle = $showtitle;
 	}
 		
 	/**
@@ -144,21 +144,20 @@ class Module extends ProjectEntity
 	
 	public function __toString()
 	{
-		return "<div class='module'><h3>{$this->getTitle()}</h3>{$this->getContent()}</div>";
+		return "<div class='module'><h3>{$this->gettitle()}</h3>{$this->getcontent()}</div>";
 	}
 	
 	protected function __meta()
 	{
 		parent::__meta();
 		
-		Map::setField($this,new TString("Title"));
-		Map::setField($this,new TString("Content",64000));
-		Map::setField($this,new TString("Params",64000));
-		Map::setField($this,new TString("Position"));
+		Map::setField($this,new TString("title"));
+		Map::setField($this,new TString("content",64000));
+		Map::setField($this,new TString("params",64000));
+		Map::setField($this,new TString("position"));
 		Map::setField($this,new TString("phpClass"));
 		Map::setField($this,new TInt('order',8,1));
-		Map::setField($this,new TInt('ShowTitle',1,1));
-		Map::setField($this,new TInt('Publish',1,1));
+		Map::setField($this,new TInt('showtitle',1,1));
 	}
 	
 }

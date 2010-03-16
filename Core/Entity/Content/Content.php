@@ -1,101 +1,101 @@
 <?php
-class Content extends ProjectEntity 
+class content extends ProjectEntity 
 {
 	/**
-	 * getter Title
+	 * getter title
 	 *
-	 * @return Title
+	 * @return title
 	 */
 	public function getTitle()
 	{
-		return $this->Title;
+		return $this->title;
 	}
 	
 	/**
-	 * setter Title
+	 * setter title
 	 *
-	 * @var Title
+	 * @var title
 	 */
-	public function setTitle($Title)
+	public function setTitle($title)
 	{
-		$this->Title = $Title;
+		$this->title = $title;
 	}
 	
 	/**
-	 * getter Content
+	 * getter fulltext
 	 *
-	 * @return Content
+	 * @return fulltext
 	 */
-	public function getContent()
+	public function getfFullText()
 	{
-		return $this->Content;
+		return $this->fullText;
 	}
 	
 	/**
-	 * setter Content
+	 * setter fullText
 	 *
-	 * @var Content
+	 * @var fullText
 	 */
-	public function setContent($Content)
+	public function setFullText($fullText)
 	{
-		$this->Content = $Content;
+		$this->fullText = $fullText;
+	}
+	
+	/**
+	 * getter intro
+	 *
+	 * @return intro
+	 */
+	public function getIntro()
+	{
+		return $this->intro;
+	}
+	
+	/**
+	 * setter intro
+	 *
+	 * @var intro
+	 */
+	public function setIntro($intro)
+	{
+		$this->intro = $intro;
 	}
 		
 	/**
-	 * getter Publish
+	 * getter onFrontPage
 	 *
-	 * @return Publish
-	 */
-	public function getPublish()
-	{
-		return $this->Publish;
-	}
-	
-	/**
-	 * setter Publish
-	 *
-	 * @var Publish
-	 */
-	public function setPublish($Publish)
-	{
-		$this->Publish = $Publish;
-	}
-	
-	/**
-	 * getter OnFrontPage
-	 *
-	 * @return OnFrontPage
+	 * @return onFrontPage
 	 */
 	public function getOnFrontPage()
 	{
-		return $this->OnFrontPage;
+		return $this->onFrontPage;
 	}
 	
 	/**
-	 * setter OnFrontPage
+	 * setter onFrontPage
 	 *
-	 * @var OnFrontPage
+	 * @var onFrontPage
 	 */
-	public function setOnFrontPage($OnFrontPage)
+	public function setOnFrontPage($onFrontPage)
 	{
-		$this->OnFrontPage = $OnFrontPage;
+		$this->onFrontPage = $onFrontPage;
 	}
 	
 	
 	
 	public function __toString()
 	{
-		return "<div class='module'><h3>{$this->getTitle()}</h3>{$this->getContent()}</div>";
+		return "<div class='content'><h3>{$this->gettitle()}</h3>{$this->getcontent()}</div>";
 	}
 	
 	protected function __meta()
 	{
 		parent::__meta();
 
-		Map::setField($this,new TString("Title"));
-		Map::setField($this,new TString("Content"));
-		Map::setField($this,new TInt('Publish',1,1));
-		Map::setField($this,new TInt('OnFrontPage',1,1));
+		Map::setField($this,new TString("title"));
+		Map::setField($this,new TString("intro",12000));
+		Map::setField($this,new TString("fullText",255,'','text'));
+		Map::setField($this,new TInt('onFrontPage',1,1));
 	}
 }
 ?>
