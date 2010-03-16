@@ -9,8 +9,8 @@
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.lotteryResult</source>
-					<target>Result</target>
+					<source>Menu.services</source>
+					<target>Services</target>
 				</trans-unit>
 				
 				<trans-unit>
@@ -21,6 +21,21 @@
 				<trans-unit>
 					<source>Menu.aboutus</source>
 					<target>About Us</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.projects</source>
+					<target>Projects</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.gallery</source>
+					<target>Gallery</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.links</source>
+					<target>Links</target>
 				</trans-unit>
         	//-- end of Menu ----------------------------------------------------- 
 			

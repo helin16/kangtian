@@ -1,25 +1,25 @@
 <div>
 	<ul>
 		<li>
-			<a href="/">HOME</a>
+			<a href="/"><%[Menu.home]%></a>
 		</li>
 		<li>
-			<a href="/">ABOUT US</a>
+			<a href="/contactus.html"><%[Menu.contactus]%></a>
 		</li>
 		<li>
-			<a href="/">SERVICES</a>
+			<a href="/services.html"><%[Menu.services]%></a>
 		</li>
 		<li>
-			<a href="/">PROJECTS</a>
+			<a href="/projects.html"><%[Menu.projects]%></a>
 		</li>
 		<li>
-			<a href="/">GALLERY</a>
+			<a href="/gallery.html"><%[Menu.gallery]%></a>
 		</li>
 		<li>
-			<a href="/">LINKS</a>
+			<a href="/link.html"><%[Menu.links]%></a>
 		</li>
 		<li>
-			<a href="/">CONTACTS</a>
+			<a href="/aboutus.html"><%[Menu.contactus]%></a>
 		</li>
 	</ul>
 </div>

@@ -76,6 +76,13 @@ class System
 //		die;
 		System::setUser($ua,$r);
 	}
+	
+	public static function inspect($data)
+	{
+		echo "<pre>";
+		var_dump($data);
+		echo "</pre>";
+	}
 }
 
 ?>
