@@ -58,9 +58,11 @@
 							<td align="left">
 								<com:TTextBox ID="spamInput" style="width:80px;"/>
 								<com:TActiveImageButton Id="captcha" Tooltip="Can't see it clearly? click here to change code." OnClick="Page.changeCaptcha" >
-								
+									<prop:ClientSide
+								        OnLoading="$('<%= $this->Page->captcha->getClientId() %>').src='';Element.hide('<%= $this->Page->captcha->getClientId() %>');Element.show('loading');"
+								        OnComplete="Element.show('<%= $this->Page->captcha->getClientId() %>');Element.hide('loading');" />
 								</com:TActiveImageButton>
-								<img id="loading" src="/image/loading.gif" style="display:none;"/>
+								<img id="loading" src="/images/loading.gif" style="display:none; height:24px;width:24px;"/>
 							</td>
 							<td align="left" width="40%">
 								<com:TLabel ID="spamError" style="width:100%; color:red;" />

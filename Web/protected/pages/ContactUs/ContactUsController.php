@@ -26,6 +26,13 @@ class ContactUsController extends EshopPage
 	
 	public function sendEmail($sender, $params)
 	{
+		$this->result->Visible=false;
+		if(md5(trim($this->spamInput->Text)).'a4xn' != $_COOKIE['tntcon'])
+		{
+			$this->spamError->Text="Invalid verification code!";
+			return;
+		}
+		
 		$todayis = date("l, F j, Y, g:i a") ;
 
 		$attn = $this->reciever;
@@ -53,7 +60,8 @@ class ContactUsController extends EshopPage
 	
 	public function changeCaptcha($sender, $param)
 	{
-		$this->captcha->ImageUrl="/stream?method=getCaptcha&width=60&height=23";
+		$now = mktime();
+		$this->captcha->ImageUrl="/stream?method=getCaptcha&width=60&height=23&".$now;
 	}
 }
 ?>
