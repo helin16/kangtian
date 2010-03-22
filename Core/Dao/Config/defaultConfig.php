@@ -7,6 +7,10 @@ return array('database'=>array(
 					'password'=>''),
 				'theme'=> array(
 					'name'=>'default'
+					),
+				'email'=> array(
+					'contactUsReciever'=>'Administrator',
+					'contactUsRecieverEmail'=>'admin@localhost.com'
 					)
 			);
 

@@ -1,8 +1,15 @@
 <?php
 class ContactUsController extends EshopPage 
 {
-	private $reciever = "administrator";
-	private $recieverEmail = "helin16@gmail.com";
+	private $reciever;
+	private $recieverEmail;
+	
+	public function __construct()
+	{
+		parent::__construct();
+		$this->reciever= Config::get("email","contactUsReciever");
+		$this->recieverEmail= Config::get("email","contactUsRecieverEmail");
+	}
 	
 	public function onload()
 	{
