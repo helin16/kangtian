@@ -17,7 +17,7 @@ class ContactUsController extends EshopPage
 		{
 			$this->result->Visible=false;
 			
-			$this->setTitle("fdsfdsfsd");
+			$this->setTitle("Contact Us");
 			
 			$no1 = rand(11,20);
 			$no2 = rand(null,10);

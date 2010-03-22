@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<application id="eshop" mode="Debug">
+<application id="KangTianProperty" mode="Debug">
   <!-- alias definitions and namespace usings
   <paths>
     <alias id="myalias" path="./lib" />
@@ -15,7 +15,7 @@
 
 	<!-- configurations for modules -->
 	<modules>
-		<module id="security" class="TSecurityManager" EncryptionKey="EshopCool" ValidationKey="EshopCool" />
+		<module id="security" class="TSecurityManager" EncryptionKey="KangTianPropertyCool" ValidationKey="KangTianPropertyCool" />
 		
 		<module id="request" class="THttpRequest" UrlManager="friendly-url" />
 	
@@ -37,9 +37,6 @@
 		        marker="@@"
 		        autosave="true" cache="true" />
 		</module>
-		
-		<module id="security" class="TSecurityManager" ValidationKey="Australian Realty Group(ARG)!" />
-		
 	</modules>
 
 	<!-- configuration for available services -->
@@ -55,7 +52,7 @@
 	</services>
 	<!-- application parameters -->
 	<parameters>
-	  <parameter id="AppTitle" value="Australian Realty Group(ARG)" />
+	  <parameter id="AppTitle" value="Australian Realty Group (ARG)" />
 	  <parameter id="AppVersion" value="3.0.1"/>
 	</parameters>
 
