@@ -18,8 +18,11 @@
 		<module id="security" class="TSecurityManager" EncryptionKey="KangTianPropertyCool" ValidationKey="KangTianPropertyCool" />
 		
 		<module id="request" class="THttpRequest" UrlManager="friendly-url" />
-	
 		<module id="friendly-url" class="System.Web.TUrlMapping" EnableCustomUrl="true" UrlPrefix="/">	
+		
+			<url ServiceParameter="FileLoader.FileLoaderController" pattern="{type}/{path}" parameters.type="css" parameters.path=".+" />
+			<url ServiceParameter="FileLoader.FileLoaderController" pattern="{type}/{path}" parameters.type="images" parameters.path=".+" />
+			
 			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
 			
@@ -27,6 +30,7 @@
 			
 			<url ServiceParameter="admin.home.AdminHome" pattern="admin/" />
 			<url ServiceParameter="admin.Listing.Listing" pattern="admin/list/{entityName}.html" parameters.entityName="\w+" />
+			
 			
 			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>

@@ -1,101 +1,59 @@
 <?php
-
-
-//C:\src\hydra-web\main\protected\pages\Ajax\AjaxController.php
-//C:\src\hydra-web\main\bootstrap.php
-
-//require_once("../../../../bootstrap.php");
-
-
-//error_reporting(0);
-
-class StreamController extends TService
+class FileLoaderController extends EshopPage 
 {
-	// NOTE If anyone copies this controller, then you require this method to profile ajax requests
-	public function __construct()
+	public function onLoad()
 	{
-		// Services dont have constructors Apparently
-		//parent::__construct();
-		//
-
-	}
-
-	public function init($config)
-	{
-
-	}
-
-	public function run()
-	{
-		if(sizeof($_POST) > 0)
-		{
-			$this->__processPostBack($_POST);
-		}
-
-		if(sizeof($_GET) > 0)
-		{
-			$this->__processPostBack($_GET);
-		}
-	}
-
-	private function checkForKeys(array $post,array $values)
-	{
-		foreach($values as $value)
-		{
-			if(!isset($post[$value]))
-			return false;
-		}
-		return true;
-	}
-
-	public function __processPostBack(array $params)
-	{
-		if(!$this->checkForKeys($params,array('method')))
-		return false;
+		if(!isset($this->Request["type"]) || trim($this->Request["type"])=="")
+			die();
 			
-		if(method_exists($this,$params['method']))	// BAD FIX
-		$this->getResponse()->write($this->$params['method']($params));
-			
-
+		switch (strtolower(trim($this->Request["type"])))
+		{
+			case "images":
+				{
+					if($this->Request["path"]=="captcha")
+						$this->getCaptcha();
+					else
+						$this->getImage($this->Request["path"]);
+					break;
+				}
+			case "css":
+				{
+					$this->getCss($this->Request["path"]);
+					break;
+				}
+		}
+		die;
 	}
-
-	public function getCss()
+	
+	public function getCss($cssPath="default.css")
 	{
 		try
 		{
 			$theme = Config::get("theme","name");
-			if(isset($_REQUEST["cssPath"]) && trim($_REQUEST["cssPath"])=="")
-			$cssFilePath = dirname(__FILE__)."/../../theme/$theme/{$_REQUEST["cssPath"]}";
-			else
-			$cssFilePath = dirname(__FILE__)."/../../theme/$theme/default.css";
+			$cssFilePath = dirname(__FILE__)."/../../theme/$theme/$cssPath";
 			header('Content-Type: content=text');
 			readfile($cssFilePath);
-			die();
 		}
 		catch(Exception $ex)
 		{
-			die($ex->getMessage());
+			echo ($ex->getMessage());
 		}
 	}
 
-	public function getImage()
+	public function getImage($path="")
 	{
 		try
 		{
-			if(!isset($_REQUEST["imagePath"]) || trim($_REQUEST["imagePath"])=="")
-			die();
-			$path = trim($_REQUEST["imagePath"]);
 			$minetype =$this->mime_content_type(end(explode("/",$path)));
 
 			$theme = Config::get("theme","name");
-			$imagePath = dirname(__FILE__)."/../../theme/$theme/$path";
+			$imagePath = dirname(__FILE__)."/../../theme/$theme/images/$path";
 			header('Content-Type: ' . $minetype);
 			readfile($imagePath);
-			die();
 		}
 		catch(Exception $ex)
 		{
-			die($ex->getMessage());
+			echo ($ex->getMessage());
 		}
 	}
 
@@ -172,17 +130,9 @@ class StreamController extends TService
 		}
 	}
 
-	public function getCaptcha()
+	public function getCaptcha($width=50,$heigh=24)
 	{
 		header('Content-type: image/jpeg');
-		
-		$width = 50;
-		if(isset($_REQUEST["width"]) && trim($_REQUEST["width"])!="")
-			$width = $_REQUEST["width"];
-			
-		$height = 24;
-		if(isset($_REQUEST["height"]) && trim($_REQUEST["height"])!="")
-			$height = $_REQUEST["height"];
 		
 		$my_image = imagecreatetruecolor($width, $height);
 		imagefill($my_image, 0, 0, 0xFFFFFF);
@@ -205,8 +155,6 @@ class StreamController extends TService
 		
 		imagejpeg($my_image);
 		imagedestroy($my_image);
-		die;
 	}
 }
-
 ?>

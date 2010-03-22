@@ -1,18 +1,4 @@
 <com:TContent ID="MainContent">
-	<script type="text/javascript">
-		function checkSpam()
-		{
-			var input = document.getElementById('<%=$this->spamCheckingInput->getClientId()%>').value;
-			var checkingNo = document.getElementById('<%=$this->spamCheckingNo->getClientId()%>').value;
-			if(input!=checkingNo)
-			{
-				var checking = document.getElementById('<%=$this->spamError->getClientId()%>');
-				checking.innerHTML='<%[ContactUs.spamCheckingError]%> \''+ checkingNo +'\'';
-				return false;
-			}
-			return true;
-		}
-	</script>
 	<div ID="aboutUs_wrapper" style="width:100%;text-align:left;height:400px;">
 		<table width="100%">
 			<tr>
@@ -70,9 +56,11 @@
 								<%[ContactUs.spamChecking]%>: 
 							</td>
 							<td align="left">
-								<com:TLabel ID="spamCheckingLabel" />
-								<com:TTextBox ID="spamCheckingInput" style="width:40px;"/>
-								<com:TTextBox ID="spamCheckingNo" style="display:none;" />
+								<com:TTextBox ID="spamInput" style="width:80px;"/>
+								<com:TActiveImageButton Id="captcha" Tooltip="Can't see it clearly? click here to change code." OnClick="Page.changeCaptcha" >
+								
+								</com:TActiveImageButton>
+								<img id="loading" src="/image/loading.gif" style="display:none;"/>
 							</td>
 							<td align="left" width="40%">
 								<com:TLabel ID="spamError" style="width:100%; color:red;" />
@@ -85,7 +73,6 @@
 				<td colspan="2">
 					<com:TButton ID="email" Text="<%[ContactUs.submitbutton]%>"
 						OnClick="Page.sendEmail"
-						Attributes.OnClick="checkSpam()"
 						ValidationGroup="Group1"/>
 				</td>
 			</tr>

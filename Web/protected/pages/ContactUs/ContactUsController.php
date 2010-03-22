@@ -19,18 +19,7 @@ class ContactUsController extends EshopPage
 			
 			$this->setTitle("Contact Us");
 			
-			$no1 = rand(11,20);
-			$no2 = rand(null,10);
-			$operators = array("+","-","*");
-			$opr = $operators[rand(null,2)];
-			$this->spamCheckingLabel->Text = "$no1 $opr $no2 = ";
-			switch($opr)
-			{
-				case "+" : $no = $no1 + $no2;break;
-				case "-" : $no = $no1 - $no2;break;
-				case "*" : $no = $no1 * $no2;break;
-			}
-			$this->spamCheckingNo->Text=$no;
+			$this->captcha->ImageUrl="/stream?method=getCaptcha&width=60&height=23";
 //			$this->Page->setFocus($this->name->getClientId());
 		}
 	}
@@ -60,6 +49,11 @@ class ContactUsController extends EshopPage
 		
 //		mail($this->recieverEmail, $subject, $message, $from);
 		$this->result->Visible=true;
+	}
+	
+	public function changeCaptcha($sender, $param)
+	{
+		$this->captcha->ImageUrl="/stream?method=getCaptcha&width=60&height=23";
 	}
 }
 ?>
