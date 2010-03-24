@@ -1,12 +1,12 @@
 <com:TContent ID="MainContent">
-	<table border='0' cellspacing="0" cellpadding="0" width="100%">
+	<table id="contentTable" border='0' cellspacing="0" cellpadding="0" width="100%">
 		<tr>
-			<td style="font-size:18px; font-weight:bold;">
+			<td id="contentTable_title">
 				<com:TLabel ID="title" />
 			</td>
 		</tr>
 		<tr>
-			<td style="font-size:14px;text-align:justify;padding: 25px 0 25px 0;">
+			<td id="contentTable_content">
 				<com:TLabel ID="text" />
 			</td>
 		</tr>

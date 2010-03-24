@@ -27,6 +27,10 @@
 			
 			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
+			<url ServiceParameter="Services.ServicesController" pattern="services.html"/>
+			<url ServiceParameter="Gallery.GalleryController" pattern="gallery.html"/>
+			<url ServiceParameter="Links.LinksController" pattern="links.html"/>
+			<url ServiceParameter="Projects.ProjectsController" pattern="projects.html"/>
 			
 			<url ServiceParameter="Login.Login" pattern="login.html" />
 			

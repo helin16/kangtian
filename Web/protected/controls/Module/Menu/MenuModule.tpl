@@ -16,7 +16,7 @@
 			<a href="/gallery.html"><%[Menu.gallery]%></a>
 		</li>
 		<li>
-			<a href="/link.html"><%[Menu.links]%></a>
+			<a href="/links.html"><%[Menu.links]%></a>
 		</li>
 		<li>
 			<a href="/aboutus.html"><%[Menu.aboutus]%></a>

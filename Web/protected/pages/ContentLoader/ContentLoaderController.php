@@ -18,13 +18,16 @@ class ContentLoaderController extends EshopPage
 		$contents = $contentService->getContentByTitle($title);
 		if(count($contents)==0)
 		{
-			$this->title->Text = "Page is not found for '$title'!";
+			$this->title->Text = "Page is not found for '".ucwords($title)."'!";
 			return;
 		}
 		
 		$content = $contents[0];
-		$this->title->Text =$content->getTitle();
+		$content_title = ucwords($content->getTitle());
+		$this->title->Text =$content_title;
 		$this->text->Text =$content->getFullText();
+		
+		$this->setTitle($content_title);
 	}
 }
 ?>
