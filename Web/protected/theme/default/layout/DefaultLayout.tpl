@@ -40,7 +40,7 @@
 				</tr>
 				<tr>
 					<td id="mid">
-						<div  style="padding: 40px 5px 40px 5px;width:970px;min-height:300px;">
+						<div  style="padding: 40px 5px 40px 5px;width:970px;min-height:300px;font-size:16px;">
 							<com:TContentPlaceHolder ID="MainContent" />
 						</div>
 					</td>

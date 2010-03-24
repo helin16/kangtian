@@ -62,3 +62,15 @@ td.mid
 {
 	color:#A40404;	
 }
+
+/** Content Page **/
+table#contentTable td#contentTable_title
+{
+	font-size:20px; 
+	font-weight:bold;
+}
+table#contentTable td#contentTable_content
+{
+	text-align:justify;
+	padding: 25px 0 25px 0;
+}

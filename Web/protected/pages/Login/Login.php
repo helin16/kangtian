@@ -1,5 +1,5 @@
 <?php
-class Login extends TPage 
+class Login extends EshopPage 
 {
 	public function onLoad($param)
 	{
@@ -15,6 +15,7 @@ class Login extends TPage
 			$this->welcomePanel->Visible=true;
 			$this->user->Text = System::getUser()->getPerson()->getFullName();
 		}
+		$this->setTitle("User Login");
 	}
 	
 	/**
@@ -31,7 +32,7 @@ class Login extends TPage
     	{
 			if($authManager->login($this->username->Text, $this->password->Text))
 			{
-//				$this->Response->redirect('/');
+				$this->Response->redirect('/admin/');
 			}
     	}
     	catch(AuthenticationException $ex)

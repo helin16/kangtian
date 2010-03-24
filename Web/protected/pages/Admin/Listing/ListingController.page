@@ -1,0 +1,71 @@
+<com:TContent ID="MainContent">
+	<div>
+		<b style="font-size:12px;"> <com:TLabel ID="entityNameLabel" /></b><br />
+			<com:TDataList
+			     ID="DataList"
+			     DataKeyField="id"
+			     OnEditCommand="editItem"
+			     OnCancelCommand="cancelItem"
+			     OnUpdateCommand="updateItem"
+			     OnDeleteCommand="deleteItem"
+			     OnSelectedIndexChanged="selectItem"
+			     HeaderStyle.BackColor="#2D3444"
+			     HeaderStyle.ForeColor="#ffffff"
+			     ItemStyle.BackColor="#ffffff"
+			     AlternatingItemStyle.BackColor="#cccccc"
+			     EditItemStyle.BackColor="lightgreen"
+			     SelectedItemStyle.BackColor="lightyellow"
+			     style="width:95%">
+			     
+			     <prop:HeaderTemplate>
+			     	<table width="100%" border='0' cellspacing="1" cellpadding="1" >
+						<tr font-weight:bold;height:25px;">
+							  <th width="25%">Title</th>
+							  <th>Full Text</th>
+							  <th width="12%">Created</th>
+							  <th width="12%">Updated</th>
+							  <th width="5%">Active</th>
+							  <th width="5%">&nbsp;</th>
+						</tr>
+					</table>
+			     </prop:HeaderTemplate>
+			     
+				<prop:ItemTemplate>
+					<table width="100%" border='0' cellspacing="1" cellpadding="1" >
+						<tr valign="top">
+							<td width="25%">
+								<b><%#$this->DataItem->getTitle()%></b><br /><br />
+								<%#$this->DataItem->get%>
+							</td>
+							<td>
+								<div style='font-size:10px;padding: 0 0 10px 0;'>
+									<%# substr($this->DataItem->getIntro(),0,100) %>...
+								</div>
+								<%# substr($this->DataItem->getFullText(),0,200) %>%>
+							</td>
+							<td style="font-size:12px;width:12%;">
+								<b>By</b> <%# $this->DataItem->getCreatedBy()->getPerson()%>
+								<br />
+								<b>@</b> <%# $this->DataItem->getCreated() %>
+							</td>
+							<td style="font-size:12px;width:12%;">
+								<b>By</b> <%# $this->DataItem->getUpdatedBy()->getPerson()%>
+								<br />
+								<b>@</b> <%# $this->DataItem->getUpdated() %>
+							</td>
+							<td  width="5%">
+								<com:TCheckBox ID="active" Checked="<%#$this->DataItem->getActive()%>"  
+									AutoPostBack="true"
+									OnCheckedChanged="Page.toggleActive" />
+							</td>
+							<td  width="5%">
+							</td>
+						</tr>
+					</table>
+				</prop:ItemTemplate>
+				
+				<prop:EditItemTemplate />
+				
+			</com:TDataList>
+	</div>
+</com:TContent>

@@ -1,5 +1,3 @@
-<%@MasterClass="Application.layouts.DefaultLayout"%>
-
 <com:TContent ID="MainContent">
 	<com:TPanel ID="loginForm">
 		<div style="width:100%;">
@@ -13,17 +11,17 @@
 						</td>
 					</tr>
 					<tr valign="top">
-						<td>Username:</td>
+						<td><%[username]%>:</td>
 						<td>
 							<com:TTextBox ID="username" />
 							<com:TRequiredFieldValidator
 							    ControlToValidate="username"
-							    ErrorMessage="Please provide your username."
+							    ErrorMessage="<%[username]%>"
 							    Display="Dynamic" />
 						</td>
 					</tr>
 					<tr valign="top">
-						<td>Password:</td>
+						<td><%[password]%>:</td>
 						<td>
 							<com:TTextBox ID="password" TextMode="Password" />
 							<com:TRequiredFieldValidator
