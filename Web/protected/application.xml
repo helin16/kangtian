@@ -23,6 +23,8 @@
 			<url ServiceParameter="FileLoader.FileLoaderController" pattern="{type}/{path}" parameters.type="css" parameters.path=".+" />
 			<url ServiceParameter="FileLoader.FileLoaderController" pattern="{type}/{path}" parameters.type="images" parameters.path=".+" />
 			
+			<url ServiceParameter="ContentLoader.ContentLoaderController" pattern="content/{title}.html" parameters.title="\w+" />
+			
 			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
 			

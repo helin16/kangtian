@@ -26,7 +26,7 @@ class Content extends ProjectEntity
 	 *
 	 * @return fulltext
 	 */
-	public function getfFullText()
+	public function getFullText()
 	{
 		return $this->fullText;
 	}

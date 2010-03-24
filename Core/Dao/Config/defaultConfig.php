@@ -2,7 +2,7 @@
 
 return array('database'=>array(
 					'server'=>'localhost',
-					'database'=>'kangtianproperty',
+					'database'=>'kangtia1_property',
 					'username'=>'root',
 					'password'=>''),
 				'theme'=> array(

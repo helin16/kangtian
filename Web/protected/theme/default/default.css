@@ -54,7 +54,8 @@ td.menu div ul li a:link
 }
 td.menu div ul li a:hover
 {
-	color:#A40404;
+	/*color:#A40404;*/
+	color:#000000;
 }
 
 td.mid
