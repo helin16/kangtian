@@ -31,12 +31,10 @@
 			<url ServiceParameter="Gallery.GalleryController" pattern="gallery.html"/>
 			<url ServiceParameter="Links.LinksController" pattern="links.html"/>
 			<url ServiceParameter="Projects.ProjectsController" pattern="projects.html"/>
-			
 			<url ServiceParameter="Login.Login" pattern="login.html" />
 			
-			<url ServiceParameter="admin.home.AdminHome" pattern="admin/" />
-			<url ServiceParameter="admin.Listing.Listing" pattern="admin/list/{entityName}.html" parameters.entityName="\w+" />
-			
+			<url ServiceParameter="Admin.Home.HomeController" pattern="admin/" />
+			<url ServiceParameter="Admin.Listing.ListingController" pattern="admin/list/{entityName}.html" parameters.entityName="\w+" />
 			
 			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>

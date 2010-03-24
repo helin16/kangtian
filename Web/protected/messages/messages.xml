@@ -88,9 +88,20 @@
 				</trans-unit>
 			//-- end of about us -----------------------------------------------------
 			
+			//Login Page
 			<trans-unit>
 				<source>login</source>
 				<target>Login</target>
+			</trans-unit>
+			
+			<trans-unit>
+				<source>username</source>
+				<target>Username</target>
+			</trans-unit>
+			
+			<trans-unit>
+				<source>password</source>
+				<target>Password</target>
 			</trans-unit>
 			
 			<trans-unit>

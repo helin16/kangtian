@@ -56,7 +56,8 @@ class Home extends EshopPage
 			$html .= "</tr>";
 			$html .= "<tr>";
 				$html .= "<td>";
-					$html .= "<a href='/' style=\"padding:5px;color:#ffffff;background:#2D3444;text-decoration: none;font-size:12px;\">Read more</a>";
+					$title = str_replace(" ","_",trim($title));
+					$html .= "<a href='/content/$title.html' style=\"padding:5px;color:#ffffff;background:#2D3444;text-decoration: none;font-size:12px;\">Read more</a>";
 				$html .= "</td>";
 			$html .= "</tr>";
 		$html .= "</table>";
