@@ -8,8 +8,8 @@ class ContentService extends BaseService
 	
 	public function getContentByTitle($title,$searchActiveOnly=true,$page = null,$pagesize = 30)
 	{
-		$title = str_replace(" ","_",trim($title));
-		$contents = $this->findByCriteria("replace(trim(`title`),' ','_')='$title'",$searchActiveOnly,$page,$pagesize);
+		$title = strtoupper(str_replace(" ","_",trim($title)));
+		$contents = $this->findByCriteria("ucase(replace(trim(`title`),' ','_')) = '$title'",$searchActiveOnly,$page,$pagesize);
 		return $contents;
 	}
 }
