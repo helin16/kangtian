@@ -8,3 +8,11 @@ INSERT INTO `kangtia1_property`.`Content` (`id`, `active`, `created`, `updated`,
 INSERT INTO `kangtia1_property`.`ContentCategory_content_Content_contentCategory` (`contentId` ,`contentCategoryId`)VALUES ('1', '2');
 INSERT INTO `kangtia1_property`.`ContentCategory_content_Content_contentCategory` (`contentId` ,`contentCategoryId`)VALUES ('2', '2');
 INSERT INTO `kangtia1_property`.`ContentCategory_content_Content_contentCategory` (`contentId` ,`contentCategoryId`)VALUES ('3', '2');
+
+INSERT INTO `kangtia1_property`.`useraccount` (`id` ,`active` ,`created` ,`updated` ,`CreatedById` ,`UpdatedById` ,`UserName` ,`Password` ,`PersonId`)VALUES (1 , '1', NOW( ) , NOW( ) , '1', '1', 'admin', SHA1( 'admin' ) , '1');
+
+INSERT INTO `kangtia1_property`.`role` (`id` ,`active` ,`created` ,`updated` ,`CreatedById` ,`UpdatedById` ,`Name`)VALUES ('1', '1', NOW( ) , NOW( ) , '1', '1', 'Administrator');
+
+INSERT INTO `kangtia1_property`.`person` (`id` ,`active` ,`created` ,`updated` ,`CreatedById` ,`UpdatedById` ,`FirstName` ,`LastName`)VALUES ('1', '1', NOW( ) , NOW( ) , '1', '1', 'admin', 'system');
+
+INSERT INTO `kangtia1_property`.`useraccount_roles_role_useraccounts`  (`RolesId` ,`UserAccountsId`)VALUES ('1', '1');
