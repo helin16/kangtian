@@ -65,7 +65,7 @@
 								<a href="/admin/list/project.html">Projects</a>
 							</li>
 							<li>
-								<com:TLinkButton ID="LogoutBtn" Text="Logout" OnClick="Page.logoutUser" />
+								<com:TLinkButton ID="logout" OnClick="logout" Text="Logout"/>
 							</li>
 						</ul>
 					</div>

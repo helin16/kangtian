@@ -7,11 +7,6 @@ class AdminPage extends TPage
 		$this->getPage()->setMasterClass("Application.layouts.Admin.AdminLayout");
 	}
 	
-	public function onLoad()
-	{
-		parent::onLoad();
-	}
-	
 	public function setInfoMessage($msg)
 	{
 		$this->getPage()->getMaster()->infoLabel->Text = $msg;

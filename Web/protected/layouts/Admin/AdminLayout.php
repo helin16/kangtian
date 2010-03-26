@@ -19,9 +19,19 @@ class AdminLayout extends TTemplateControl
 		$this->usernameBtn->Text = System::getUser()->getUserName();
 	}
 	
-	public function logoutUser($sender,$param)
+	public function logout($sender,$param)
 	{
-//		$this->Application->getModule('auth')->logout();
+		$auth = $this->Application->Modules['auth'];
+
+		$auth->logout();
+		
+//		$userAccount = Core::getUser();
+//		$userAccount->setIsOnline(0);
+//		Dao::save($userAccount);
+//		
+//		Logging::LogUser(Core::getUser(), AuthAction::LOGOUT, AuthDomain::NORMAL);
+		
+	   	$this->Response->Redirect("/login.html");
 	}
 }
 ?>
