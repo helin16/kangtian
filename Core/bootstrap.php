@@ -24,7 +24,7 @@ class Core
 			$base . '/Dao/Tools/lib/',
 			$base . '/Dao/Types/',
 			$base . '/Entity/',
-			$base . '/Entity/content/',
+			$base . '/Entity/Content/',
 			$base . '/Exception/',
 			$base . '/Service/',
 			$base . '/Util/',
