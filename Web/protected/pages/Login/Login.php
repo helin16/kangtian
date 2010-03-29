@@ -8,6 +8,7 @@ class Login extends EshopPage
 			$this->loginForm->Visible=true;
 			$this->welcomePanel->Visible=false;
 			$this->user->Text="";
+			$this->username->focus();
 		}
 		else
 		{

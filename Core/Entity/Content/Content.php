@@ -88,6 +88,38 @@ class Content extends ProjectEntity
 		return "<div class='content'><h3>{$this->gettitle()}</h3>{$this->getcontent()}</div>";
 	}
 	
+	public function getListView()
+	{
+		return "<table width=\"100%\" border='0' cellspacing=\"1\" cellpadding=\"1\" >
+			<tr valign=\"top\">
+				<td width=\"25%\">
+					<b>".$this->getTitle()."</b>
+				</td>
+				<td>
+					<div style='font-size:10px;padding: 0 0 10px 0;'>
+						".substr($this->getIntro(),0,100)."...
+					</div>
+					". substr($this->getFullText(),0,200)."
+				</td>
+				<td style=\"font-size:12px;width:12%;\">
+					<b>By</b> ". $this->getCreatedBy()->getPerson()."
+					<br />
+					<b>@</b> ". $this->getCreated() ."
+				</td>
+				<td style=\"font-size:12px;width:12%;\">
+					<b>By</b> ". $this->getUpdatedBy()->getPerson()."
+					<br />
+					<b>@</b> ". $this->getUpdated() ."
+				</td>
+				<td  width=\"5%\">
+					&nbsp;
+				</td>
+				<td  width=\"5%\">
+				</td>
+			</tr>
+		</table>";
+	}
+	
 	protected function __meta()
 	{
 		parent::__meta();

@@ -31,37 +31,7 @@
 			     </prop:HeaderTemplate>
 			     
 				<prop:ItemTemplate>
-					<table width="100%" border='0' cellspacing="1" cellpadding="1" >
-						<tr valign="top">
-							<td width="25%">
-								<b><%#$this->DataItem->getTitle()%></b><br /><br />
-								<%#$this->DataItem->get%>
-							</td>
-							<td>
-								<div style='font-size:10px;padding: 0 0 10px 0;'>
-									<%# substr($this->DataItem->getIntro(),0,100) %>...
-								</div>
-								<%# substr($this->DataItem->getFullText(),0,200) %>%>
-							</td>
-							<td style="font-size:12px;width:12%;">
-								<b>By</b> <%# $this->DataItem->getCreatedBy()->getPerson()%>
-								<br />
-								<b>@</b> <%# $this->DataItem->getCreated() %>
-							</td>
-							<td style="font-size:12px;width:12%;">
-								<b>By</b> <%# $this->DataItem->getUpdatedBy()->getPerson()%>
-								<br />
-								<b>@</b> <%# $this->DataItem->getUpdated() %>
-							</td>
-							<td  width="5%">
-								<com:TCheckBox ID="active" Checked="<%#$this->DataItem->getActive()%>"  
-									AutoPostBack="true"
-									OnCheckedChanged="Page.toggleActive" />
-							</td>
-							<td  width="5%">
-							</td>
-						</tr>
-					</table>
+					<%#$this->DataItem->getListView()%>
 				</prop:ItemTemplate>
 				
 				<prop:EditItemTemplate />
