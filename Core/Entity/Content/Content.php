@@ -88,6 +88,20 @@ class Content extends ProjectEntity
 		return "<div class='content'><h3>{$this->gettitle()}</h3>{$this->getcontent()}</div>";
 	}
 	
+	public function getListViewHeader()
+	{
+		return '<table width="100%" border=\'0\' cellspacing="1" cellpadding="1" >
+						<tr font-weight:bold;height:25px;">
+							  <th width="25%">Title</th>
+							  <th>Full Text</th>
+							  <th width="12%">Created</th>
+							  <th width="12%">Updated</th>
+							  <th width="5%">Active</th>
+							  <th width="5%">&nbsp;</th>
+						</tr>
+					</table>';
+	}
+	
 	public function getListView()
 	{
 		return "<table width=\"100%\" border='0' cellspacing=\"1\" cellpadding=\"1\" >
