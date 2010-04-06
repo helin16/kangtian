@@ -95,8 +95,8 @@ class UserAccount extends ProjectEntity
 		Map::setField($this,new TString("Password",255));
 		Map::setField($this,new OneToOneOwner('Person',"Person"));
 		Map::setField($this,new ManyToMany("Roles","Role","UserAccounts"));
-		
-		Map::setEagerFields($this,array('UserAccount.Person'));		
+//		
+//		Map::setEagerFields($this,array('UserAccount.Person'));		
 	}		
 	
 }

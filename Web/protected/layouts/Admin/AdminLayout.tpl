@@ -39,7 +39,7 @@
 				<div style="background:#2D3444;width:100%">
 					<table width="100%" border='0' cellspacing="0" cellpadding="0" >
 						<tr>
-							<td>
+							<td align="left">
 								<img src="/images/Logo2.png"/>
 							</td>
 							<td width="30%" valign="bottom" style="text-align:right;color:#ffffff;">
