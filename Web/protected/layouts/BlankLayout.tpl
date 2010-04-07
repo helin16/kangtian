@@ -10,6 +10,8 @@
 <body>
 	<center>
 		<com:TForm>
+			<com:TActiveLabel ID="infoLabel" style="color:green;font-weight:bold; padding: 5px;"/>
+			<com:TActiveLabel ID="errorLabel" style="color:red;font-weight:bold; padding: 5px;"/>
 			<com:TContentPlaceHolder ID="MainContent" />
 		</com:TForm>
 	<center>

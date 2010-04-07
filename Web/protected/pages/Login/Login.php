@@ -3,7 +3,7 @@ class Login extends EshopPage
 {
 	public function onLoad($param)
 	{
-		if(!System::getUser() instanceof UserAccount)
+		if(!Core::getUser() instanceof UserAccount)
 		{
 			$this->loginForm->Visible=true;
 			$this->welcomePanel->Visible=false;
@@ -14,7 +14,7 @@ class Login extends EshopPage
 		{
 			$this->loginForm->Visible=false;
 			$this->welcomePanel->Visible=true;
-			$this->user->Text = System::getUser()->getPerson()->getFullName();
+			$this->user->Text = Core::getUser()->getPerson()->getFullName();
 		}
 		$this->setTitle("User Login");
 	}

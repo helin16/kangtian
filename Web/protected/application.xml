@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<application id="KangTianProperty" mode="Normal">
+<application id="KangTianProperty" mode="Debug">
   <!-- alias definitions and namespace usings
   <paths>
     <alias id="myalias" path="./lib" />
@@ -33,8 +33,17 @@
 			<url ServiceParameter="Projects.ProjectsController" pattern="projects.html"/>
 			<url ServiceParameter="Login.Login" pattern="login.html" />
 			
+			<!--  ################################################# -->
+			<!--  Admin Page 										-->
+			<!--  ################################################# -->
 			<url ServiceParameter="Admin.Home.HomeController" pattern="admin/" />
-			<url ServiceParameter="Admin.Listing.ListingController" pattern="admin/list/{entityName}.html" parameters.entityName="\w+" />
+			
+			<!--  Content Page -->
+			<url ServiceParameter="Admin.Listing.ContentController.ContentController" pattern="admin/list/content.html" />
+			<url ServiceParameter="Admin.Editing.ContentController.ContentController" pattern="admin/add/content.html" />
+			<url ServiceParameter="Admin.Editing.ContentController.ContentController" pattern="admin/edit/content/{id}.html" parameters.id="\d+" />
+			
+			<url ServiceParameter="Admin.Listing.ProjectController.ProjectController" pattern="admin/list/project.html" />
 			
 			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>

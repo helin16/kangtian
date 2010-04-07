@@ -56,7 +56,7 @@ class WebUserManager extends TModule implements IUserManager
 			return false;
 		else
 		{
-			System::setUser($userAccount);
+			Core::setUser($userAccount);
 			return true;
 		}
 	}

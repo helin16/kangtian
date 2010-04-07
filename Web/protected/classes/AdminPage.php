@@ -1,10 +1,14 @@
 <?php
 class AdminPage extends TPage 
 {
+	protected $blankLayout;
 	public function onPreInit($param)
 	{
 		parent::onPreInit($param);
-		$this->getPage()->setMasterClass("Application.layouts.Admin.AdminLayout");
+		if($this->blankLayout)
+			$this->getPage()->setMasterClass("Application.layouts.BlankLayout");
+		else
+			$this->getPage()->setMasterClass("Application.layouts.Admin.AdminLayout");
 	}
 	
 	public function setInfoMessage($msg)

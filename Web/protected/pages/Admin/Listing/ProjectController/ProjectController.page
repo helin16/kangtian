@@ -1,0 +1,204 @@
+<%@MasterClass="Application.layouts.CRUDLayout"%>
+<com:TContent ID="MainContent">
+		<com:Application.controls.HYModalPanel ID="ModalPanel" />
+
+		<br />
+		<com:THiddenField ID="WorkType" />													
+		<com:THiddenField ID="VersionActive" />	
+		<com:THiddenField ID="ItemCountValue" />
+		<com:THiddenField ID="SelectedItem" />
+		<com:THiddenField ID="CurrentTargetCount" />
+
+		<com:TActivePanel CssClass="SearchPanel" >
+			<table width="100%">
+				<tr>
+					<td align="right" width="90%">
+						<com:TButton ID="AddButton" Text="Add New" OnClick="addSLARule" />
+					</td>
+					<td align="right" width="10%">						
+						<com:TActiveButton ID="TestButton" Text="Test All Rules" />
+					</td> 
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<com:TActiveLabel ID="OtherComments" CssClass="formattedHeaderLabel" />
+					</td>
+				</tr>
+			</table>
+			<br />
+		</com:TActivePanel>
+		
+		<com:TPanel ID="SLAAddPanel" CssClass="AddPanel" >
+			<br />
+			<table width="100%">
+				<tr>
+					<td><b><%[ slarule.rulename ]%> : <font color=red>*</font></b></td>
+					<td>
+						<com:TTextBox ID="RuleName" />
+						<com:TRequiredFieldValidator
+							    ControlToValidate="RuleName"
+							    ErrorMessage="Mandatory Rule Name"
+							    ValidationGroup="Group1" CssClass="formattedValidationLabel" />						
+					</td>
+					<td align="right" valign="top">
+						<com:TActiveImageButton ID="HelpButton" ImageUrl="../../../themes/images/help_blue.jpeg" Text="Help" Height="25px" Width="25px" ToolTip="Help For Adding SLA Rule" />
+                        &nbsp;&nbsp;&nbsp;
+                  </td>
+				</tr>
+				<tr>
+					<td width="20%"><b><%[ slarule.jobpriority ]%> : <font color=red>*</font></b></td>
+					<td width="20%">
+						<com:TActiveLabel ID="JobPriorityFilterText" />	
+					</td>
+					<td width="60%">
+						<com:Application.controls.HYSLAJobPriorityFilter ID="JobPriorityEditor" />
+						<com:TRequiredFieldValidator
+									    ControlToValidate="JobPriorityEditor.JobPriorityFilterOptions"
+									    ErrorMessage="Mandatory Task Priority"
+									    ValidationGroup="Group1" CssClass="formattedValidationLabel" />						
+					</td>
+				</tr>
+				<tr>
+					<td><b><%[ slarule.siteclassification ]%> : <font color=red>*</font></b></td>
+					<td>
+						<com:TActiveLabel ID="SiteClassificationFilterText" />
+					</td>
+					<td>
+						<com:Application.controls.HYSLASiteClassificationFilter ID="SiteClassificationEditor" />
+						<com:TRequiredFieldValidator
+									    ControlToValidate="SiteClassificationEditor.SiteClassificationFilterOptions"
+									    ErrorMessage="Mandatory Site Classification"
+									    ValidationGroup="Group1" CssClass="formattedValidationLabel" />									
+					</td> 
+				</tr>
+				<tr>
+					<td colspan="2"><b><%[ slarule.coverage ]%> : <font color=red>*</font></b></td>
+					<td colspan="1"><b><%[ slarule.target ]%> : <font color=red>*</font></b></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+						<com:Application.controls.HYSLACoverageEditor ID="CoverageEditor" />
+					</td>
+					<td colspan="1">
+						<com:Application.controls.HYSLATargetEditor ID="TargetEditor" />
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3" align="center">
+						<com:TButton ID="saveButton" Text=" Save " OnClick="saveSLARule" ValidationGroup="Group1" />
+						&nbsp;&nbsp;&nbsp;
+						<com:TButton ID="cancelButton" Text=" Cancel " OnClick="cancelSave" />
+					</td>
+				</tr>
+			</table>
+			<br />
+		</com:TPanel>
+		
+		<br />
+		<br />
+		
+		<com:TPanel>
+			<table width="100%" class="DataListTitle">
+				<tr>
+					<th>
+						<com:TLabel Text=<%[ slarule.list ]%> /> 
+						<com:TLabel ID="WorkTypeLabel" />
+					</th>
+				</tr>
+			</table>
+			<br />
+		</com:TPanel>
+				
+		<com:TPanel ID="slaListPanel">
+			<com:TDataList ID="SLARuleDataList" DataKeyField="id" OnSelectedIndexChanged="selectItem" 
+					     OnEditCommand="editSLARule" 
+						 OnDeleteCommand="deleteSLARule"
+					     OnUpdateCommand="cloneSLARule" 
+					     CssClass="DataList" 
+					     ItemStyle.CssClass="DataListItem" 
+					     AlternatingItemStyle.CssClass="DataListAlterItem" 
+					     EditItemStyle.CssClass="DataListEditItem" 
+						 width="100%"
+						 AllowPaging="true" AllowCustomPaging="false" PageSize="15" EnableViewState="true">
+			     
+		  	    <prop:HeaderTemplate>
+					<table width="100%" height="25">
+						<tr>
+<!--							<th width="15%">id</th> -->
+							<th width="20%"><%[ slarule.rulename ]%></th>
+							<th width="15%"><%[ slarule.coverage ]%></th>
+							<th width="25%"><%[ slarule.filter ]%></th>
+							<th width="25%"><%[ slarule.target ]%></th>
+							<th width="5%"><%[ slarule.validRule ]%></th>
+							<th width="3%"></th>
+							<th width="4%"></th>
+							<th width="3%"></th>
+						</tr>
+					</table>
+				</prop:HeaderTemplate>
+				
+				<prop:ItemTemplate>
+					<table width="100%">
+						<tr>
+<!--							<td align="center" width="15%"><%# $this->DataItem['id'] %></td> -->
+							<td align="center" width="20%"><%# $this->DataItem['ruleName'] %></td>
+							<td align="center" width="15%"><%# $this->DataItem['coverage'] %></td>
+							<td align="center" width="25%"><%# $this->DataItem['filter'] %></td>
+							<td align="center" width="25%"><%# $this->DataItem['target'] %></td>
+							<td align="center" width="5%">
+								<com:TImage ID="RuleValidFalse" ImageUrl="../../../themes/images/error_flag.gif" height="30px" width="30px" Visible="<%# !$this->DataItem['validRule'] %>" 
+									ToolTip="Conflicts In Coverage Times, With Other SLA's Having Same Priority & Site Classifiction"/>
+								<com:TImage ID="RuleValidTrue" ImageUrl="../../../themes/images/spacer.gif" Visible="<%# $this->DataItem['validRule'] %>" />
+							</td>
+							<td align="center" width="3%">
+								&nbsp;
+								<com:TImageButton ID="EditButton" ImageUrl="../../../themes/images/edit.png" Text="Edit" CommandName="edit" 
+												ToolTip="Edit Record" Enabled=<%# $this->getPage()->VersionActive->Value %> />
+								&nbsp;
+							</td>						
+							<td align="center" width="4%">
+								&nbsp;&nbsp;
+								<com:TImageButton ID="DeleteButton" ImageUrl="../../../themes/images/delete.png" Text="Delete" CommandName="delete" 
+												ToolTip="Delete Record" Attributes.OnClick="if(!confirm('Are You Sure You Want To Delete This Record...?')) return false;" 
+												Enabled=<%# $this->getPage()->VersionActive->Value %> />
+								&nbsp;
+							</td>
+							<td align="center" width="3%">
+								&nbsp;
+								<com:TImageButton ID="CloneButton" ImageUrl="../../../themes/images/copy.gif" Text="Clone" CommandName="update" 
+												ToolTip="Clone Record" Enabled=<%# $this->getPage()->VersionActive->Value %> />
+								&nbsp;
+							</td>
+						</tr>
+					</table>
+				</prop:ItemTemplate>
+		
+			    <prop:FooterTemplate>
+				    <table width="100%" height="25">
+						<tr>
+							<th colspan="8">
+								<div style="font-weight: bold; text-align: center;">
+									Total <%# $this->getPage()->ItemCountValue->Value %> <%[ slarule.slarule ]%>s
+								</div>
+							</th>
+						</tr>
+					</table>
+				</prop:FooterTemplate>				
+			</com:TDataList>					
+		</com:TPanel>		
+		
+		<com:TPanel ID="PaginationPanel">		
+		    <table width="100%" height="25">
+				<tr>
+					<td colspan="4" align="left">
+						Select Page :
+						<com:TPager ID="PagerList" ControlToPaginate="SLARuleDataList" PageButtonCount="5" Mode="Numeric" OnPageIndexChanged="pageChanged" />
+					</td>
+					<td colspan="4" align="right">
+						Go To Page :
+						<com:TPager ID="PagerGoTo" ControlToPaginate="SLARuleDataList" Mode="DropDownList" OnPageIndexChanged="pageChanged" />
+					</td>
+				</tr>
+			</table>
+		</com:TPanel>
+</com:TContent>

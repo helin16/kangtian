@@ -13,16 +13,11 @@ class Home extends EshopPage
 	private function getContents()
 	{
 		$qry = "select c.id,c.title,c.intro from content c
-				inner join contentcategory_content_content_contentcategory x on (x.contentId = c.id and x.contentCategoryId = 2)
+				inner join content_contentcategory x on (x.contentId = c.id and x.contentCategoryId = 2)
 				where c.active = 1
 				order by c.id asc
 				limit 3";
-		$dao = new Dao();
-		$sql = new SqlStatement();
-		$sql->setDoResults(true);
-		$sql->setSQL($qry);
-		$dao->execute($sql);
-		$results = $sql->getResultSet();
+		$results = Dao::getResultsNative($qry);
 		if(count($results)>0)
 		{
 			$html = "<table border='0' cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
@@ -31,7 +26,7 @@ class Home extends EshopPage
 					foreach($results as $row)
 					{
 							$html .= "<td width='30%' style='font-size:16px;'>";
-								$html .= $this->formatContent($row['id'],$row['title'],$row['intro']);
+								$html .= $this->formatContent($row[0],$row[1],$row[2]);
 							$html .= "</td>";
 							$rowNo++;
 							if($rowNo!=3)

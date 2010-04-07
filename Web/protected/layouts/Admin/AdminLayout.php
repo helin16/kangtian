@@ -14,9 +14,9 @@ class AdminLayout extends TTemplateControl
 
 	public function getUsername()
 	{
-		if(!System::getUser() instanceof UserAccount)
+		if(!Core::getUser() instanceof UserAccount)
 			$this->Response->redirect("/login.html");
-		$this->usernameBtn->Text = System::getUser()->getUserName();
+		$this->usernameBtn->Text = Core::getUser()->getUserName();
 	}
 	
 	public function logout($sender,$param)

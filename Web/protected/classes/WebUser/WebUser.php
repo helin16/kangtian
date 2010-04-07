@@ -30,7 +30,7 @@ class WebUser extends TUser
 	
 	public function saveToString()
 	{	
-		$a=array(System::serialize(),parent::saveToString());
+		$a=array(Core::serialize(),parent::saveToString());
 		return serialize($a);
 	}
 	
@@ -47,9 +47,9 @@ class WebUser extends TUser
 //			var_dump(unserialize($data));
 			list($coreStuff, $str) = unserialize($data);
 
-			System::unserialize($coreStuff);
+			Core::unserialize($coreStuff);
 			
-			$this->userAccount = System::getUser();
+			$this->userAccount = Core::getUser();
 			return parent::loadFromString($str);
 		}
 		else
