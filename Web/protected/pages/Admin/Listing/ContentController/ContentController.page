@@ -1,6 +1,6 @@
 <com:TContent ID="MainContent">
-	<iframe id="lightbox" style="display: none;position: absolute;top: 15%;left: 20%;width: 60%;height: 70%;padding: 16px;border: 10px solid black;background-color: white;z-index:1002;overflow: auto;" src="/images/ajax-loader.gif" ></iframe>
-	<div id="fade" OnClick="$('lightbox').src='/images/ajax-loader.gif';$('fade').hide();$('lightbox').hide();window.location.href=window.location.href;" style="display: none;position: absolute;top: 0%;left: 0%;width: 100%;height: 100%;background-color: black;z-index:1001;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);"></div>
+	<iframe id="lightbox" style="display: none;position: absolute;top: 15%;left: 20%;width: 60%;height: 70%;padding: 16px;border: 10px solid black;background-color: white;z-index:1002;overflow: auto;" src="/image/ajax-loader.gif" ></iframe>
+	<div id="fade" OnClick="$('lightbox').src='/image/ajax-loader.gif';$('fade').hide();$('lightbox').hide();window.location.href=window.location.href;" style="display: none;position: absolute;top: 0%;left: 0%;width: 100%;height: 100%;background-color: black;z-index:1001;-moz-opacity: 0.8;opacity:.80;filter: alpha(opacity=80);"></div>
 	<div>
 		<com:TPanel ID="SearchAddPanel" CssClass="SearchPanel" DefaultButton="SearchButton">
 			<table width="100%">
@@ -89,7 +89,7 @@
 						<tr>
 							<th colspan=5>
 								<div style="font-weight: bold; text-align: center;">
-									Total <%# $this->Parent->VirtualItemCount %> Content(s)
+									Total <%# $this->Page->totalRows %> Content(s)
 								</div>
 							</th>
 						</tr>
