@@ -71,10 +71,10 @@
 								@ <%#$this->DataItem->getUpdated()%>
 							</td>
 							<td width="5%">
-								<com:TCheckBox Id="active" Checked="<%#$this->DataItem->getActive()%>"  OnCheckedChanged="Page.toggleActive"/>
+								<com:TCheckBox Id="Active" Checked="<%#$this->DataItem->getActive()%>"  AutoPostBack="true" OnCheckedChanged="Page.toggleActive"/>
 							</td>
 							<td width="5%">
-								<com:TImageButton ID="EditButton" ImageUrl="../../../images/edit.png" Text="Edit" 
+								<com:TImageButton ID="EditButton" ImageUrl="../../../image/edit.png" Text="Edit" 
 										Attributes.OnClick="$('lightbox').src='/admin/edit/content/<%# $this->DataItem->getId() %>.html';$('fade').show();$('lightbox').show();return false;" 
 												ToolTip="Edit Record" />
 							</td>

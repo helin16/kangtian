@@ -1,6 +1,11 @@
 <?php
-class Content extends HydraEntity 
+class Project extends HydraEntity 
 {
+	/**
+	 * @var ProjectImage
+	 */
+	protected $images;
+	
 	private $title;
 	private $fullText;
 	private $intro;
@@ -70,16 +75,38 @@ class Content extends HydraEntity
 		return "<div class='content'><h3>{$this->gettitle()}</h3>{$this->getcontent()}</div>";
 	}
 	
+	/**
+	 * getter images
+	 *
+	 * @return images
+	 */
+	public function getImages()
+	{
+		$this->loadOneToMany("images");
+		return $this->images;
+	}
+	
+	/**
+	 * setter images
+	 *
+	 * @var images
+	 */
+	public function setImages($images)
+	{
+		$this->images = $images;
+	}
+		
+	
 	public function __loadDaoMap()
 	{
-		DaoMap::begin($this, 'con');
+		DaoMap::begin($this, 'pro');
 		
 		DaoMap::setStringType('title','varchar',256);
 		DaoMap::setStringType('intro','varchar',12000);
 		DaoMap::setStringType("fullText",'text');
+		DaoMap::setOneToMany("images","ProjectImage","pi");				
 		
 		DaoMap::defaultSortOrder("title");
-		
 		DaoMap::commit();
 	}
 }

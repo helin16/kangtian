@@ -33,6 +33,16 @@ class ContentController extends CRUDPage
     	return $result;
     }
     
+
+    
+	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
+    {
+    	$service = new BaseService("Content");
+    	$result =  $service->findByCriteria("(con.title like '%$searchString%' or con.intro like '%$searchString%' or con.fullText like '%$searchString%')",false,$pageNumber,$pageSize);
+    	$this->totalRows = $service->totalNoOfRows;
+    	return $result;
+    }
+    
 	protected function lookupEntity($id)
 	{
 		$service = new BaseService("Content");
@@ -44,6 +54,12 @@ class ContentController extends CRUDPage
     	if(strlen($text)>$maxLength)
     		return substr($text,0,$maxLength)." ... ";
     	return $text;
+    }
+    
+    protected function saveEntity(HydraEntity $entity)
+    {
+    	$service = new BaseService("Content");
+    	$service->save($entity);
     }
 }
 

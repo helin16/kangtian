@@ -51,12 +51,18 @@ class CRUDPage extends AdminPage
      	if(!$this->toPerformSearch())
      		$data = $this->getAllOfEntity($focusObject,$pageNumber,$pageSize);    
      	else
-     		$data = $this->searchEntity($this->SearchString->Value,$focusObject,$pageNumber,$pageSize);
+     		$data = $this->searchEntity($this->SearchText->Text,$focusObject,$pageNumber,$pageSize);
 
      	$size = sizeof($data);
      	$this->DataList->DataSource = $data; 
     	$totalSize = $this->howBigWasThatQuery() ;
      	$this->DataList->VirtualItemCount = (is_numeric($totalSize) && $totalSize>0) ? $totalSize : 0;
+     	
+     	if($size<=0)
+     	{
+     		$this->setInfoMessage("No records found!");
+     		return;
+     	}
      	
      	$this->DataList->dataBind();
 
@@ -82,7 +88,6 @@ class CRUDPage extends AdminPage
     public function search($sender,$param)
     {
      	$searchQueryString = $this->SearchText->Text;
-		$this->SearchString->Value = $searchQueryString;
      	
 		$this->DataList->EditItemIndex = -1;
 		$this->dataLoad();
@@ -120,6 +125,8 @@ class CRUDPage extends AdminPage
 		
 		$this->dataLoad();
 	}
+	
+	protected function saveEntity(HydraEntity $entity){}
 	
 	/**
 	 * Bind data to a DropDownList

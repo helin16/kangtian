@@ -44,6 +44,9 @@
 			<url ServiceParameter="Admin.Editing.ContentController.ContentController" pattern="admin/edit/content/{id}.html" parameters.id="\d+" />
 			
 			<url ServiceParameter="Admin.Listing.ProjectController.ProjectController" pattern="admin/list/project.html" />
+			<url ServiceParameter="Admin.Editing.ProjectController.ProjectController" pattern="admin/add/project.html" />
+			<url ServiceParameter="Admin.Editing.ProjectController.ProjectController" pattern="admin/edit/project/{id}.html" parameters.id="\d+" />
+			
 			
 			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>
