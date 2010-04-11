@@ -177,6 +177,7 @@ class GenericDAO
 		}
 		
 		$results = Dao::findByCriteria($this->query, $criteria, $params, $orderByParams);
+		$this->totalRows = Dao::getTotalRows();
 		$this->resetQuery();
 		HydraEntity::$keepLogs = true;
 		
@@ -237,6 +238,7 @@ class GenericDAO
 		}
 		
 		$results = Dao::findAll($this->query);
+		$this->totalRows = Dao::getTotalRows();
 		$this->resetQuery();
 		HydraEntity::$keepLogs = true;
 		return $results;
