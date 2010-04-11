@@ -26,7 +26,11 @@ class ProjectController extends AdminPage
         if(!$this->IsPostBack || $param == "reload")
         {
         	if($this->id!==null)
+        	{
         		$this->loadContent($this->id);
+        	}
+        	else
+        		$this->imageUploadPanel->Visible=false;
         }
     }
     
@@ -66,8 +70,19 @@ class ProjectController extends AdminPage
     		$content->setFullText(trim($this->fullText->Text));
     		$service->save($content);
     		
-    		$this->setInfoMessage("Project Created Successfully!");
+//    		$this->setInfoMessage("Project Created Successfully!");
+    		$this->Response->redirect("/admin/edit/project/".$content->getId().".html");
     	}
+    }
+    
+    public function loadImages($id)
+    {
+    	$service = new BaseService("Project");
+    	$content = $service->get($id);
+    	
+    	$this->title->Text = $content->getTitle();
+    	$this->intro->Text = $content->getIntro();
+    	$this->fullText->Text = $content->getFullText();
     }
 }
 

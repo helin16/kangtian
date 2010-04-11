@@ -116,12 +116,13 @@ class Project extends HydraEntity
 			$table .="</tr>";
 			$intro = $this->getIntro();
 			$table .="<tr id='proSnapIntro'>";
-					$table .="<td>";
+					$table .="<td style='text-align:justify;'>";
 						$table .=(strlen($intro)>$maxIntroLength ? substr($intro,0,$maxIntroLength)." ... " : $intro);
-						$table .="<a style='color:#A40404;font-size:12px;text-decoration:underline;' href='/project/{$this->getTitle()}.html'>More</a>";
+						$table .="<a style='color:#A40404;font-size:12px;text-decoration:underline;' href='/project/".str_replace(" ","_",$this->getTitle()).".html'>More</a>";
 					$table .="</td>";
 				$table .="</tr>";
-		$table .="<table>";
+		$table .="</table>";
+		return $table;
 	}
 	
 	public function getDefaultImage()

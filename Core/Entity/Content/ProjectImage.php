@@ -108,8 +108,6 @@ class ProjectImage extends HydraEntity
 		DaoMap::setBoolType("isDefault");
 		DaoMap::setManyToOne("project","Project");
 		
-		DaoMap::defaultSortOrder("isDefault","id");
-		
 		DaoMap::commit();
 	}
 }

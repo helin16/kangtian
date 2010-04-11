@@ -26,34 +26,26 @@ class DefaultLayout extends TTemplateControl
 				$html.="</tr>";
 				$html.="<tr>";
 					$html.="<td style='padding: 35px 0 35px 0;'>";
+					$projectService = new BaseService("Project");
+					$projects = $projectService->findAll();
+					if(count($projects)>0)
+					{
 						$html.="<table border=\'0\' cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
 							$html.="<tr>";
-								$html.="<td width='30%' style='font-size:16px;'>";
-									$html.="<img src='/images/project1.jpg' />";
-									$html.="Fusce dui auctor mattis. Pellentesque mollis risus".$this->getMore();
-								$html.="</td>";
-								$html .= "<td style='width:25px;'>&nbsp;</td>";
-								$html.="<td width='30%' style='font-size:16px;'>";
-									$html.="<img src='/images/project2.jpg' />";
-									$html.="Fusce dui auctor mattis. Pellentesque mollis risus".$this->getMore();
-								$html.="</td>";
-								$html .= "<td style='width:25px;'>&nbsp;</td>";
-								$html.="<td width='30%' style='font-size:16px;'>";
-									$html.="<img src='/images/project3.jpg' />";
-									$html.="Fusce dui auctor mattis. Pellentesque mollis risus".$this->getMore();
-								$html.="</td>";
+								$array = array();
+								for($i=0;$i<3;$i++)
+								{
+									$array[] ="<td width='30%' style='font-size:16px;'>".$projects[$i]->getSnapshot()."</td>";
+								}
+								$html.=implode("<td style='width:25px;'>&nbsp;</td>",$array);
 							$html.="</tr>";
 						$html.="</table>";
+					}
 					$html.="</td>";
 				$html.="</tr>";
 			$html.="</table>";
 		$html.="</div>";
 		$this->footerPanel->getControls()->add($html);
-	}
-	
-	private function getMore($id=0)
-	{
-		return "&nbsp;&nbsp;<a href='/project/$id' style='color:#A40404;font-size:12px;text-decoration:underline;'>more ...</a>";
 	}
 }
 ?>

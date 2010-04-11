@@ -59,11 +59,33 @@
 			</td>
 		</tr>
 		<tr>
+			<td width="10%" colspan="2">
+				<com:TPanel GroupingText="Images" >
+					<table width="100%">
+						<tr>
+							<td>
+								<com:TActivePanel ID="imageList" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<com:TPanel ID="imageUploadPanel" >
+									Upload more images: <com:TFileUpload OnFileUpload="fileUploaded" />
+									<com:TButton Text="Upload" />
+								</com:TPanel>
+							</td>
+						</tr>
+					</table>
+				</com:TPanel>
+			</td>
+		</tr>
+		<tr>
 			<td width="10%">
 				&nbsp;
 			</td>
 			<td>
-				<com:TButton Id="saveBtn" Text="Save" OnClick="Page.save" />
+				<br /><br />
+				<com:TButton Id="saveBtn" Text="Save" OnClick="Page.save" style="width:120px;"/>
 			</td>
 		</tr>
 	</table>	
