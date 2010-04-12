@@ -13,7 +13,7 @@ class DefaultLayout extends TTemplateControl
 	public function getProjects()
 	{
 		$html="<div  style=\"padding: 5px 0 5px 10px;width:885px;\">";
-			$html.="<table border='0' cellspacing=\"0\" cellpadding=\"0\" width=\"970px;\">";
+			$html.="<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"970px;\">";
 				$html.="<tr>";
 					$html.="<td style='color:#323230;text-transform:uppercase;font-size:18px;border-bottom:1px #000000 solid;padding: 15px 0 15px 0;'>";
 						$html.="Our Projects";
@@ -30,7 +30,7 @@ class DefaultLayout extends TTemplateControl
 					$projects = $projectService->findAll();
 					if(count($projects)>0)
 					{
-						$html.="<table border=\'0\' cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
+						$html.="<table border=\"0\" cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
 							$html.="<tr>";
 								$array = array();
 								for($i=0;$i<3;$i++)
