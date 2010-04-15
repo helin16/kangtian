@@ -29,8 +29,6 @@ class ProjectController extends AdminPage
         	{
         		$this->loadContent($this->id);
         	}
-        	else
-        		$this->imageUploadPanel->Visible=false;
         }
     }
     
@@ -72,8 +70,7 @@ class ProjectController extends AdminPage
     		$content->setFullText(trim($this->fullText->Text));
     		$service->save($content);
     		
-//    		$this->setInfoMessage("Project Created Successfully!");
-    		$this->Response->redirect("/admin/edit/project/".$content->getId().".html");
+    		$this->setInfoMessage("Project Created Successfully!");
     	}
     }
     
@@ -86,6 +83,20 @@ class ProjectController extends AdminPage
     	$this->intro->Text = $content->getIntro();
     	$this->fullText->Text = $content->getFullText();
     }
+    
+	public function fileUploaded($sender,$param)
+     {
+     	if($sender->HasFile)
+        {
+			$imageFile =fopen($sender->LocalName, "r");
+			$imageStream = stream_get_contents($imageFile);
+			
+			$contentServer = new AssetServer();
+			$assetId = $contentServer->registerAsset(AssetServer::TYPE_GRAPH, $sender->FileName, $imageStream);
+			
+			$this->imageList->getControls()->add("");
+        }
+     }
 }
 
 ?>

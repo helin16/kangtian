@@ -21,3 +21,8 @@ INSERT INTO `role` (`id` ,`active` ,`created` ,`updated` ,`createdById` ,`update
 INSERT INTO `person` (`id` ,`active` ,`created` ,`updated` ,`createdById` ,`updatedById` ,`FirstName` ,`LastName`)VALUES ('1', '1', NOW( ) , NOW( ) , '1', '1', 'admin', 'system');
 
 INSERT INTO `role_useraccount`  (`roleId` ,`userAccountId`)VALUES ('1', '1');
+
+
+INSERT INTO `assettype` (`id`, `type`, `path`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (1, 'Graph', '/home/kangtia1/public_html/assets/generated/graphs/', 1, NOW(), 1, NOW(), 1);
+INSERT INTO `assettype` (`id`, `type`, `path`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (2, 'Report', '/home/kangtia1/public_html/assets/generated/reports/', 1, NOW(), 1, NOW(), 1);
+INSERT INTO `assettype` (`id`, `type`, `path`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (3, 'Static', '/home/kangtia1/public_html/assets/generated/static/', 1, NOW(), 1, NOW(), 1);

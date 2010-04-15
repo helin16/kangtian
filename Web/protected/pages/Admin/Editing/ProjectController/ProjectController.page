@@ -1,4 +1,5 @@
 <com:TContent ID="MainContent">
+	<com:TActiveHiddenField  ID="assetIds" />
 	<table id="contentTable" border='0' cellspacing="0" cellpadding="0" width="90%" style="text-align:left;">
 		<tr>
 			<td width="10%">
@@ -7,11 +8,11 @@
 			<td style='vertical-align:bottom;'>
 				<com:TTextBox ID="title"  style='width:200px;'/>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<com:TImage  ImageUrl="/image/project/beds.png" ImageAlign="bottom"/> <com:TTextBox ID="noOfBeds" style ="width:20px;" />
+				<com:TImage  ImageUrl="/image/project/beds.png" ImageAlign="baseline"/> <com:TTextBox ID="noOfBeds" style ="width:20px;" />
 				&nbsp;&nbsp;
-				<com:TImage  ImageUrl="/image/project/baths.png" ImageAlign="bottom"/> <com:TTextBox ID="noOfBaths" style ="width:20px;" />
+				<com:TImage  ImageUrl="/image/project/baths.png" ImageAlign="baseline"/> <com:TTextBox ID="noOfBaths" style ="width:20px;" />
 				&nbsp;&nbsp;
-				<com:TImage  ImageUrl="/image/project/parking_spaces.png" ImageAlign="bottom"/> <com:TTextBox ID="noOfCars" style ="width:20px;" />
+				<com:TImage  ImageUrl="/image/project/parking_spaces.png" ImageAlign="baseline"/> <com:TTextBox ID="noOfCars" style ="width:20px;" />
 				<br /><br />
 			</td>
 		</tr>
@@ -77,8 +78,7 @@
 						<tr>
 							<td>
 								<com:TPanel ID="imageUploadPanel" >
-									Upload more images: <com:TFileUpload OnFileUpload="fileUploaded" />
-									<com:TButton Text="Upload" />
+									Upload more images: <com:TActiveFileUpload OnFileUpload="Page.fileUploaded" />
 								</com:TPanel>
 							</td>
 						</tr>

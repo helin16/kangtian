@@ -1,15 +1,6 @@
 <?php
 class ProjectImage extends HydraEntity 
 {
-	/**
-	 * @var String
-	 */
-	private $path;
-	/**
-	 * @var String
-	 */
-	private $image;
-	
 	private $isDefault;
 	
 	/**
@@ -18,45 +9,29 @@ class ProjectImage extends HydraEntity
 	protected $project;
 	
 	/**
-	 * getter path
-	 *
-	 * @return path
+	 * @var Asset
 	 */
-	public function getPath()
+	protected $asset;
+	
+	/**
+	 * getter asset
+	 *
+	 * @return asset
+	 */
+	public function getAsset()
 	{
-		return $this->path;
+		return $this->asset;
 	}
 	
 	/**
-	 * setter path
+	 * setter asset
 	 *
-	 * @var path
+	 * @var asset
 	 */
-	public function setPath($path)
+	public function setAsset($asset)
 	{
-		$this->path = $path;
-	}
-	
-	/**
-	 * getter image
-	 *
-	 * @return image
-	 */
-	public function getImage()
-	{
-		return $this->image;
-	}
-	
-	/**
-	 * setter image
-	 *
-	 * @var image
-	 */
-	public function setImage($image)
-	{
-		$this->image = $image;
-	}
-	
+		$this->asset = $asset;
+	}	
 	/**
 	 * getter isDefault
 	 *
@@ -103,8 +78,7 @@ class ProjectImage extends HydraEntity
 	{
 		DaoMap::begin($this, 'pi');
 		
-		DaoMap::setStringType('path','varchar',256);
-		DaoMap::setStringType('image','varchar',256);
+		DaoMap::setOneToOne("asset","Asset",true,"ass");
 		DaoMap::setBoolType("isDefault");
 		DaoMap::setManyToOne("project","Project");
 		

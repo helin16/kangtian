@@ -24,6 +24,7 @@ class SystemCore
 			$base . '/Dao/Tools/lib/',
 			$base . '/Dao/Types/',
 			$base . '/Entity/',
+			$base . '/Entity/AssetServer/',
 			$base . '/Entity/Content/',
 			$base . '/Entity/Profiler/',
 			$base . '/Exception/',
