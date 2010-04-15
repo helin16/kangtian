@@ -36,7 +36,7 @@ class FileLoaderController extends EshopPage
 				
 			$newWidth = $wanttedWidth;
 			$newHeight = $wanttedHeight;
-			if ($newWidth/$newHeight > $radio) 
+			if ($width_orig <= $height_orig) 
 			{
 				$newHeight = $newWidth/$radio;
 				$param["newX"]=0;
@@ -63,7 +63,7 @@ class FileLoaderController extends EshopPage
 			else if(strtolower($asset->getMimeType())=="image/png")
 			$img_r = imagecreatefrompng($src);
 
-			$dst_r = ImageCreateTrueColor( $wanttedWidth, $wanttedHeight );
+			$dst_r = ImageCreateTrueColor( round($wanttedWidth), round($wanttedHeight) );
 
 			imagecopyresampled($dst_r,$img_r,0,0,$newPos_x,$newPos_y,$newWidth,$newHeight,$width_orig,$height_orig);
 
