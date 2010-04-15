@@ -62,9 +62,15 @@
 								        OnLoading="$('<%= $this->Page->captcha->getClientId() %>').src='';Element.hide('<%= $this->Page->captcha->getClientId() %>');Element.show('loading');"
 								        OnComplete="Element.show('<%= $this->Page->captcha->getClientId() %>');Element.hide('loading');" />
 								</com:TActiveImageButton>
-								<img id="loading" src="/images/loading.gif" style="display:none; height:24px;width:24px;"/>
+								<img id="loading" src="/image/ajax-loader.gif" style="display:none;"/>
+								
 							</td>
 							<td align="left" width="40%">
+								<com:TRequiredFieldValidator    
+									ValidationGroup="Group1"
+									ControlToValidate="spamInput"
+									Display="Dynamic"
+									Text="* Field required." />
 								<com:TLabel ID="spamError" style="width:100%; color:red;" />
 							</td>
 						</tr>
