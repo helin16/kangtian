@@ -10,65 +10,44 @@
 <body>
 	<center>
 		<com:TForm>
-			<table ID="wrapper" border='0' cellspacing="0" cellpadding="0" >
-				<tr>
-					<td id="top">
-						<table id="header" border='0' cellspacing="0" cellpadding="0" width="100%">
+			<div>
+				<div id="logo" style="width:100%;">
+					<div class="innerWrapper">
+						<img src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/Logo2.png" Title="Logo"/>
+					</div>
+				</div>
+				<div id="topMenu" style="width:100%;">
+					<div class="innerWrapper">
+						<com:Application.controls.Module.Menu.MenuModule ID="topMenu"/>
+					</div>
+				</div>
+				<div class="body"  style="width:100%;">
+					<div class="innerWrapper">
+						<table width="100%">
 							<tr>
-								<td style="padding: 20px 0 15px 0;">
-									<img src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/Logo2.png" Title="Logo"/>
-								</td>
-							</tr>
-							<tr>
-								<td class="menu" style="background:#A40404;">
-									<com:Application.controls.Module.Menu.MenuModule ID="topMenu"/>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<table border='0' cellspacing="0" cellpadding="0" width="100%">
-										<tr>
-											<td>
-												<img src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/banner1.jpg" />
-											</td>
-										</tr>
-									</table>
+								<td height="600px" valign="top">
+									<com:TContentPlaceHolder ID="MainContent" />
 								</td>
 							</tr>
 						</table>
-					</td>
-				</tr>
-				<tr>
-					<td id="mid">
-						<div  style="padding: 40px 5px 40px 5px;width:970px;min-height:300px;font-size:16px;">
-							<com:TContentPlaceHolder ID="MainContent" />
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td id="bottom">
-						<table border='0' cellspacing="0" cellpadding="0" width="100%">
-							<tr>
-								<td style="padding: 20px 0 15px 0;">
-									<com:TPanel ID="footerPanel" />
-								</td>
-							</tr>
-							<tr>
-								<td class="menu" style="background:#B8B7B2;">
-									<com:Application.controls.Module.Menu.MenuModule ID="bottomMenu"/>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<div style="padding:15px 0 15px 15px;">
-										Copyright &copy; Australian Realty Group (ARG) 2003 - 2012 
-									</div>
-								</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-			</table>
+					</div>
+				</div>
+				<com:TPanel ID="addsPanel" CssClass="adds"  style="width:100%;">
+					<div class="innerWrapper">
+						<com:TPanel ID="addsContainer" />
+					</div>
+				</com:TPanel>
+				<com:TPanel ID="footerPanel" CssClass="footer"  style="width:100%;">
+					<div class="innerWrapper">
+						fdsafdas
+					</div>
+				</com:TPanel>
+				<div id="copyright" style="width:100%;">
+					<div class="innerWrapper">
+						Copyright &copy; Australian Realty Group (ARG) 2003 - 2012 
+					</div>
+				</div>
+			</div>
 		</com:TForm>
 	<center>
 </body>

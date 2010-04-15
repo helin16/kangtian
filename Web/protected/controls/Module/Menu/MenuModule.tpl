@@ -1,25 +1,19 @@
-<div>
-	<ul>
-		<li>
+<table id="topMenu" width="100%" style="height:60px;" border='0' cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="topmenulink" width="20%">
 			<a href="/"><%[Menu.home]%></a>
-		</li>
-		<li>
-			<a href="/contactus.html"><%[Menu.contactus]%></a>
-		</li>
-		<li>
-			<a href="/services.html"><%[Menu.services]%></a>
-		</li>
-		<li>
-			<a href="/projects.html"><%[Menu.projects]%></a>
-		</li>
-		<li>
-			<a href="/gallery.html"><%[Menu.gallery]%></a>
-		</li>
-		<li>
-			<a href="/links.html"><%[Menu.links]%></a>
-		</li>
-		<li>
+		</td>
+		<td class="topmenulink" width="20%">
 			<a href="/aboutus.html"><%[Menu.aboutus]%></a>
-		</li>
-	</ul>
-</div>
+		</td>
+		<td class="topmenulink" width="20%">
+			<a href="/services.html"><%[Menu.services]%></a>
+		</td>
+		<td class="topmenulink" width="20%">
+			<a href="/projects.html"><%[Menu.projects]%></a>
+		</td>
+		<td>
+			<a href="/contactus.html"><%[Menu.contactus]%></a>
+		</td>
+	</tr>
+</table>
