@@ -40,7 +40,7 @@
 					<table width="100%" border='0' cellspacing="0" cellpadding="0" >
 						<tr>
 							<td align="left">
-								<img src="/images/Logo2.png"/>
+								<img src="/Theme/<%=$this->getDefaultThemeName() %>/images/Logo2.png"/>
 							</td>
 							<td width="30%" valign="bottom" style="text-align:right;color:#ffffff;">
 								<br />

@@ -33,5 +33,10 @@ class AdminLayout extends TTemplateControl
 		
 	   	$this->Response->Redirect("/login.html");
 	}
+	
+	public function getDefaultThemeName()
+	{
+		return Config::get("theme","name");
+	}
 }
 ?>
