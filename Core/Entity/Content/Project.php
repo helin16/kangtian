@@ -160,32 +160,39 @@ class Project extends HydraEntity
 		$this->noOfCars = $noOfCars;
 	}
 	
-	public function getSnapshot($showTitle=false,$cssStyle="width:100%",$cssClass="projectSnap",$maxIntroLength=150,$id="")
+	public function getSnapshot($showTitle=false,$cssStyle="width:100%",$cssClass="projectSnap",$maxIntroLength=150,$id="",$imageWidth="280",$imageHight="160")
 	{
-//		$table = "<table ".($id=="" ? "" : " id='$id'").($cssStyle=="" ? "" : " style='$cssStyle'").($cssClass=="" ? "" : " class='$cssClass'").">";
-//			if($showTitle)
-//			{
-//				$table .="<tr id='proSnapTitle'>";
-//					$table .="<td><h3>".$this->getTitle()."<h3><td>";
-//				$table .="</tr>";
-//			}
-//			$table .="<tr id='proSnapImage'>";
-//				$table .="<td align='center'>";
-//					$image = $this->getDefaultImage();
-//					if($image instanceof ProjectImage)
-//						$table .="<img style='width:100%;height:100%;border:none;margin:0px;padding:0px;' src='".$image->getPath()."/".$image->getImage()."' />";
-//					else
-//						$table .="No Images Found!";
-//				$table .="<td>";
-//			$table .="</tr>";
-//			$intro = $this->getIntro();
-//			$table .="<tr id='proSnapIntro'>";
-//					$table .="<td style='text-align:justify;'>";
-//						$table .=(strlen($intro)>$maxIntroLength ? substr($intro,0,$maxIntroLength)." ... " : $intro);
-//						$table .="<a style='color:#A40404;font-size:12px;text-decoration:underline;' href='/project/".str_replace(" ","_",$this->getTitle()).".html'>More</a>";
-//					$table .="</td>";
-//				$table .="</tr>";
-//		$table .="</table>";
+		$table = "<table ".($id=="" ? "" : " id='$id'").($cssStyle=="" ? "" : " style='$cssStyle'").($cssClass=="" ? "" : " class='$cssClass'").">";
+			if($showTitle)
+			{
+				$table .="<tr id='proSnapTitle'>";
+					$table .="<td><h3>".$this->getTitle()."<h3><td>";
+				$table .="</tr>";
+			}
+			$table .="<tr id='proSnapImage'>";
+				$table .="<td align='center'>";
+					$image = $this->getDefaultImage();
+					if($image instanceof ProjectImage)
+					{
+						$asset = $image->getAsset();
+						if($asset instanceof Asset)
+						{
+							$dimension = array("height"=>$imageHight,"width"=>$imageWidth);			
+							$table .="<img style='width:100%;height:100%;border:none;margin:0px;padding:0px;' src='/asset/".$asset->getAssetId()."/".serialize($dimension)."' />";
+						}
+					}
+					else
+						$table .="No Images Found!";
+				$table .="<td>";
+			$table .="</tr>";
+			$intro = $this->getIntro();
+			$table .="<tr id='proSnapIntro'>";
+					$table .="<td style='text-align:justify;'>";
+						$table .=(strlen($intro)>$maxIntroLength ? substr($intro,0,$maxIntroLength)." ... " : $intro);
+						$table .="<a style='color:#A40404;font-size:12px;text-decoration:underline;' href='/project/".str_replace(" ","_",$this->getTitle()).".html'>More</a>";
+					$table .="</td>";
+				$table .="</tr>";
+		$table .="</table>";
 		return $table;
 	}
 	
