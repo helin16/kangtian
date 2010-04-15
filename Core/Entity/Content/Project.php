@@ -10,6 +10,10 @@ class Project extends HydraEntity
 	private $fullText;
 	private $intro;
 	
+	private $noOfBeds;
+	private $noOfBaths;
+	private $noOfCars;
+	
 	/**
 	 * getter title
 	 *
@@ -96,6 +100,66 @@ class Project extends HydraEntity
 		$this->images = $images;
 	}
 	
+	/**
+	 * getter noOfBeds
+	 *
+	 * @return noOfBeds
+	 */
+	public function getNoOfBeds()
+	{
+		return $this->noOfBeds;
+	}
+	
+	/**
+	 * setter noOfBeds
+	 *
+	 * @var noOfBeds
+	 */
+	public function setNoOfBeds($noOfBeds)
+	{
+		$this->noOfBeds = $noOfBeds;
+	}
+	
+	/**
+	 * getter noOfBaths
+	 *
+	 * @return noOfBaths
+	 */
+	public function getNoOfBaths()
+	{
+		return $this->noOfBaths;
+	}
+	
+	/**
+	 * setter noOfBaths
+	 *
+	 * @var noOfBaths
+	 */
+	public function setNoOfBaths($noOfBaths)
+	{
+		$this->noOfBaths = $noOfBaths;
+	}
+	
+	/**
+	 * getter noOfCars
+	 *
+	 * @return noOfCars
+	 */
+	public function getNoOfCars()
+	{
+		return $this->noOfCars;
+	}
+	
+	/**
+	 * setter noOfCars
+	 *
+	 * @var noOfCars
+	 */
+	public function setNoOfCars($noOfCars)
+	{
+		$this->noOfCars = $noOfCars;
+	}
+	
 	public function getSnapshot($showTitle=false,$cssStyle="width:100%",$cssClass="projectSnap",$maxIntroLength=150,$id="")
 	{
 		$table = "<table ".($id=="" ? "" : " id='$id'").($cssStyle=="" ? "" : " style='$cssStyle'").($cssClass=="" ? "" : " class='$cssClass'").">";
@@ -146,6 +210,9 @@ class Project extends HydraEntity
 		DaoMap::setStringType('title','varchar',256);
 		DaoMap::setStringType('intro','varchar',12000);
 		DaoMap::setStringType("fullText",'text');
+		DaoMap::setIntType("noOfBeds");
+		DaoMap::setIntType("noOfBaths");
+		DaoMap::setIntType("noOfCars");
 		DaoMap::setOneToMany("images","ProjectImage","pi");				
 		
 		DaoMap::defaultSortOrder("title");
