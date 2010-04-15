@@ -41,7 +41,9 @@ class ProjectController extends AdminPage
     	
     	$this->title->Text = $content->getTitle();
     	$this->intro->Text = $content->getIntro();
-    	$this->fullText->Text = $content->getFullText();
+    	$this->noOfBeds->Text = $content->getNoOfBeds();
+    	$this->noOfBaths->Text = $content->getNoOfBaths();
+    	$this->noOfCars->Text = $content->getNoOfCars();
     }
     
     public function save($sender,$param)
