@@ -20,6 +20,7 @@ class ProjectImage extends HydraEntity
 	 */
 	public function getAsset()
 	{
+		$this->loadOneToOne("asset");
 		return $this->asset;
 	}
 	

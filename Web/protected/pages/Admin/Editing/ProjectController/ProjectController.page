@@ -1,5 +1,32 @@
 <com:TContent ID="MainContent">
+	<script type="text/javascript">
+		function loadPreview(assetId)
+		{
+			$('<%= $this->Page->showingAssetId->getClientId() %>').value = assetId;
+			$('<%= $this->Page->showPreviewBtn->getClientId() %>').click();
+		}
+		
+		function makeDefaultImage()
+		{
+			if(confirm('Are you sure you want to make this image default image for this project?'))
+				$('<%= $this->Page->makeDefaultBtn->getClientId() %>').click();
+			else
+				return false;
+		}
+		
+		function deleteImage()
+		{
+			if(confirm('Are you sure you want to delete this image?'))
+				$('<%= $this->Page->deleteImageBtn->getClientId() %>').click();
+			else
+				return false;
+		}
+	</script>
 	<com:TActiveHiddenField  ID="assetIds" />
+	<com:TActiveHiddenField  ID="showingAssetId" />
+	<com:TActiveButton  ID="showPreviewBtn" OnClick="Page.showPreview" style="display:none;"/>
+	<com:TActiveButton  ID="makeDefaultBtn" OnClick="Page.makeDefault" style="display:none;"/>
+	<com:TActiveButton  ID="deleteImageBtn" OnClick="Page.deleteImage" style="display:none;"/>
 	<table id="contentTable" border='0' cellspacing="0" cellpadding="0" width="90%" style="text-align:left;">
 		<tr>
 			<td width="10%">
@@ -72,7 +99,7 @@
 					<table width="100%">
 						<tr>
 							<td>
-								<com:TActivePanel ID="imageList" />
+								<com:TActiveLabel ID="imageList" />
 							</td>
 						</tr>
 						<tr>

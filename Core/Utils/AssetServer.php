@@ -95,7 +95,7 @@ class AssetServer
 		readfile($contentType->getPath() . $content->getPath() . '/' . $assetId);
 	}
 	
-	public function getContent($assetId)
+	public function getAsset($assetId)
 	{
 		$content = $this->contentDAO->findByCriteria('assetId=?', array($assetId));
 		if (!empty($content))
@@ -109,9 +109,9 @@ class AssetServer
 	 * @param string $assetId
 	 * @return string
 	 */
-	public function getUrl($assetId)
+	public function getUrl($assetId,$param)
 	{
-		return '/assetserver/' . $assetId . '/get';
+		return "/asset/$assetId/$param";
 	}
 
 	/**
@@ -123,6 +123,7 @@ class AssetServer
 	public function removeAsset($assetId)
 	{
 		$content = $this->contentDAO->findByCriteria('assetId=?', array($assetId));
+		$content = $content[0];
 		$contentType = $content->getAssetType();
 		
 		// Delete the item from the database
