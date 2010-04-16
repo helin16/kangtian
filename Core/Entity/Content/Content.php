@@ -2,8 +2,7 @@
 class Content extends HydraEntity 
 {
 	private $title;
-	private $fullText;
-	private $intro;
+	private $text;
 	
 	/**
 	 * getter title
@@ -30,9 +29,9 @@ class Content extends HydraEntity
 	 *
 	 * @return fulltext
 	 */
-	public function getFullText()
+	public function getText()
 	{
-		return $this->fullText;
+		return $this->text;
 	}
 	
 	/**
@@ -40,34 +39,14 @@ class Content extends HydraEntity
 	 *
 	 * @var fullText
 	 */
-	public function setFullText($fullText)
+	public function setText($fullText)
 	{
-		$this->fullText = $fullText;
-	}
-	
-	/**
-	 * getter intro
-	 *
-	 * @return intro
-	 */
-	public function getIntro()
-	{
-		return $this->intro;
-	}
-	
-	/**
-	 * setter intro
-	 *
-	 * @var intro
-	 */
-	public function setIntro($intro)
-	{
-		$this->intro = $intro;
+		$this->text = $fullText;
 	}
 	
 	public function __toString()
 	{
-		return "<div class='content'><h3>{$this->gettitle()}</h3>{$this->getcontent()}</div>";
+		return "<div class='content'><h3>{$this->getTitle()}</h3>{$this->getText()}</div>";
 	}
 	
 	public function __loadDaoMap()
@@ -75,8 +54,7 @@ class Content extends HydraEntity
 		DaoMap::begin($this, 'con');
 		
 		DaoMap::setStringType('title','varchar',256);
-		DaoMap::setStringType('intro','varchar',12000);
-		DaoMap::setStringType("fullText",'text');
+		DaoMap::setStringType("text",'text');
 		
 		DaoMap::defaultSortOrder("title");
 		

@@ -36,8 +36,7 @@ class ContentController extends AdminPage
     	$content = $service->get($id);
     	
     	$this->title->Text = $content->getTitle();
-    	$this->intro->Text = $content->getIntro();
-    	$this->fullText->Text = $content->getFullText();
+    	$this->description->Text = $content->getText();
     }
     
     public function save($sender,$param)
@@ -51,8 +50,7 @@ class ContentController extends AdminPage
     		$content = $service->get($this->id);
     		
     		$content->setTitle(trim($this->title->Text));
-    		$content->setIntro(trim($this->intro->Text));
-    		$content->setFullText(trim($this->fullText->Text));
+    		$content->setText(trim($this->description->Text));
     		$service->save($content);
     		
     		$this->setInfoMessage("Content Updated Successfully!");
@@ -62,8 +60,7 @@ class ContentController extends AdminPage
     		$content = new Content();
     		
     		$content->setTitle(trim($this->title->Text));
-    		$content->setIntro(trim($this->intro->Text));
-    		$content->setFullText(trim($this->fullText->Text));
+    		$content->setText(trim($this->description->Text));
     		$service->save($content);
     		
     		$this->setInfoMessage("Content Created Successfully!");

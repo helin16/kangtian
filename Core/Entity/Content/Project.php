@@ -7,8 +7,7 @@ class Project extends HydraEntity
 	protected $images;
 	
 	private $title;
-	private $fullText;
-	private $intro;
+	private $description;
 	
 	private $noOfBeds;
 	private $noOfBaths;
@@ -39,9 +38,9 @@ class Project extends HydraEntity
 	 *
 	 * @return fulltext
 	 */
-	public function getFullText()
+	public function getDescription()
 	{
-		return $this->fullText;
+		return $this->description;
 	}
 	
 	/**
@@ -49,34 +48,14 @@ class Project extends HydraEntity
 	 *
 	 * @var fullText
 	 */
-	public function setFullText($fullText)
+	public function setDescription($fullText)
 	{
-		$this->fullText = $fullText;
-	}
-	
-	/**
-	 * getter intro
-	 *
-	 * @return intro
-	 */
-	public function getIntro()
-	{
-		return $this->intro;
-	}
-	
-	/**
-	 * setter intro
-	 *
-	 * @var intro
-	 */
-	public function setIntro($intro)
-	{
-		$this->intro = $intro;
+		$this->description = $fullText;
 	}
 	
 	public function __toString()
 	{
-		return "<div class='content'><h3>{$this->gettitle()}</h3>{$this->getcontent()}</div>";
+		return "<div class='content'><h3>{$this->getTitle()}</h3>{$this->getDescription()}</div>";
 	}
 	
 	/**
@@ -185,7 +164,7 @@ class Project extends HydraEntity
 						$table .="No Images Found!";
 				$table .="<td>";
 			$table .="</tr>";
-			$intro = $this->getIntro();
+			$intro = $this->getDescription();
 			$table .="<tr id='proSnapIntro'>";
 					$table .="<td style='text-align:justify;'>";
 						$table .=(strlen($intro)>$maxIntroLength ? substr($intro,0,$maxIntroLength)." ... " : $intro);
@@ -215,8 +194,7 @@ class Project extends HydraEntity
 		DaoMap::begin($this, 'pro');
 		
 		DaoMap::setStringType('title','varchar',256);
-		DaoMap::setStringType('intro','varchar',12000);
-		DaoMap::setStringType("fullText",'text');
+		DaoMap::setStringType("description",'text');
 		DaoMap::setIntType("noOfBeds");
 		DaoMap::setIntType("noOfBaths");
 		DaoMap::setIntType("noOfCars");

@@ -39,8 +39,7 @@ class ProjectController extends AdminPage
     	$content = $service->get($id);
     	
     	$this->title->Text = $content->getTitle();
-    	$this->intro->Text = $content->getIntro();
-    	$this->fullText->Text = $content->getFullText();
+    	$this->description->Text = $content->getDescription();
     	
     	$this->noOfBeds->Text = $content->getNoOfBeds();
     	$this->noOfBaths->Text = $content->getNoOfBaths();
@@ -74,8 +73,7 @@ class ProjectController extends AdminPage
     		$content = $service->get($this->id);
     		
     		$content->setTitle(trim($this->title->Text));
-    		$content->setIntro(trim($this->intro->Text));
-    		$content->setFullText(trim($this->fullText->Text));
+    		$content->setDescription(trim($this->description->Text));
     		$service->save($content);
     		
     		//get exsiting project images
@@ -104,8 +102,10 @@ class ProjectController extends AdminPage
     		$content = new Project();
     		
     		$content->setTitle(trim($this->title->Text));
-    		$content->setIntro(trim($this->intro->Text));
-    		$content->setFullText(trim($this->fullText->Text));
+    		$content->setDescription(trim($this->description->Text));
+    		$content->setNoOfBeds(trim($this->noOfBeds->Text));
+    		$content->setNoOfBaths(trim($this->noOfBaths->Text));
+    		$content->setNoOfCars(trim($this->noOfCars->Text));
     		$service->save($content);
     		
     		$firtOne=true;
