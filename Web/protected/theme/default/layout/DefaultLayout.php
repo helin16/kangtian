@@ -12,7 +12,7 @@ class DefaultLayout extends TTemplateControl
 	
 	private function getContents()
 	{
-		$qry = "select c.id,c.title,c.intro from content c
+		$qry = "select c.id,c.title,c.text from content c
 				inner join content_contentcategory x on (x.contentId = c.id and x.contentCategoryId = 2)
 				where c.active = 1
 				order by c.id asc

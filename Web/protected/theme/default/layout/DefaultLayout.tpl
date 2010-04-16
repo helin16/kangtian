@@ -23,14 +23,14 @@
 				</div>
 				<div id="banner" style="width:100%;">
 					<div class="innerWrapper">
-						<com:TImage ID="banner" />
+						<com:TImage ID="banner" ImageUrl="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/banner.png"/>
 					</div>
 				</div>
 				<div id="body" style="width:100%;">
 					<div class="innerWrapper">
 						<table width="100%">
 							<tr>
-								<td height="600px" valign="top">
+								<td valign="top">
 									<com:TContentPlaceHolder ID="MainContent" />
 								</td>
 							</tr>
