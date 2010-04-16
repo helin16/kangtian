@@ -25,7 +25,7 @@ class ContentLoaderController extends EshopPage
 		$content = $contents[0];
 		$content_title = ucwords($content->getTitle());
 		$this->title->Text =$content_title;
-		$this->text->Text =$content->getFullText();
+		$this->text->Text =$content->getText();
 		
 		$this->setTitle($content_title);
 	}

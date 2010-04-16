@@ -56,10 +56,7 @@
 								<b><%#$this->DataItem->getTitle()%></b><br />
 							</td>
 							<td>
-								<i style="font-size:10px; text-align:justify; margin-bottom:10px; width:100%;">
-									<%# $this->Page->shortenText($this->DataItem->getIntro()) %>
-								</i><br /><br />
-								<%# $this->Page->shortenText($this->DataItem->getFullText(),200)%>
+								<%# $this->Page->shortenText($this->DataItem->getDescription(),200)%>
 							</td>
 							<td width="20%">
 								<b>Created</b><br />
