@@ -1,4 +1,5 @@
 <?php
+define('PRADO_CHMOD',0755);
 set_include_path('F:/mySandBox/kangtianproperty/Web' . PATH_SEPARATOR . 'F:/mySandBox/kangtianproperty/Web');
 $basePath=dirname(__FILE__);
 $assetsPath=$basePath.'/assets';
