@@ -26,8 +26,8 @@ class AssetServer
 	
 	public function __construct()
 	{
-		$this->contentDAO = new GenericDAO('Asset');
-		$this->contentTypeDAO = new GenericDAO('AssetType');
+		$this->contentDAO = new GenericDaO('Asset');
+		$this->contentTypeDAO = new GenericDaO('AssetType');
 	}
 	
 	/**
