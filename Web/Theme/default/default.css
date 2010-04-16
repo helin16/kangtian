@@ -73,3 +73,25 @@ div.footer
 	background: transparent url(images/footer_bg.png) repeat-x left top;
 	height:220px;
 }
+
+
+/*** copyright ***/
+div#copyright
+{
+	padding-top:25px;
+	font-size:14px;
+}
+
+/*** body ***/
+div#body
+{
+	padding:30px 15px 30px 15px;
+	font-size:14px;
+}
+
+div#body div td#contentTable_title
+{
+	font-size:18px;
+	font-weight:bold;
+}
+

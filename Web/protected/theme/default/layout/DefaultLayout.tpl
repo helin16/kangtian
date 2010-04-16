@@ -21,7 +21,12 @@
 						<com:Application.controls.Module.Menu.MenuModule ID="topMenu"/>
 					</div>
 				</div>
-				<div class="body"  style="width:100%;">
+				<div id="banner" style="width:100%;">
+					<div class="innerWrapper">
+						<com:TImage ID="banner" />
+					</div>
+				</div>
+				<div id="body" style="width:100%;">
 					<div class="innerWrapper">
 						<table width="100%">
 							<tr>
@@ -39,12 +44,12 @@
 				</com:TPanel>
 				<com:TPanel ID="footerPanel" CssClass="footer"  style="width:100%;">
 					<div class="innerWrapper">
-						fdsafdas
+						<com:TPanel ID="footerContainer" />
 					</div>
 				</com:TPanel>
 				<div id="copyright" style="width:100%;">
 					<div class="innerWrapper">
-						Copyright &copy; Australian Realty Group (ARG) 2003 - 2012 
+						Australian Realty Group (ARG) &copy; 2010 | <a href="/content/privacy_policy.html">Privacy Policy</a>
 					</div>
 				</div>
 			</div>
