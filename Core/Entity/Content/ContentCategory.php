@@ -54,7 +54,7 @@ class ContentCategory extends HydraEntity
 	{
 		DaoMap::begin($this, 'concat');
 		
-		DaoMap::setBoolType('name');
+		DaoMap::setStringType('name');
 		DaoMap::setManyToMany("contents","Content",DaoMap::LEFT_SIDE,"con");
 		DaoMap::commit();
 	}
