@@ -7,7 +7,7 @@ class HydraDate
 	 */
 	private $dateTime;
 	
-	public function __construct($string = "now", $timeZone="")
+	public function __construct($string = "now", $timeZone="Australia/Melbourne")
 	{
 		if($timeZone=="")
 			$timeZone = Config::get("time","defaultTimeZone");
