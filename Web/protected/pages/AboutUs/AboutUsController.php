@@ -6,5 +6,10 @@ class AboutUsController extends ContentLoaderController
 		parent::__construct();
 		$this->preloadTitle="about us";
 	}
+	
+	protected function getBannerUrl()
+	{
+		return "/Theme/".$this->getDefaultThemeName()."/images/banner_aboutus.jpg";
+	}
 }
 ?>

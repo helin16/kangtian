@@ -142,7 +142,7 @@ class DefaultLayout extends TTemplateControl
 								$html .="<input style='border:none;height:20px;width:200px;margin:0px;padding:2px 0 2px 5px;background:transparent url(/Theme/".$this->Page->getDefaultThemeName()."/images/newsletter_input.png) no-repeat left top;' />";
 							$html .= "</td>";
 							$html .= "<td>";
-								$html .="<input type='image' onclick='return false;' style='padding:0 5px 2px 0;' src=\"/Theme/".$this->Page->getDefaultThemeName()."/images/newsletter_button.png\" />";
+								$html .="<input type='image' onclick='return false;' style='padding:0 5px 2px 0;outline:none;' src=\"/Theme/".$this->Page->getDefaultThemeName()."/images/newsletter_button.png\" />";
 							$html .= "</td>";
 						$html .= "</tr>";
 						$html .= "<tr>";

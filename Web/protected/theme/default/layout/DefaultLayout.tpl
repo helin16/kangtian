@@ -25,7 +25,7 @@
 				</div>
 				<div id="banner" style="width:100%;">
 					<div class="innerWrapper">
-						<com:TImage ID="banner" ImageUrl="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/banner.png"/>
+						<com:TImage ID="banner" ImageUrl="<%= $this->Page->getBannerUrl()%>"/>
 					</div>
 				</div>
 				<div id="body" style="width:100%;">
