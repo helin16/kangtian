@@ -1,6 +1,6 @@
 body 
 {
-	font-family:arial,"lucida console",sans-serif;
+	font-family:arial,"lucida console",sans-serif; 
 	font-size:11px;
 	margin:0px;
 	padding:0px;
@@ -61,7 +61,7 @@ div#topMenu table#topMenu td a:hover
 /*** adds ***/
 div.adds
 {
-	padding-top:38px;
+	padding-top:28px;
 	background: transparent url(images/adds_bg.png) repeat-x left top;
 	height:330px;
 }

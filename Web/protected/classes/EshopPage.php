@@ -11,13 +11,14 @@ class EshopPage extends TPage
 	public function setTitle($value)
 	{
 		$temp = $this->getApplication()->getParameters();
+		$extra =" - Australian Realty, Property and Projects, Melbourne,Brisbane,Sydney";
 		if($temp->contains("AppTitle"))
 		{
 			$param = $temp->toArray();
-			parent::setTitle($param["AppTitle"]." - ".$value);
+			parent::setTitle($param["AppTitle"]." - ".$value.$extra);
 		}
 		else
-			parent::setTitle($value);
+			parent::setTitle($value.$extra);
 	}
 	
 	public function getDefaultThemeName()
