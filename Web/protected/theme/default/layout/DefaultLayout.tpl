@@ -12,7 +12,27 @@
 <body>
 	<center>
 		<com:TForm>
+			<script type="text/javascript">
+				function subscribe()
+				{
+					$('<%= $this->subscripionEmail->getClientId()%>').value=$('subscribe_email').value;
+					$('<%= $this->subscribeBtn->getClientId()%>').click();
+				}
+				function loadSubscriptionMsg()
+				{
+					if($('<%= $this->subscripionErrorMsg->getClientId()%>').value=='')
+						alert('You have successfully subscribed our news letter!');
+					else
+						alert($('<%= $this->subscripionErrorMsg->getClientId()%>').value);
+				}
+			</script>
 			<div>
+				<com:TActiveHiddenField ID="subscripionEmail" />
+				<com:TActiveHiddenField ID="subscripionErrorMsg" />
+				<com:TActiveButton ID="subscribeBtn" OnClick="subscribe" style="display:none;">
+					<prop:ClientSide OnLoading="$('subscribeBtnInput').hide();$('subscribe_loading').show();"
+								OnComplete="$('subscribeBtnInput').show();$('subscribe_loading').hide();loadSubscriptionMsg();" />
+				</com:TActiveButton>
 				<div id="logo" style="width:100%;">
 					<div class="innerWrapper">
 						<img src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/Logo2.png" Title="Logo"/>

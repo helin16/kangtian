@@ -139,10 +139,11 @@ class DefaultLayout extends TTemplateControl
 						$html .= "</tr>";
 						$html .= "<tr>";
 							$html .= "<td>";
-								$html .="<input style='border:none;height:20px;width:200px;margin:0px;padding:2px 0 2px 5px;background:transparent url(/Theme/".$this->Page->getDefaultThemeName()."/images/newsletter_input.png) no-repeat left top;' />";
+								$html .="<input id='subscribe_email' onkeydown=\"if (event.keyCode == 13) {return false;}\" style='border:none;height:20px;width:200px;margin:0px;padding:2px 0 2px 5px;background:transparent url(/Theme/".$this->Page->getDefaultThemeName()."/images/newsletter_input.png) no-repeat left top;' />";
 							$html .= "</td>";
 							$html .= "<td>";
-								$html .="<input type='image' onclick='return false;' style='padding:0 5px 2px 0;outline:none;' src=\"/Theme/".$this->Page->getDefaultThemeName()."/images/newsletter_button.png\" />";
+								$html .="<input id='subscribeBtnInput' type='image' onclick='subscribe();return false;' style='padding:0 5px 2px 0;outline:none;' src=\"/Theme/".$this->Page->getDefaultThemeName()."/images/newsletter_button.png\" />";
+								$html .="<img id='subscribe_loading' src='/image/ajax-loader.gif' style='display:none;'/>";
 							$html .= "</td>";
 						$html .= "</tr>";
 						$html .= "<tr>";
@@ -158,6 +159,30 @@ class DefaultLayout extends TTemplateControl
 			$html .= "</tr>";
 		$html .= "</table>";
 		return $html;
+	}
+	
+	public function subscribe($sender,$param)
+	{
+		$this->subscripionErrorMsg->Value="";
+		$email = trim($this->subscripionEmail->Value);
+		$this->subscripionEmail->Value="";
+		var_dump($email);
+		var_dump($this->subscripionErrorMsg->Value);
+		if(filter_var($email, FILTER_VALIDATE_EMAIL)===false)
+		{
+			$this->subscripionErrorMsg->Value="Invalid Email Address!";
+			return;
+		}
+		
+		try
+		{
+			$newsLetterService = new NewsLetterService();
+			$newsLetterService->subscribe($email);
+		}
+		catch(Exception $e)
+		{
+			$this->subscripionErrorMsg->Value=$e->getMessage();
+		}
 	}
 }
 ?>
