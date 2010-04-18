@@ -2,13 +2,55 @@
 
 class CRUDPage extends AdminPage 
 {
+	protected $openFirst = false;
+	
 	public $totalRows;
 	
-	protected function lookupEntity($id)
-	{
-		return;
-	}
-	
+    protected function createNewEntity()
+    {
+    	return null;
+    }
+
+    protected function lookupEntity($id)
+    {
+    	return null;
+    }
+    
+    protected function getFocusEntity($id,$type="")
+    {
+    	return null;
+    }
+    
+    protected function setEntity(&$object,$params,&$focusObject = null)
+    {
+    	
+    }
+    
+    protected function saveEntity(&$object)
+    {
+    	
+    }
+    
+    protected function resetFields($params)
+    {
+    	
+    }
+    
+    protected function populateAdd()
+    {
+    	
+    }
+    
+    protected function populateEdit($editItem)
+    {
+    	
+    }
+    
+    protected function howBigWasThatQuery()
+    {
+    	return Dao::getTotalRows();
+    }
+    
     protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	return null;
@@ -22,7 +64,6 @@ class CRUDPage extends AdminPage
 	public function __construct()
 	{
 		parent::__construct();
-		$this->totalRows=0;
 	}
 
 	public function onLoad($param)
@@ -32,12 +73,67 @@ class CRUDPage extends AdminPage
         $this->setInfoMessage("");
         $this->setErrorMessage("");        
 		$this->PaginationPanel->Visible = false;
+		    
+		if(isset($this->Request['id']))
+		{
+			$this->focusObject->Value = $this->Request['id'];
+		}
+		if(isset($this->Request['searchby']))
+		{
+			$this->focusObjectArgument->Value = $this->Request['searchby'];
+		}
+		
+		$argument = $this->focusObjectArgument->Value;
+		$entity = $this->getFocusEntity($this->focusObject->Value,$argument);
+		
+		try
+		{
+			if($this->focusOnSearch)
+				$this->SearchText->focus();
+		}
+		catch (Exception $e)
+		{
+		
+		}
     }
     
+    public function add($sender, $param)
+    {
+    	$this->AddPanel->Visible = true;
+    	$this->DataList->EditItemIndex = -1;
+    	$this->dataLoad();
+
+       	if($this->AddPanel->Visible == true)
+    	{
+    		$params = $this;
+    	}
+    	else
+    	{
+    		$params = $param->Item;
+    	}
+    	    	
+    	$this->resetFields($params);
+    	$this->populateAdd();
+    }
+    
+    public function edit($sender,$param)
+    {
+	    if($param != null)
+			$itemIndex = $param->Item->ItemIndex;
+		else
+			$itemIndex = 0;
+
+		$this->AddPanel->Visible = false;
+		$this->DataList->SelectedItemIndex = -1;
+		$this->DataList->EditItemIndex = $itemIndex;
+		$this->dataLoad();
+				
+		$this->populateEdit($this->DataList->getEditItem());
+    }
     
     protected function toPerformSearch()
     {
-    	return $this->SearchText->Text != "";
+    	return $this->SearchString->Value != "";
     }
     
     public function dataLoad($pageNumber=null,$pageSize=null)
@@ -48,35 +144,80 @@ class CRUDPage extends AdminPage
     	if($pageSize == null)
     		$pageSize = $this->DataList->pageSize;   	
     	
+       	$focusObject = $this->focusObject->Value;
+       	$focusObjectArgument = $this->focusObjectArgument->Value;
+     	if($focusObject == "")
+     		$focusObject = null;
+     	else
+     		$focusObject = $this->getFocusEntity($focusObject,$focusObjectArgument);
+
      	if(!$this->toPerformSearch())
      		$data = $this->getAllOfEntity($focusObject,$pageNumber,$pageSize);    
      	else
-     		$data = $this->searchEntity($this->SearchText->Text,$focusObject,$pageNumber,$pageSize);
+     		$data = $this->searchEntity($this->SearchString->Value,$focusObject,$pageNumber,$pageSize);
 
      	$size = sizeof($data);
      	$this->DataList->DataSource = $data; 
-    	$totalSize = $this->howBigWasThatQuery() ;
-     	$this->DataList->VirtualItemCount = (is_numeric($totalSize) && $totalSize>0) ? $totalSize : 0;
+    	$totalSize = $this->howBigWasThatQuery();
+     	$this->DataList->VirtualItemCount = $totalSize;
      	
-     	if($size<=0)
+     	if($this->openFirst && $size == 1)
      	{
-     		$this->setInfoMessage("No records found!");
-     		return;
+			$this->DataList->EditItemIndex = 0;
      	}
      	
      	$this->DataList->dataBind();
 
+        if($this->openFirst && $size == 1)
+     	{
+			$this->populateEdit($this->DataList->getEditItem());
+     	}     	
+     	
     	if($this->DataList->getPageCount() > 1)
 	    	$this->PaginationPanel->Visible = true;	  	 
      	
+     	$this->postDataLoad();
      	return $data;
-    }   
-
-    protected function howBigWasThatQuery()
+    }        
+    
+    protected function postDataLoad()
     {
-    	return $this->totalRows;
+    	
     }
     
+    public function save($sender,$param)
+    {
+    	if($this->AddPanel->Visible == true)
+    	{
+    		$entity = $this->createNewEntity();
+    		$params = $this;
+    	}
+    	else
+    	{
+    		$params = $param->Item;
+			$entity = $this->lookupEntity($this->DataList->DataKeys[$params->ItemIndex]);
+    	}
+
+    	
+       	$focusObject = $this->focusObject->Value;
+       	$focusObjectArgument = $this->focusObjectArgument->Value;
+     	if($focusObject == "")
+     		$focusObject = null;
+     	else
+     		$focusObject = $this->getFocusEntity($focusObject,$focusObjectArgument);    	
+
+    	$this->setEntity($entity,$params,$focusObject);
+    	$this->saveEntity($entity);
+    	
+    	$this->resetFields($params);
+    	
+        if($this->AddPanel->Visible == true)
+	        $this->AddPanel->Visible = false;
+    	else
+	        $this->DataList->EditItemIndex = -1;
+
+		$this->dataLoad();
+    }    
     
     public function cancel($sender,$param)
     {
@@ -88,6 +229,7 @@ class CRUDPage extends AdminPage
     public function search($sender,$param)
     {
      	$searchQueryString = $this->SearchText->Text;
+		$this->SearchString->Value = $searchQueryString;
      	
 		$this->DataList->EditItemIndex = -1;
 		$this->dataLoad();
@@ -101,6 +243,7 @@ class CRUDPage extends AdminPage
       	$this->dataLoad();
     }
 
+     
     protected function entitiesToArray(array $entities)
     {
 		$selected = array();
@@ -110,6 +253,28 @@ class CRUDPage extends AdminPage
 		return $selected;
     }
 
+    // I AM A WINNER !!!!
+    protected function saveManyToMany(&$object,$controlIds,$entityArray,$add,$remove,$service,$get)
+    {
+    	
+	    foreach($entityArray as $entity)
+		{
+			
+			$result = array_search($entity->getId(),$controlIds);	
+			if($result === false)
+			{
+				$object->$remove($entity);
+			} else {
+				unset($controlIds[$result]);
+			}
+		}
+		
+		foreach($controlIds as $controlId)
+		{
+			$temp = $service->$get($controlId);
+			$object->$add($temp);
+		}
+    }
     
     /**
      * Toggle the Active flag in DataList
@@ -125,8 +290,6 @@ class CRUDPage extends AdminPage
 		
 		$this->dataLoad();
 	}
-	
-	protected function saveEntity(HydraEntity $entity){}
 	
 	/**
 	 * Bind data to a DropDownList

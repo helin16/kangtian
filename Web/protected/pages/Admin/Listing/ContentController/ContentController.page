@@ -9,6 +9,9 @@
 						Search : 
 						<com:TTextBox ID="SearchText" AutoPostBack="false" Columns="45" />
 						<com:TButton ID="SearchButton" Text=" Search " OnClick="search" />
+						<com:THiddenField ID="focusObject" />
+						<com:THiddenField ID="focusObjectArgument" />
+						<com:THiddenField ID="SearchString" />
 					</td>
 					<td width="20%">
 						<com:TButton ID="AddButton" Text="Add New" Attributes.OnClick="$('lightbox').src='/admin/add/content.html';$('fade').show();$('lightbox').show();return false;" />
@@ -19,7 +22,10 @@
 			<hr />
 			<br />
 		</com:TPanel>
+		
+		
 		<com:TPanel ID="ListingPanel" style="width:98%;">
+		<b>List of Content(s):</b><br />
 			<com:TDataList
 			     ID="DataList"
 			     DataKeyField="id"
@@ -31,7 +37,7 @@
 			     HeaderStyle.BackColor="black"
 			     HeaderStyle.ForeColor="white"
 			     ItemStyle.BackColor="#ffffff"
-			     AlternatingItemStyle.BackColor="#cccccc"
+			     AlternatingItemStyle.BackColor="#eeeeee"
 			     EditItemStyle.BackColor="#888888"
 			     SelectedItemStyle.BackColor="lightblue"
 			      AllowPaging="true" AllowCustomPaging="true" PageSize="30" EnableViewState="true"

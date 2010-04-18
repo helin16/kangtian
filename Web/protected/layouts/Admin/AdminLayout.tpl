@@ -65,6 +65,9 @@
 								<a href="/admin/list/project.html">Projects</a>
 							</li>
 							<li>
+								<a href="/admin/list/subscriber.html">Subscribers</a>
+							</li>
+							<li>
 								<com:TLinkButton ID="logout" OnClick="logout" Text="Logout"/>
 							</li>
 						</ul>
