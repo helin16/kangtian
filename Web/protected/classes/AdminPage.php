@@ -1,6 +1,7 @@
 <?php
 class AdminPage extends TPage 
 {
+	public $menuItemName;
 	protected $blankLayout;
 	public function onPreInit($param)
 	{

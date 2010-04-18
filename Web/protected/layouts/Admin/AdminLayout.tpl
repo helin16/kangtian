@@ -42,6 +42,10 @@
 							<td align="left">
 								<img src="/Theme/<%=$this->getDefaultThemeName() %>/images/Logo2.png"/>
 							</td>
+							<td align="right" width="10%">
+								<br />
+								<a href="/" target="_blank" style="text-align:right;color:#ffffff;">Preview Website</a>
+							</td>
 							<td width="30%" valign="bottom" style="text-align:right;color:#ffffff;">
 								<br />
 								<%[welcome]%>,&nbsp;&nbsp;<com:TLinkButton ID="usernameBtn" style="color:#ffffff;"/>
@@ -53,19 +57,16 @@
 					<div style="display:block;width:100%;height:25px;">
 						<ul>
 							<li>
-								<a href="/">Home</a>
+								<a href="/admin/" <%= $this->changeId('home') %>>Admin Home</a>
 							</li>
 							<li>
-								<a href="/admin/">Admin Home</a>
+								<a href="/admin/list/content.html" <%= $this->changeId('contents') %>>Contents</a>
 							</li>
 							<li>
-								<a href="/admin/list/content.html">Contents</a>
+								<a href="/admin/list/project.html" <%= $this->changeId('projects') %>>Projects</a>
 							</li>
 							<li>
-								<a href="/admin/list/project.html">Projects</a>
-							</li>
-							<li>
-								<a href="/admin/list/subscriber.html">Subscribers</a>
+								<a href="/admin/list/subscriber.html" <%= $this->changeId('subscribers') %>>Subscribers</a>
 							</li>
 							<li>
 								<com:TLinkButton ID="logout" OnClick="logout" Text="Logout"/>

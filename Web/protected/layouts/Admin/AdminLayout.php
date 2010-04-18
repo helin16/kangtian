@@ -38,5 +38,13 @@ class AdminLayout extends TTemplateControl
 	{
 		return Config::get("theme","name");
 	}
+	
+	public function changeId($name)
+	{
+		$selectedItemName = "home";
+		if(isset($this->Page->menuItemName)&& trim($this->Page->menuItemName)!="")
+			$selectedItemName=trim(strtolower(str_replace(" ","",$this->Page->menuItemName)));
+		return trim(strtolower(str_replace(" ","",$name)))==$selectedItemName ? " style='background:#BF3A17;'" : "";
+	}
 }
 ?>

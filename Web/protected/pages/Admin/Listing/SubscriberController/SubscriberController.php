@@ -8,6 +8,7 @@ class SubscriberController extends CRUDPage
 	public function __construct()
 	{
 		parent::__construct();
+		$this->menuItemName="subscribers";
 	}
 	
 	/**

@@ -8,6 +8,7 @@ class ContentController extends CRUDPage
 	public function __construct()
 	{
 		parent::__construct();
+		$this->menuItemName="contents";
 	}
 	
 	/**
