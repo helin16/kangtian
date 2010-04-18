@@ -76,7 +76,7 @@
 																<td style="background:transparent url(/Theme/<%=$this->Page->getDefaultThemeName()%>/images/newsletter_mid.png) repeat-x left top;">
 																	<table border='0' cellspacing="0" cellpadding="0" style='padding: 10px 0 0 20px;'>
 																		<tr>
-																			<td style='color:#ffffff;font-size:24px;padding: 0 0 5px 0;'>newsletter</td>
+																			<td style='color:#ffffff;font-size:24px;padding: 0 0 5px 0;'><%[NewsLetter.newsletter]%></td>
 																			<td>&nbsp;</td>
 																		</tr>
 																		<tr>
@@ -95,7 +95,7 @@
 																		</tr>
 																		<tr>
 																			<td style='padding-top:5px;'>
-																				<a href='javascript:void(0);' style='color:#ffffff;'>unsubscribe</a>
+																				<a href='/newsletter/unsubscribe.html' style='color:#ffffff;'><%[NewsLetter.unsubscribe]%></a>
 																			</td>
 																			<td>&nbsp;</td>
 																		</tr>

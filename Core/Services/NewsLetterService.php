@@ -8,11 +8,20 @@ class NewsLetterService extends BaseService
 	
 	public function subscribe($email)
 	{
-		$subscribers = $this->findByCriteria("email like '$email'");
-		if(count($subscribers)>0)
-			throw new Exception("Email exists already!");
-			
 		$now = new HydraDate();
+		$subscribers = $this->findByCriteria("email like '$email'",false);
+		if(count($subscribers)>0)
+		{
+			if($subscribers[0]->getActive()==true)
+				throw new Exception("Email exists already!");
+			else
+			{
+				$sql ="update subscriber set active=1,updated='$now',updatedById=1 where `id`='{$subscribers[0]->getId()}'";
+				Dao::execSql($sql);	
+				return;
+			}
+		}
+			
 		$sql ="insert into subscriber(`email`,`key`,`isConfirmed`,`created`,`createdById`,`updated`,`updatedById`)
 				value('$email','".md5("$email $now")."','1','$now','1','$now','1')";
 		Dao::execSql($sql);
@@ -20,14 +29,9 @@ class NewsLetterService extends BaseService
 	
 	public function unsubscribe($key)
 	{
-		$subscribers = $this->findByCriteria("key ='$key'",false);
-		if(count($subscribers)==0)
-			throw new Exception("Email doesn't exist!");
-		foreach($subscribers as $sub)
-		{
-			$sub->setActive(false);
-			$this->save($sub);
-		}
+		$now = new HydraDate();
+		$sql ="update subscriber set active=0,updated='$now',updatedById=1 where `key`='$key'";
+		Dao::execSql($sql);
 	}
 }
 ?>

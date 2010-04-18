@@ -88,6 +88,38 @@
 				</trans-unit>
 			//-- end of about us -----------------------------------------------------
 			
+			//-- start of news letter ----------------------------------------------------- 
+				<trans-unit>
+					<source>NewsLetter.newsletter</source>
+					<target>newsletter</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.email</source>
+					<target>Email Address</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.subscribe</source>
+					<target>subscribe</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.unsubscribe</source>
+					<target>unsubscribe</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.invalidEmailAddr</source>
+					<target>Invalid Email Address</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.emailAddrRequired</source>
+					<target>Email Address Required</target>
+				</trans-unit>
+			//-- end of news letter -----------------------------------------------------
+			
 			//Login Page
 			<trans-unit>
 				<source>login</source>

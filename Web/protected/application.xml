@@ -23,6 +23,8 @@
 			<url ServiceParameter="FileLoader.FileLoaderController" pattern="asset/{assetId}/{param}" parameters.assetId="\w+"  parameters.param=".+" />
 			
 			<url ServiceParameter="ContentLoader.ContentLoaderController" pattern="content/{title}.html" parameters.title="\w+" />
+			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}.html" parameters.action="\w+" />
+			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}/{key}.html" parameters.action="\w+" parameters.key="\w+" />
 			
 			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
