@@ -26,9 +26,9 @@ class EshopPage extends TPage
 		return Config::get("theme","name");
 	}
 	
-	protected function getBannerUrl()
+	protected function getBanner()
 	{
-		return "/Theme/".$this->getDefaultThemeName()."/images/banner.jpg";
+		return "<img src='/Theme/".$this->getDefaultThemeName()."/images/banner.jpg' />";
 	}
 }
 ?>

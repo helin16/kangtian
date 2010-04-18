@@ -1,5 +1,5 @@
 <com:TContent ID="MainContent">
-	<div class="bodyWrapper">
+	<com:TPanel DefaultButton="email" CssClass="bodyWrapper">
 		<table width="100%">
 			<tr>
 				<td colspan="2">
@@ -85,5 +85,5 @@
 				</td>
 			</tr>
 		</table>
-	</div>
+	</com:TPanel>
 </com:TContent>
