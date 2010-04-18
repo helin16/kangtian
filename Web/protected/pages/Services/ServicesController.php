@@ -5,6 +5,7 @@ class ServicesController extends ContentLoaderController
 	{
 		parent::__construct();
 		$this->preloadTitle="services";
+		$this->menuItemName="services";
 	}
 }
 ?>

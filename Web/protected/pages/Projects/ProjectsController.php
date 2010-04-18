@@ -5,6 +5,7 @@ class ProjectsController extends ContentLoaderController
 	{
 		parent::__construct();
 		$this->preloadTitle="Projects";
+		$this->menuItemName="projects";
 	}
 }
 ?>

@@ -38,7 +38,8 @@ div#topMenu table#topMenu td
 	border-left:1px #ffffff solid;
 	border-right:1px #ffffff solid;
 }
-div#topMenu table#topMenu td a
+div#topMenu table#topMenu td a,
+div#topMenu table#topMenu td a#active
 {
 	display:block;
 	height:38px;
@@ -52,6 +53,7 @@ div#topMenu table#topMenu td a
 	outline: none;
 }
 
+div#topMenu table#topMenu td a#active,
 div#topMenu table#topMenu td a:hover
 {
 	background: transparent url(images/menu_bg_hover.png) repeat-x left top;

@@ -5,6 +5,7 @@ class AboutUsController extends ContentLoaderController
 	{
 		parent::__construct();
 		$this->preloadTitle="about us";
+		$this->menuItemName="aboutus";
 	}
 	
 	protected function getBanner()

@@ -9,6 +9,7 @@ class ContactUsController extends EshopPage
 		parent::__construct();
 		$this->reciever= Config::get("email","contactUsReciever");
 		$this->recieverEmail= Config::get("email","contactUsRecieverEmail");
+		$this->menuItemName="contactus";
 	}
 	
 	public function onload()
