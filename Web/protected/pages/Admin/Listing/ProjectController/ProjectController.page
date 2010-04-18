@@ -58,6 +58,7 @@
 						<tr>
 							<td width="20%">
 								<b><%#$this->DataItem->getTitle()%></b><br />
+								<%# $this->Page->listImages($this->DataItem) %>
 							</td>
 							<td>
 								<%# $this->Page->shortenText($this->DataItem->getDescription(),200)%>

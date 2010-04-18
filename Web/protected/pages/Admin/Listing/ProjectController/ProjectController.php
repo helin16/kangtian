@@ -59,6 +59,24 @@ class ProjectController extends CRUDPage
     	$service = new BaseService("Project");
     	$service->save($entity);
     }
+    
+    public function listImages(Project $project)
+    {
+    	$service = new BaseService("Asset");
+    	$images = $service->findByCriteria("id in (select distinct pi.assetId from projectimage pi where pi.active = 1 and pi.projectId=".$project->getId().")");
+    	
+    	$newDimension = array(
+    						"height"=>50,
+    						"width"=>50
+    					);
+    	$html="";
+    	foreach($images as $image)
+    	{
+    		$assetId = $image->getAssetId();
+    		$html .="<img src='/asset/$assetId/".serialize($newDimension)."'style='border: 1px #cccccc solid;padding:5px;margin: 5px;' />";
+    	}
+    	return $html;
+    }
 }
 
 ?>
