@@ -6,6 +6,7 @@ class Home extends EshopPage
 	{
 		if(!$this->isPostBack)
 		{
+			$this->setTitle("Home");
 		}
 	}
 }
