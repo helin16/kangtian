@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.0">
+    <file original="I18N Example IndexPage" source-language="EN" datatype="plaintext" date="2009-06-21T23:53:10Z">
+        <body>
+        	//-- start of Menu ----------------------------------------------------- 
+				<trans-unit>
+					<source>Menu.home</source>
+					<target>首页</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.services</source>
+					<target>我们的服务</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.contactus</source>
+					<target>联系我们</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.aboutus</source>
+					<target>关于我们</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.projects</source>
+					<target>开发项目</target>
+				</trans-unit>
+        	//-- end of Menu ----------------------------------------------------- 
+			
+			//-- start of contact us ----------------------------------------------------- 
+				<trans-unit>
+					<source>ContactUs.title</source>
+					<target>如果您有什么问题，请随时联系我们!</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.yourname</source>
+					<target>您的名字</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.youremail</source>
+					<target>您的Email</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.emailcontent</source>
+					<target>您想要说的</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.submitbutton</source>
+					<target>发送</target>
+				</trans-unit>
+			
+				<trans-unit>
+					<source>ContactUs.successfullSent</source>
+					<target>Email 已成功送出， 谢谢！</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.spamChecking</source>
+					<target>请帮助我们过滤垃圾邮件</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>ContactUs.spamCheckingError</source>
+					<target>请输入</target>
+				</trans-unit>
+			//-- end of contact us ----------------------------------------------------- 
+			
+			//-- start of about us ----------------------------------------------------- 
+				<trans-unit>
+					<source>AboutUs.aboutUs</source>
+					<target>关于我们</target>
+				</trans-unit>
+			//-- end of about us -----------------------------------------------------
+			
+			//-- start of news letter ----------------------------------------------------- 
+				<trans-unit>
+					<source>NewsLetter.newsletter</source>
+					<target>最新资讯</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.email</source>
+					<target>Email</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.subscribe</source>
+					<target>订阅</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.unsubscribe</source>
+					<target>取消订阅</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.invalidEmailAddr</source>
+					<target>请输入正确的email地址</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>NewsLetter.emailAddrRequired</source>
+					<target>请输入Email地址</target>
+				</trans-unit>
+			//-- end of news letter -----------------------------------------------------
+		</body>
+    </file>
+</xliff>
