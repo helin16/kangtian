@@ -78,6 +78,18 @@
 				</trans-unit>
 			//-- end of about us -----------------------------------------------------
 			
+			//-- start of Login ----------------------------------------------------- 
+				<trans-unit>
+					<source>username</source>
+					<target>用户名</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>password</source>
+					<target>密码</target>
+				</trans-unit>
+			//-- end of Login -----------------------------------------------------
+			
 			//-- start of news letter ----------------------------------------------------- 
 				<trans-unit>
 					<source>NewsLetter.newsletter</source>
