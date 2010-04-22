@@ -9,6 +9,11 @@ class Home extends EshopPage
 			$this->setTitle("Home");
 		}
 	}
+	
+	protected function getBanner()
+	{
+		return "<img src='/Theme/".$this->getDefaultThemeName()."/images/banner.jpg' />";
+	}
 }
 
 ?>

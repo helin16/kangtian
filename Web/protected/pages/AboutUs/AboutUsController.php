@@ -7,10 +7,5 @@ class AboutUsController extends ContentLoaderController
 		$this->preloadTitle="about us";
 		$this->menuItemName="aboutus";
 	}
-	
-	protected function getBanner()
-	{
-		return "<img src='/Theme/".$this->getDefaultThemeName()."/images/banner_aboutus.jpg' />";
-	}
 }
 ?>
