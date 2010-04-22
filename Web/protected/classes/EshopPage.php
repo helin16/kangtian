@@ -1,6 +1,13 @@
 <?php
 class EshopPage extends TPage 
 {
+	public function __construct()
+	{
+		parent::__construct();
+		if(isset($_SESSION["language"]))
+		 $this->getApplication()->getGlobalization()->setCulture($_SESSION["language"]);
+	}
+	
 	public $menuItemName;
 	
 	public function onPreInit($param)
@@ -30,7 +37,7 @@ class EshopPage extends TPage
 	
 	protected function getBanner()
 	{
-		return "<img src='/Theme/".$this->getDefaultThemeName()."/images/banner.jpg' />";
+		return "";
 	}
 }
 ?>
