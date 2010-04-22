@@ -120,97 +120,11 @@
 				</trans-unit>
 			//-- end of news letter -----------------------------------------------------
 			
-			//Login Page
-			<trans-unit>
-				<source>login</source>
-				<target>Login</target>
-			</trans-unit>
-			
-			<trans-unit>
-				<source>username</source>
-				<target>Username</target>
-			</trans-unit>
-			
-			<trans-unit>
-				<source>password</source>
-				<target>Password</target>
-			</trans-unit>
-			
-			<trans-unit>
-				<source>register</source>
-				<target>Register</target>
-			</trans-unit>
-			
-			<trans-unit>
-				<source>myAccount</source>
-				<target>My Account</target>
-			</trans-unit>
-			
-			<trans-unit>
-				<source>helpCenter</source>
-				<target>Help Center</target>
-			</trans-unit>
-        	
-        	<trans-unit>
-				<source>welcome</source>
-				<target>Welcome</target>
-			</trans-unit>
-			
-        	<trans-unit>
-				<source>copyright_owner</source>
-				<target>Built by Budget PC Pty Ltd</target>
-			</trans-unit>
-        	
-        	<trans-unit>
-				<source>copyright_time</source>
-				<target>Copyright 2009</target>
-			</trans-unit>
-			
-			
-			//-------------------------------------------------------------------------------------------------------------------------------------- 
-			//-------------------------------------------------------------------------------------------------------------------------------------- 
-			//-- Admin ----------------------------------------------------- 
-			//-------------------------------------------------------------------------------------------------------------------------------------- 
-			//-------------------------------------------------------------------------------------------------------------------------------------- 
-				<trans-unit>
-					<source>Admin.Menu.UserAccount</source>
-					<target>User Accounts</target>
-				</trans-unit>
-				
-				<trans-unit>
-					<source>Admin.Menu.Content</source>
-					<target>Content</target>
-				</trans-unit>
-				
-				//-- Content Listing ----------------------------------------------------- 
-				<trans-unit>
-					<source>Admin.List.Content.title</source>
-					<target>Title</target>
-				</trans-unit>
-				
-				<trans-unit>
-					<source>Admin.List.Content.Content</source>
-					<target>Content</target>
-				</trans-unit>
-				
-				<trans-unit>
-					<source>Admin.List.Content.Publish</source>
-					<target>Publish</target>
-				</trans-unit>
-				
-				<trans-unit>
-					<source>Admin.List.Content.OnFrontPage</source>
-					<target>Show On Front Page</target>
-				</trans-unit>
-				
-				
 			//-------------------------------------------------------------------------------------------------------------------------------------- 
 			//-------------------------------------------------------------------------------------------------------------------------------------- 
 			//-- end of about us -----------------------------------------------------
 			//-------------------------------------------------------------------------------------------------------------------------------------- 
 			//-------------------------------------------------------------------------------------------------------------------------------------- 
-			
-			
 		</body>
     </file>
 </xliff>
