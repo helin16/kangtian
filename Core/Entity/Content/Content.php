@@ -5,6 +5,11 @@ class Content extends HydraEntity
 	private $text;
 	
 	/**
+	 * @var PageLanguage
+	 */
+	protected $language;
+	
+	/**
 	 * getter title
 	 *
 	 * @return title
@@ -44,6 +49,28 @@ class Content extends HydraEntity
 		$this->text = $fullText;
 	}
 	
+	/**
+	 * getter language
+	 *
+	 * @return language
+	 */
+	public function getLanguage()
+	{
+		$this->loadManyToOne("language");
+		return $this->language;
+	}
+	
+	/**
+	 * setter language
+	 *
+	 * @var language
+	 */
+	public function setLanguage($language)
+	{
+		$this->language = $language;
+	}
+	
+	
 	public function __toString()
 	{
 		return "<div class='content'><h3>{$this->getTitle()}</h3>{$this->getText()}</div>";
@@ -55,6 +82,8 @@ class Content extends HydraEntity
 		
 		DaoMap::setStringType('title','varchar',256);
 		DaoMap::setStringType("text",'text');
+		
+		DaoMap::setManyToOne("language","PageLanguage","pl");
 		
 		DaoMap::defaultSortOrder("title");
 		

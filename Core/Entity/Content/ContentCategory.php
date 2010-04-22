@@ -5,6 +5,10 @@ class ContentCategory extends HydraEntity
 	
 	protected $contents;
 	/**
+	 * @var PageLanguage
+	 */
+	protected $language;
+	/**
 	 * getter name
 	 *
 	 * @return name
@@ -31,6 +35,7 @@ class ContentCategory extends HydraEntity
 	 */
 	public function getContents()
 	{
+		$this->loadManyToMany("contents");
 		return $this->contents;
 	}
 	
@@ -42,6 +47,27 @@ class ContentCategory extends HydraEntity
 	public function setContents($content)
 	{
 		$this->contents = $content;
+	}
+	
+	/**
+	 * getter language
+	 *
+	 * @return language
+	 */
+	public function getLanguage()
+	{
+		$this->loadManyToOne("language");
+		return $this->language;
+	}
+	
+	/**
+	 * setter language
+	 *
+	 * @var language
+	 */
+	public function setLanguage($language)
+	{
+		$this->language = $language;
 	}
 	
 	public function __toString()
@@ -56,6 +82,7 @@ class ContentCategory extends HydraEntity
 		
 		DaoMap::setStringType('name');
 		DaoMap::setManyToMany("contents","Content",DaoMap::LEFT_SIDE,"con");
+		DaoMap::setManyToOne("language","PageLanguage","pl");
 		DaoMap::commit();
 	}
 }

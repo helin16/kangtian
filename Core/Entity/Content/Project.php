@@ -5,7 +5,14 @@ class Project extends HydraEntity
 	 * @var ProjectImage
 	 */
 	protected $images;
+	/**
+	 * @var Address
+	 */
 	protected $address;
+	/**
+	 * @var PageLanguage
+	 */
+	protected $language;
 	
 	private $title;
 	private $description;
@@ -160,6 +167,27 @@ class Project extends HydraEntity
 		$this->address = $address;
 	}
 	
+	/**
+	 * getter language
+	 *
+	 * @return language
+	 */
+	public function getLanguage()
+	{
+		$this->loadManyToOne("language");
+		return $this->language;
+	}
+	
+	/**
+	 * setter language
+	 *
+	 * @var language
+	 */
+	public function setLanguage($language)
+	{
+		$this->language = $language;
+	}
+	
 	public function getSnapshot($showTitle=false,$cssStyle="width:100%",$cssClass="projectSnap",$maxIntroLength=150,$id="",$imageWidth="280",$imageHight="160")
 	{
 		$table = "<table ".($id=="" ? "" : " id='$id'").($cssStyle=="" ? "" : " style='$cssStyle'").($cssClass=="" ? "" : " class='$cssClass'").">";
@@ -220,7 +248,8 @@ class Project extends HydraEntity
 		DaoMap::setIntType("noOfBaths");
 		DaoMap::setIntType("noOfCars");
 		DaoMap::setOneToMany("images","ProjectImage","pi");		
-		DaoMap::setManyToOne("address","Address","addr",true);		
+		DaoMap::setManyToOne("address","Address","addr",true);	
+		DaoMap::setManyToOne("language","PageLanguage","pl");	
 		
 		DaoMap::defaultSortOrder("title");
 		DaoMap::commit();
