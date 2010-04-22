@@ -1,4 +1,4 @@
-<table id="topMenu" width="100%" style="height:60px;" border='0' cellspacing="0" cellpadding="0">
+<table id="topMenu" width="100%" style="height:40px;" border='0' cellspacing="0" cellpadding="0">
 	<tr>
 		<td class="topmenulink" width="20%" >
 			<a href="/" <%= $this->changeId('home') %>><%[Menu.home]%></a>

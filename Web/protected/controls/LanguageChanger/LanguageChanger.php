@@ -13,6 +13,7 @@ class LanguageChanger extends TTemplateControl
 //        if($info->validCulture($lang)) //only valid lang is permitted
             $this->getApplication()->getGlobalization()->setCulture($lang);
          $_SESSION["language"] = $lang;
+         $this->Response->redirect("/");
 	}
 }
 
