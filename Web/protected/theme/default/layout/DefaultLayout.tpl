@@ -23,7 +23,16 @@
 				<com:TActiveHiddenField ID="subscripionErrorMsg" />
 				<div id="logo" style="width:100%;">
 					<div class="innerWrapper">
-						<img src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/Logo2.png" Title="Logo"/>
+						<table width="100%">
+							<tr>
+								<td align="left">
+									<img src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/Logo2.png" Title="Logo"/>
+								</td>
+								<td width="30%" align="right">
+									<com:Application.controls.LanguageChanger.LanguageChanger ID="langChanger"/>
+								</td>
+							</tr>
+						</table>
 					</div>
 				</div>
 				<div id="topMenu" style="width:100%;">
