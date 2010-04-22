@@ -5,6 +5,7 @@ class Project extends HydraEntity
 	 * @var ProjectImage
 	 */
 	protected $images;
+	protected $address;
 	
 	private $title;
 	private $description;
@@ -139,6 +140,26 @@ class Project extends HydraEntity
 		$this->noOfCars = $noOfCars;
 	}
 	
+	/**
+	 * getter address
+	 *
+	 * @return address
+	 */
+	public function getAddress()
+	{
+		return $this->address;
+	}
+	
+	/**
+	 * setter address
+	 *
+	 * @var address
+	 */
+	public function setAddress($address)
+	{
+		$this->address = $address;
+	}
+	
 	public function getSnapshot($showTitle=false,$cssStyle="width:100%",$cssClass="projectSnap",$maxIntroLength=150,$id="",$imageWidth="280",$imageHight="160")
 	{
 		$table = "<table ".($id=="" ? "" : " id='$id'").($cssStyle=="" ? "" : " style='$cssStyle'").($cssClass=="" ? "" : " class='$cssClass'").">";
@@ -198,7 +219,8 @@ class Project extends HydraEntity
 		DaoMap::setIntType("noOfBeds");
 		DaoMap::setIntType("noOfBaths");
 		DaoMap::setIntType("noOfCars");
-		DaoMap::setOneToMany("images","ProjectImage","pi");				
+		DaoMap::setOneToMany("images","ProjectImage","pi");		
+		DaoMap::setManyToOne("address","Address","addr",true);		
 		
 		DaoMap::defaultSortOrder("title");
 		DaoMap::commit();
