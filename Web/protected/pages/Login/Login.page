@@ -14,19 +14,21 @@
 						<tr valign="top">
 							<td><%[username]%>:</td>
 							<td>
-								<com:TTextBox ID="username" />
+								<com:TTextBox ID="username" ValidationGroup="Group1"/>
 								<com:TRequiredFieldValidator
 								    ControlToValidate="username"
 								    ErrorMessage="<%[username]%>"
+								    ValidationGroup="Group1"
 								    Display="Dynamic" />
 							</td>
 						</tr>
 						<tr valign="top">
 							<td><%[password]%>:</td>
 							<td>
-								<com:TTextBox ID="password" TextMode="Password" />
+								<com:TTextBox ID="password" TextMode="Password" ValidationGroup="Group1"/>
 								<com:TRequiredFieldValidator
 									    ControlToValidate="password"
+									    ValidationGroup="Group1"
 									    ErrorMessage="Your entered an invalid password."
 									    Display="Dynamic"
 									    />
@@ -35,7 +37,7 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td>
-								<com:TButton Text="Login" OnClick="validateUser" />
+								<com:TButton Text="Login" OnClick="validateUser" ValidationGroup="Group1"/>
 							</td>
 						</tr>
 					</table>
