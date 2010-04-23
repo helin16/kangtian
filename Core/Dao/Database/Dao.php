@@ -1195,10 +1195,10 @@ class Dao
 	 * @param array $params
 	 * @return array[]array[]mixed
 	 */
-	public static function getResultsNative($sql, array $params=array())
+	public static function getResultsNative($sql, array $params=array(),$fetch=PDO::FETCH_NUM)
 	{
 		$stmt = self::execSql($sql, $params);
-		$results = $stmt->fetchAll(PDO::FETCH_NUM);
+		$results = $stmt->fetchAll($fetch);
 		return $results;
 	}
 	
