@@ -21,9 +21,10 @@ class NewsLetterService extends BaseService
 				return;
 			}
 		}
-			
-		$sql ="insert into subscriber(`email`,`key`,`isConfirmed`,`created`,`createdById`,`updated`,`updatedById`)
-				value('$email','".md5("$email $now")."','1','$now','1','$now','1')";
+		
+		$langId = Core::getPageLanguage()->getId();
+		$sql ="insert into subscriber(`email`,`key`,`isConfirmed`,`languageId`,`created`,`createdById`,`updated`,`updatedById`)
+				value('$email','".md5("$email $now")."','1','$langId','$now','1','$now','1')";
 		Dao::execSql($sql);
 	}
 	

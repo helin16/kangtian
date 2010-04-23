@@ -83,6 +83,16 @@ class Core
 		var_dump($data);
 		echo "</pre>";
 	}
+	
+	/**
+	 * @return PageLanguage
+	 */
+	public static function getPageLanguage()
+	{
+		$code = isset($_SESSION["language"]) ? $_SESSION["language"] : "en";
+		$service = new LanguageService();
+		return $service->findByCode($code);
+	}
 }
 
 ?>

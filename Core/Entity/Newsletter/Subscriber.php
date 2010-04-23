@@ -4,6 +4,7 @@ class Subscriber extends HydraEntity
 	private $email;
 	private $key;
 	private $isConfirmed;
+	private $language;
 	
 	/**
 	 * getter email
@@ -65,6 +66,28 @@ class Subscriber extends HydraEntity
 		$this->isConfirmed = $isConfirmed;
 	}
 	
+	/**
+	 * getter language
+	 *
+	 * @return language
+	 */
+	public function getLanguage()
+	{
+		$this->loadManyToOne("language");
+		return $this->language;
+	}
+	
+	/**
+	 * setter language
+	 *
+	 * @var language
+	 */
+	public function setLanguage($language)
+	{
+		$this->language = $language;
+	}
+	
+	
 	public function __toString()
 	{
 		return $this->getEmail();
@@ -77,6 +100,7 @@ class Subscriber extends HydraEntity
 		DaoMap::setStringType('email','varchar',200);
 		DaoMap::setStringType('key','varchar',200);
 		DaoMap::setBoolType('isConfirmed');
+		DaoMap::setManyToOne("language","PageLanguage","pl");
 		
 		DaoMap::defaultSortOrder("email");
 		

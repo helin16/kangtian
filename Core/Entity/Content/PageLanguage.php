@@ -2,7 +2,7 @@
 class PageLanguage extends HydraEntity 
 {
 	private $code;
-	private $namge;
+	private $name;
 	private $icon;
 	
 	/**
