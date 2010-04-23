@@ -4,7 +4,16 @@ class Address extends HydraEntity
 {
 	private $line1;
 	private $line2;
-	
+	private $suburb;
+	private $postCode;
+	/**
+	 * @var State
+	 */
+	protected $state;
+	/**
+	 * @var Country
+	 */
+	protected $country;
 	
 	/**
 	 * getter Line1
