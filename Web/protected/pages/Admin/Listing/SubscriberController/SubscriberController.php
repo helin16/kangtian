@@ -9,6 +9,7 @@ class SubscriberController extends CRUDPage
 	{
 		parent::__construct();
 		$this->menuItemName="subscribers";
+		$this->entityName="Subscriber";
 	}
 	
 	/**
@@ -28,14 +29,6 @@ class SubscriberController extends CRUDPage
         }
     }
     
-	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
-    {
-    	$service = new BaseService("Subscriber");
-    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),true,$pageNumber,$pageSize);
-    	$this->totalRows = $service->totalNoOfRows;
-    	return $result;
-    }
-    
 	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Subscriber");
@@ -43,12 +36,6 @@ class SubscriberController extends CRUDPage
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }
-    
-	protected function lookupEntity($id)
-	{
-		$service = new BaseService("Subscriber");
-		return $service->get($id);
-	}
     
     protected function saveEntity(HydraEntity $entity)
     {
@@ -68,16 +55,12 @@ class SubscriberController extends CRUDPage
     {
     	$emailAddr = trim($params->emailAddr->Text);
     	$object->setEmail($emailAddr);
+    	$object->setLanguage(Core::getPageLanguage());
     	if($object->getKey()=="")
     	{
 	    	$now = new HydraDate();
 	    	$object->setKey("$emailAddr $now");
     	}
-    }
-    
- 	protected function createNewEntity()
-    {
-    	return new Subscriber();
     }
     
 	protected function populateAdd()

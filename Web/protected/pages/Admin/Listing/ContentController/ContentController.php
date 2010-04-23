@@ -9,6 +9,7 @@ class ContentController extends CRUDPage
 	{
 		parent::__construct();
 		$this->menuItemName="contents";
+		$this->entityName="Content";
 	}
 	
 	/**
@@ -26,16 +27,6 @@ class ContentController extends CRUDPage
         }
     }
     
-	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
-    {
-    	$service = new BaseService("Content");
-    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),false,$pageNumber,$pageSize);
-    	$this->totalRows = $service->totalNoOfRows;
-    	return $result;
-    }
-    
-
-    
 	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Content");
@@ -44,23 +35,11 @@ class ContentController extends CRUDPage
     	return $result;
     }
     
-	protected function lookupEntity($id)
-	{
-		$service = new BaseService("Content");
-		return $service->get($id);
-	}
-    
     public function shortenText($text,$maxLength=150)
     {
     	if(strlen($text)>$maxLength)
     		return substr($text,0,$maxLength)." ... ";
     	return $text;
-    }
-    
-    protected function saveEntity(HydraEntity $entity)
-    {
-    	$service = new BaseService("Content");
-    	$service->save($entity);
     }
 }
 

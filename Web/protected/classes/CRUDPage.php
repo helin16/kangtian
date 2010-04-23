@@ -3,17 +3,19 @@
 class CRUDPage extends AdminPage 
 {
 	protected $openFirst = false;
+	protected $entityName;
 	
 	public $totalRows;
 	
     protected function createNewEntity()
     {
-    	return null;
+    	return new $this->entityName;
     }
 
     protected function lookupEntity($id)
     {
-    	return null;
+    	$service = new BaseService($this->$entityName);
+    	return $service->get($id);
     }
     
     protected function getFocusEntity($id,$type="")
@@ -28,7 +30,16 @@ class CRUDPage extends AdminPage
     
     protected function saveEntity(&$object)
     {
+    	$msg="";
+    	if($entity->getId()==null)
+    		$msg="New Subscriber Created Successfully!";
+    	else
+    		$msg="Selected Subscriber Updated Successfully!";
+    		
+    	$service = new BaseService($this->entityName);
+    	$service->save($entity);
     	
+    	$this->setInfoMessage($msg);
     }
     
     protected function resetFields($params)
@@ -53,7 +64,10 @@ class CRUDPage extends AdminPage
     
     protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
-    	return null;
+    	$service = new BaseService($this->entityName);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),true,$pageNumber,$pageSize);
+    	$this->totalRows = $service->totalNoOfRows;
+    	return $result;
     }
     
     protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
