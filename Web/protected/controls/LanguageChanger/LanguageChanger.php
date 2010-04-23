@@ -2,6 +2,8 @@
 
 class LanguageChanger extends TTemplateControl  
 {
+	public $redirectPath="/";
+	
 	public function onLoad($param)
 	{
 	}
@@ -11,10 +13,30 @@ class LanguageChanger extends TTemplateControl
 		$lang = $param->CommandParameter;
 //		$info = new CultureInfo();
 //        if($info->validCulture($lang)) //only valid lang is permitted
-            $this->getApplication()->getGlobalization()->setCulture($lang);
-         $_SESSION["language"] = $lang;
-         $this->Response->redirect("/");
+        $_SESSION["language"] = $lang;
+        $this->Response->redirect($this->redirectPath);
 	}
+	
+	/**
+	 * getter redirectPath
+	 *
+	 * @return redirectPath
+	 */
+	public function getRedirectPath()
+	{
+		return $this->redirectPath;
+	}
+	
+	/**
+	 * setter redirectPath
+	 *
+	 * @var redirectPath
+	 */
+	public function setRedirectPath($redirectPath)
+	{
+		$this->redirectPath = $redirectPath;
+	}
+	
 }
 
 ?>
