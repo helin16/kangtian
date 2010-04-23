@@ -29,14 +29,6 @@ class ContentCategoryController extends CRUDPage
         }
     }
     
-	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
-    {
-    	$service = new BaseService("ContentCategory");
-    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),true,$pageNumber,$pageSize);
-    	$this->totalRows = $service->totalNoOfRows;
-    	return $result;
-    }
-    
 	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("ContentCategory");
