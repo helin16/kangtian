@@ -32,3 +32,12 @@ INSERT INTO `assettype` (`id`, `type`, `path`, `active`, `created`, `createdById
 INSERT INTO `pagelanguage` (`id`, `code`, `name`,`icon`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (1, 'en', 'English', '',1, NOW(), 1, NOW(), 1);
 INSERT INTO `pagelanguage` (`id`, `code`, `name`,`icon`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (2, 'zh', '简体中文', '',1, NOW(), 1, NOW(), 1);
 INSERT INTO `pagelanguage` (`id`, `code`, `name`,`icon`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (3, 'zh_TW', '繁体中文', '',1, NOW(), 1, NOW(), 1);
+
+INSERT INTO `state` (`id`, `name`, `countryId`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (1, 'ACT', '1', '1', NOW(), '1', NOW(), '1');
+INSERT INTO `state` (`id`, `name`, `countryId`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (2, 'NSW', '1', '1', NOW(), '1', NOW(), '1');
+INSERT INTO `state` (`id`, `name`, `countryId`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (3, 'NT', '1', '1', NOW(), '1', NOW(), '1');
+INSERT INTO `state` (`id`, `name`, `countryId`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (4, 'SA', '1', '1', NOW(), '1', NOW(), '1');
+INSERT INTO `state` (`id`, `name`, `countryId`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (5, 'VIC', '1', '1', NOW(), '1', NOW(), '1');
+INSERT INTO `state` (`id`, `name`, `countryId`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (6, 'WA', '1', '1', NOW(), '1', NOW(), '1');
+
+INSERT INTO `country` (`id`, `name`, `active`, `created`, `createdById`, `updated`, `updatedById`) VALUES (1, 'Australia', '1', NOW(), '1', NOW(), '1');
