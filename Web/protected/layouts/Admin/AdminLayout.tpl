@@ -66,6 +66,9 @@
 											<a href="/admin/list/content.html" <%= $this->changeId('contents') %>>Contents</a>
 										</li>
 										<li>
+											<a href="/admin/list/contentcategory.html" <%= $this->changeId('contentcategory') %>>Content Categories</a>
+										</li>
+										<li>
 											<a href="/admin/list/project.html" <%= $this->changeId('projects') %>>Projects</a>
 										</li>
 										<li>

@@ -31,13 +31,13 @@ class CRUDPage extends AdminPage
     protected function saveEntity(&$object)
     {
     	$msg="";
-    	if($entity->getId()==null)
+    	if($object->getId()==null)
     		$msg="New Subscriber Created Successfully!";
     	else
     		$msg="Selected Subscriber Updated Successfully!";
     		
     	$service = new BaseService($this->entityName);
-    	$service->save($entity);
+    	$service->save($object);
     	
     	$this->setInfoMessage($msg);
     }

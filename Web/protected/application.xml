@@ -50,6 +50,8 @@
 			
 			<url ServiceParameter="Admin.Listing.SubscriberController.SubscriberController" pattern="admin/list/subscriber.html" />
 			
+			<url ServiceParameter="Admin.Listing.ContentCategory.ContentCategoryController" pattern="admin/list/contentcategory.html" />
+			
 			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>
 	
