@@ -4,7 +4,7 @@ class Subscriber extends HydraEntity
 	private $email;
 	private $key;
 	private $isConfirmed;
-	private $language;
+	protected $language;
 	
 	/**
 	 * getter email
