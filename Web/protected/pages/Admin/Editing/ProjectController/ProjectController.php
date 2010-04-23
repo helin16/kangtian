@@ -106,6 +106,7 @@ class ProjectController extends AdminPage
     		$content->setNoOfBeds(trim($this->noOfBeds->Text));
     		$content->setNoOfBaths(trim($this->noOfBaths->Text));
     		$content->setNoOfCars(trim($this->noOfCars->Text));
+    		$content->setLanguage(Core::getPageLanguage());
     		$service->save($content);
     		
     		$firtOne=true;

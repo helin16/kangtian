@@ -61,6 +61,7 @@ class ContentController extends AdminPage
     		
     		$content->setTitle(trim($this->title->Text));
     		$content->setText(trim($this->description->Text));
+    		$content->setLanguage(Core::getPageLanguage());
     		$service->save($content);
     		
     		$this->setInfoMessage("Content Created Successfully!");

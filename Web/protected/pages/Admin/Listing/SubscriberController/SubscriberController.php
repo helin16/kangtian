@@ -31,7 +31,7 @@ class SubscriberController extends CRUDPage
 	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Subscriber");
-    	$result =  $service->findAll(false,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),true,$pageNumber,$pageSize);
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }
@@ -39,7 +39,7 @@ class SubscriberController extends CRUDPage
 	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Subscriber");
-    	$result =  $service->findByCriteria("(email like '%$searchString%')",true,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId()." and (email like '%$searchString%')",true,$pageNumber,$pageSize);
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }

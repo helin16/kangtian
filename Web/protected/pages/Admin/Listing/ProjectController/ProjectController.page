@@ -39,6 +39,7 @@
 			     EditItemStyle.BackColor="#888888"
 			     SelectedItemStyle.BackColor="lightblue"
 			      AllowPaging="true" AllowCustomPaging="true" PageSize="30" EnableViewState="true"
+			      width="100%"
 			     >
 		     
 			    <prop:HeaderTemplate>

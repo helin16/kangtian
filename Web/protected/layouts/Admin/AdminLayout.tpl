@@ -48,31 +48,40 @@
 							</td>
 							<td width="30%" valign="bottom" style="text-align:right;color:#ffffff;">
 								<br />
-								<%[welcome]%>,&nbsp;&nbsp;<com:TLinkButton ID="usernameBtn" style="color:#ffffff;"/>
+								Welcome,&nbsp;&nbsp;<com:TLinkButton ID="usernameBtn" style="color:#ffffff;"/>
 							</td>
 						</tr>
 					</table>
 				</div>
 				<div id="menu" style="background:#A40404;text-align:left;color:#ffffff;width:100%">
-					<div style="display:block;width:100%;height:25px;">
-						<ul>
-							<li>
-								<a href="/admin/" <%= $this->changeId('home') %>>Admin Home</a>
-							</li>
-							<li>
-								<a href="/admin/list/content.html" <%= $this->changeId('contents') %>>Contents</a>
-							</li>
-							<li>
-								<a href="/admin/list/project.html" <%= $this->changeId('projects') %>>Projects</a>
-							</li>
-							<li>
-								<a href="/admin/list/subscriber.html" <%= $this->changeId('subscribers') %>>Subscribers</a>
-							</li>
-							<li>
-								<com:TLinkButton ID="logout" OnClick="logout" Text="Logout"/>
-							</li>
-						</ul>
-					</div>
+					<table width="100%">
+						<tr>
+							<td>
+								<div style="display:block;width:100%;height:25px;">
+									<ul>
+										<li>
+											<a href="/admin/" <%= $this->changeId('home') %>>Admin Home</a>
+										</li>
+										<li>
+											<a href="/admin/list/content.html" <%= $this->changeId('contents') %>>Contents</a>
+										</li>
+										<li>
+											<a href="/admin/list/project.html" <%= $this->changeId('projects') %>>Projects</a>
+										</li>
+										<li>
+											<a href="/admin/list/subscriber.html" <%= $this->changeId('subscribers') %>>Subscribers</a>
+										</li>
+										<li>
+											<com:TLinkButton ID="logout" OnClick="logout" Text="Logout"/>
+										</li>
+									</ul>
+								</div>
+							</td>
+							<td width="20%">
+								<com:Application.controls.LanguageChanger.LanguageChanger ID="langChanger" RedirectPath="/admin"/>
+							</td>
+						</tr>
+					</table>
 				</div>
 				<div style="min-height:400px;padding:15px;text-align:left; width:100%;">
 					<com:TActiveLabel ID="infoLabel" style="color:green;font-weight:bold; padding: 5px;"/>

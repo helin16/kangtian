@@ -29,7 +29,7 @@ class ProjectController extends CRUDPage
 	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Project");
-    	$result =  $service->findAll(false,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),false,$pageNumber,$pageSize);
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }
@@ -37,7 +37,7 @@ class ProjectController extends CRUDPage
 	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Project");
-    	$result =  $service->findByCriteria("(pro.title like '%$searchString%' or pro.intro like '%$searchString%' or pro.fullText like '%$searchString%')",false,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId()."(pro.title like '%$searchString%' or pro.intro like '%$searchString%' or pro.fullText like '%$searchString%')",false,$pageNumber,$pageSize);
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }

@@ -3,6 +3,15 @@ class AdminPage extends TPage
 {
 	public $menuItemName;
 	protected $blankLayout;
+	protected $pageLanguage;
+	
+	public function __construct()
+	{
+		parent::__construct();
+		
+		$this->pageLanguage = Core::getPageLanguage();
+	}
+	
 	public function onPreInit($param)
 	{
 		parent::onPreInit($param);
