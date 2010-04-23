@@ -154,6 +154,7 @@ class Project extends HydraEntity
 	 */
 	public function getAddress()
 	{
+		$this->loadManyToOne("address");
 		return $this->address;
 	}
 	

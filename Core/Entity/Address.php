@@ -82,6 +82,7 @@ class Address extends HydraEntity
 	 */
 	public function getState()
 	{
+		$this->loadManyToOne("state");
 		return $this->state;
 	}
 	
@@ -102,6 +103,7 @@ class Address extends HydraEntity
 	 */
 	public function getCountry()
 	{
+		$this->loadManyToOne("country");
 		return $this->country;
 	}
 	
@@ -149,7 +151,7 @@ class Address extends HydraEntity
 		DaoMap::setStringType('suburb','varchar');
 		DaoMap::setStringType('postCode','varchar');
 		DaoMap::setManyToOne("state","State","st");
-		DaoMap::setManyToOne("country","country","con");
+		DaoMap::setManyToOne("country","Country","con");
 		DaoMap::commit();
 	}
 }
