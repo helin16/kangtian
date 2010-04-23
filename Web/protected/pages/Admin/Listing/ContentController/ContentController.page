@@ -47,8 +47,8 @@
 			    <prop:HeaderTemplate>
 					<table width="100%" height="32">
 						<tr align="left">
-							<td width="20%">Title</td>
 							<td>Content</th>
+							<td width="20%">Categories</td>
 							<td width="20%">Created</td>
 							<td width="5%">Active</td>
 							<td width="5%">&nbsp;</td>
@@ -58,12 +58,13 @@
 				
 				<prop:ItemTemplate>
 					<table width="100%">
-						<tr>
-							<td width="20%">
-								<b><%#$this->DataItem->getTitle()%></b><br />
-							</td>
+						<tr valign="top">
 							<td>
+								<b><%#$this->DataItem->getTitle()%></b><br /><br />
 								<%# $this->Page->shortenText($this->DataItem->getText(),200)%>
+							</td>
+							<td width="20%">
+								<%# $this->Page->getCategoryList($this->DataItem) %>
 							</td>
 							<td width="20%">
 								<b>Created</b><br />
@@ -78,7 +79,7 @@
 								<com:TCheckBox Id="Active" Checked="<%#$this->DataItem->getActive()%>"  AutoPostBack="true" OnCheckedChanged="Page.toggleActive"/>
 							</td>
 							<td width="5%">
-								<com:TImageButton ID="EditButton" ImageUrl="../../../image/edit.png" Text="Edit" 
+								<com:TImageButton ID="EditButton" ImageUrl="/image/edit.png" Text="Edit" 
 										Attributes.OnClick="$('lightbox').src='/admin/edit/content/<%# $this->DataItem->getId() %>.html';$('fade').show();$('lightbox').show();return false;" 
 												ToolTip="Edit Record" />
 							</td>

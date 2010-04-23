@@ -41,6 +41,7 @@
 			
 			<!--  Content Page -->
 			<url ServiceParameter="Admin.Listing.ContentController.ContentController" pattern="admin/list/content.html" />
+			<url ServiceParameter="Admin.Listing.ContentController.ContentController" pattern="admin/list/content/{searchby}/{id}.html" parameters.id="\d+" parameters.searchby="\w+"/>
 			<url ServiceParameter="Admin.Editing.ContentController.ContentController" pattern="admin/add/content.html" />
 			<url ServiceParameter="Admin.Editing.ContentController.ContentController" pattern="admin/edit/content/{id}.html" parameters.id="\d+" />
 			

@@ -29,7 +29,7 @@
 							ValidationGroup="Group1"
 							ControlToValidate="name"
 							Display="Dynamic"
-							Text="<%[NewsLetter.emailAddrRequired]%>" />
+							Text=" * required" />
 					</td>
 					<td width="25%">
 						<com:TButton Text="Save" ID="addNewBtn" OnClick="save" ValidationGroup="Group1"/>
@@ -86,6 +86,7 @@
 							</td>
 							<td width="10%">
 								<com:TImageButton ID="EditButton" ImageUrl="../../../image/edit.png" CommandName="edit" ToolTip="Edit Record" />
+								<a href="/admin/list/content/contentcategory/<%# $this->DataItem->getId() %>.html">Contents</a>
 							</td>
 						</tr>
 					</table>
@@ -100,7 +101,7 @@
 									ValidationGroup="Group2"
 									ControlToValidate="name"
 									Display="Dynamic"
-									Text="<%[NewsLetter.emailAddrRequired]%>" />
+									Text=" * required" />
 							</td>
 							<td width="20%">
 								<b>By:</b> <%# $this->DataItem->getCreatedBy()->getPerson() %><br />

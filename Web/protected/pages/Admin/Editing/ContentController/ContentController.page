@@ -5,7 +5,32 @@
 				<b>Title</b>
 			</td>
 			<td>
-				<com:TTextBox ID="title" /><br /><br />
+				<com:TTextBox ID="title" ValidationGroup="Group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="Group1"
+					ControlToValidate="title"
+					Display="Dynamic"
+					Text="* required" />
+			</td>
+		</tr>
+		<tr>
+			<td valign="top">
+				<b>Categories</b>
+			</td>
+			<td>
+				<com:TListBox ID="categoryList" 
+					DataValueField="id"
+					DataTextField="name"	
+					ValidationGroup="Group1"	
+					Rows="4"
+					SelectionMode="Multiple"		
+				/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="Group1"
+					ControlToValidate="categoryList"
+					Display="Dynamic"
+					Text="* required" />
+				<br /><br />
 			</td>
 		</tr>
 		<tr>
@@ -38,7 +63,7 @@
 				&nbsp;
 			</td>
 			<td>
-				<com:TButton Id="saveBtn" Text="Save" OnClick="Page.save" />
+				<com:TButton Id="saveBtn" Text="Save" OnClick="Page.save"  ValidationGroup="Group1"/>
 			</td>
 		</tr>
 	</table>	
