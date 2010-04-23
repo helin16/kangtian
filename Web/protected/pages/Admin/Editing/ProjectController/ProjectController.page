@@ -33,13 +33,42 @@
 				<b>Title</b>
 			</td>
 			<td style='vertical-align:bottom;'>
-				<com:TTextBox ID="title"  style='width:200px;'/>
+				<com:TTextBox ID="title"  style='width:200px;' ValidationGroup="group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="title"
+					Display="Dynamic"
+					Text="* required" />
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-				<com:TImage  ImageUrl="/image/project/beds.png" ImageAlign="baseline"/> <com:TTextBox ID="noOfBeds" style ="width:20px;" />
+				<com:TImage  ImageUrl="/image/project/beds.png" ImageAlign="baseline"/> 
+				<com:TTextBox ID="noOfBeds" style ="width:20px;" ValidationGroup="group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="noOfBeds"
+					Display="Dynamic"
+					Text="* required" />
 				&nbsp;&nbsp;
-				<com:TImage  ImageUrl="/image/project/baths.png" ImageAlign="baseline"/> <com:TTextBox ID="noOfBaths" style ="width:20px;" />
+				<com:TImage  ImageUrl="/image/project/baths.png" ImageAlign="baseline"/> 
+				<com:TTextBox ID="noOfBaths" style ="width:20px;" ValidationGroup="group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="noOfBaths"
+					Display="Dynamic"
+					Text="* required" />
 				&nbsp;&nbsp;
-				<com:TImage  ImageUrl="/image/project/parking_spaces.png" ImageAlign="baseline"/> <com:TTextBox ID="noOfCars" style ="width:20px;" />
+				<com:TImage  ImageUrl="/image/project/parking_spaces.png" ImageAlign="baseline"/> 
+				<com:TTextBox ID="noOfCars" style ="width:20px;" ValidationGroup="group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="noOfCars"
+					Display="Dynamic"
+					Text="* required" />
+				<br /><br />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<com:Application.controls.Address.AddressControl ID="address" ValidationGroup="group1" GroupingText="Address"/>
 				<br /><br />
 			</td>
 		</tr>
@@ -65,7 +94,12 @@
 				        nonbreaking_force_tab : true,
 				        apply_source_formatting : true
 				  	</prop:Options>
-				</com:THtmlArea><br /><br />
+				</com:THtmlArea>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="description"
+					Display="Dynamic"
+					Text="* required" /><br /><br />
 			</td>
 		</tr>
 		<tr>
@@ -94,7 +128,7 @@
 			</td>
 			<td>
 				<br /><br />
-				<com:TButton Id="saveBtn" Text="Save" OnClick="Page.save" style="width:120px;"/>
+				<com:TButton Id="saveBtn" Text="Save" OnClick="Page.save" style="width:120px;" ValidationGroup="group1"/>
 			</td>
 		</tr>
 	</table>	

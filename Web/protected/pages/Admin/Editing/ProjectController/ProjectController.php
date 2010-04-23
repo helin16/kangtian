@@ -45,6 +45,17 @@ class ProjectController extends AdminPage
     	$this->noOfBaths->Text = $content->getNoOfBaths();
     	$this->noOfCars->Text = $content->getNoOfCars();
     	
+    	$address = $content->getAddress();
+    	if($address instanceof Address)
+    	{
+    		$this->address->address->Text = $address->getLine1();
+    		$this->address->suburb->Text = $address->getSuburb();
+    		$state = $address->getState();
+    		if($state instanceof State)
+    			$this->address->stateList->setSelectedValue($state->getId());
+    		$this->address->postcode->Text = $address->getPostCode();
+    	}
+    	
     	$assetIds = array();
     	
     	$service = new BaseService("ProjectImage");
@@ -67,6 +78,7 @@ class ProjectController extends AdminPage
     	
     	$assetIds = unserialize(trim($this->assetIds->Value));
     	
+    	$msg="";
     	//editing an exsiting content
     	if($this->id!==null)
     	{
@@ -95,7 +107,7 @@ class ProjectController extends AdminPage
     			}
     		}
     		
-    		$this->setInfoMessage("Project Updated Successfully!");
+    		$msg="Project Updated Successfully!";
     	}
     	else
     	{
@@ -120,8 +132,14 @@ class ProjectController extends AdminPage
     			$firtOne=false;
     		}
     		
-    		$this->setInfoMessage("Project Created Successfully!");
+    		$msg="Project Created Successfully!";
     	}
+    	
+    	$address = $this->getAddress(trim($this->address->address->Text),trim($this->address->suburb->Text),$this->address->stateList->getSelectedValue(),trim($this->address->postcode->Text), true);
+    	$content->setAddress($address);
+    	$service->save($content);
+    	
+    	$this->setInfoMessage($msg);
     }
     
     public function loadImages()
@@ -268,6 +286,34 @@ class ProjectController extends AdminPage
      	
 //     	$assetServer->removeAsset($showingAssetId);
      	$this->loadImages();
+     }
+     
+     private function getAddress($line1,$suburb,$stateId,$postCode,$createNew=false)
+     {
+     	$addrService = new BaseService("Address");
+     	$result = $addrService->findByCriteria("line1 like '$line1' and suburb like '$suburb' and stateId='$stateId' and postCode like '$postCode'");
+     	
+     	if(count($result)>0)
+     		return $result[0];
+     		
+     	$address=null;
+     	if($createNew)
+     	{
+     		$service = new BaseService("State");
+     		$state = $service->get($stateId);
+     		if(!$state instanceof State )
+     			throw new Exception("Invalid State!");
+     			
+     		$address = new Address();
+     		$address->setLine1($line1);
+     		$address->setLine2("");
+     		$address->setSuburb($suburb);
+     		$address->setPostCode($postCode);
+     		$address->setState($state);
+     		$address->setCountry($state->getCountry());
+     		$addrService->save($address);
+     	}
+     	return $address;
      }
 }
 
