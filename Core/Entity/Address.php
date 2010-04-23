@@ -135,7 +135,7 @@ class Address extends HydraEntity
 	{
 		DaoMap::begin($this, 'addr');
 		
-		DaoMap::setStringType('line1','varchar');
+		DaoMap::setStringType('line1','varchar',255);
 		DaoMap::setStringType('line2','varchar');
 		DaoMap::setStringType('suburb','varchar');
 		DaoMap::setStringType('postCode','varchar');
