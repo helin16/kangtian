@@ -12,15 +12,7 @@
 <body>
 	<center>
 		<com:TForm>
-			<script type="text/javascript">
-				function loadSubscriptionMsg()
-				{
-					if($('<%= $this->subscripionErrorMsg->getClientId()%>').value!='')
-						alert($('<%= $this->subscripionErrorMsg->getClientId()%>').value);
-				}
-			</script>
 			<div>
-				<com:TActiveHiddenField ID="subscripionErrorMsg" />
 				<div id="logo" style="width:100%;">
 					<div class="innerWrapper">
 						<table width="100%">
@@ -62,58 +54,23 @@
 							<table border='0' cellspacing="0" cellpadding="0" width="100%">
 								<tr valign='top'>
 									<td width='31%'>
-										<%= $this->getSuccessStory()%>
+										<com:Application.classes.Content.ContentSnapshotControl ID="welcome" Title="welcome" SubTitle="success stories"/>
 									</td>
 									<td width='3%'>&nbsp;</td>
 									<td width='31%'>
-										<%= $this->getWhyChooseUs()%>
+										<com:Application.classes.Content.ContentSnapshotControl ID="whyus" Title="welcome" SubTitle="your benefits"/>
 									</td>
 									<td width='3%'>&nbsp;</td>
 									<td>
 										<table border='0' cellspacing="0" cellpadding="0" width="100%">
 											<tr valign='top'>
 												<td>
-													<%= $this->getNewsHeadLine()%>
+													<com:Application.classes.Content.ContentListControl ID="headline" CategoryId="2" SubTitle="what's new"/>
 												</td>
 											</tr>
 											<tr valign='top'>
 												<td>
-													<com:TPanel ID="newLetterPanel" DefaultButton="subscribeBtn">
-														<table style='width:100%;padding:0px;margin:20px 0 0 0px;height:110px;'  border='0' cellspacing="0" cellpadding="0">
-															<tr valign='top'>
-																<td style="width:6px;background:transparent url(/Theme/<%=$this->Page->getDefaultThemeName()%>/images/newsletter_left.png) no-repeat right top;">&nbsp;</td>
-																<td style="background:transparent url(/Theme/<%=$this->Page->getDefaultThemeName()%>/images/newsletter_mid.png) repeat-x left top;">
-																	<table border='0' cellspacing="0" cellpadding="0" style='padding: 10px 0 0 20px;'>
-																		<tr>
-																			<td style='color:#ffffff;font-size:24px;padding: 0 0 5px 0;'><%[NewsLetter.newsletter]%></td>
-																			<td>&nbsp;</td>
-																		</tr>
-																		<tr>
-																			<td>
-																				<com:TActiveTextBox ID="subscribe_email" 
-																						style='border:none;height:20px;width:200px;margin:0px;padding:2px 0 2px 5px;background:transparent url(/Theme/<%=$this->Page->getDefaultThemeName()%>/images/newsletter_input.png) no-repeat left top;' />
-																			</td>
-																			<td>
-																				<com:TActiveImageButton ID="subscribeBtn" style='padding:0 5px 2px 0;outline:none;' OnClick="subscribe" 
-																						ImageUrl="/Theme/<%=$this->Page->getDefaultThemeName()%>/images/newsletter_button.png">
-																					<prop:ClientSide OnLoading="$('<%= $this->subscribeBtn->getClientId()%>').hide();$('subscribe_loading').show();"
-																								OnComplete="$('<%= $this->subscribeBtn->getClientId()%>').show();$('subscribe_loading').hide();loadSubscriptionMsg();" />
-																				</com:TActiveImageButton>
-																				<img id='subscribe_loading' src='/image/ajax-loader.gif' style='display:none;'/>
-																			</td>
-																		</tr>
-																		<tr>
-																			<td style='padding-top:5px;'>
-																				<a href='/newsletter/unsubscribe.html' style='color:#ffffff;'><%[NewsLetter.unsubscribe]%></a>
-																			</td>
-																			<td>&nbsp;</td>
-																		</tr>
-																	</table>
-																</td>
-																<td style="width:6px;background:transparent url(/Theme/<%=$this->Page->getDefaultThemeName()%>/images/newsletter_right.png) no-repeat left top;">&nbsp;</td>
-															</tr>
-														</table>
-													</com:TPanel>
+													<com:Application.controls.NewsLetter.NewsLetterControl ID="newsletter" ImageRootPath="/Theme/<%=$this->Page->getDefaultThemeName()%>/"/>
 												</td>
 											</tr>
 										</table>
