@@ -41,6 +41,20 @@
 						</com:TPanel>
 					</td>
 				</tr>
+				<tr>
+					<td style="padding:5px 0 5px 0;">
+						<com:TPanel ID="mapPanel" GroupingText="<%[project.map]%>">
+							<com:Application.controls.GoogleMap.GoogleMapControl ID="map" />
+						</com:TPanel>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding:5px 0 5px 0;">
+						<com:TPanel GroupingText="<%[Menu.contactus]%>">
+							<com:Application.controls.Contactus.ContactusControl ID="enquiry" />
+						</com:TPanel>
+					</td>
+				</tr>
 			</table>
 		</com:TPanel>		
 	</div>

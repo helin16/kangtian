@@ -154,6 +154,11 @@
 					<source>project.images</source>
 					<target>照片</target>
 				</trans-unit>
+				
+				<trans-unit>
+					<source>project.map</source>
+					<target>地图</target>
+				</trans-unit>
 			//-- end of project -----------------------------------------------------
 		</body>
     </file>

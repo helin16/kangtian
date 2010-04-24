@@ -164,6 +164,11 @@
 					<source>project.images</source>
 					<target>Property Images</target>
 				</trans-unit>
+				
+				<trans-unit>
+					<source>project.map</source>
+					<target>Map</target>
+				</trans-unit>
 			//-- end of project -----------------------------------------------------
 		</body>
     </file>
