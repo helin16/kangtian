@@ -139,7 +139,8 @@ class Address extends HydraEntity
 	
 	public function __toString()
 	{
-		return $this->getLine1()." ".$this->getLine2()." ".$this->getSuburb()." ".$this->getState()." ".$this->getCountry()." ".$this->getPostCode();
+		$line = trim($this->getLine1()." ".$this->getLine2());
+		return ($line==""? "" : ", ").$this->getSuburb().", ".$this->getState().", ".$this->getCountry()." ".$this->getPostCode();
 	}
 	
 	public function __loadDaoMap()
