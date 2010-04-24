@@ -22,17 +22,19 @@
 		
 			<url ServiceParameter="FileLoader.FileLoaderController" pattern="asset/{assetId}/{param}" parameters.assetId="\w+"  parameters.param=".+" />
 			
-			<url ServiceParameter="ContentLoader.ContentLoaderController" pattern="content/{title}.html" parameters.title="\w+" />
-			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}.html" parameters.action="\w+" />
-			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}/{key}.html" parameters.action="\w+" parameters.key="\w+" />
+			<url ServiceParameter="Login.Login" pattern="login.html" />
 			
 			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
 			<url ServiceParameter="Services.ServicesController" pattern="services.html"/>
-			<url ServiceParameter="Gallery.GalleryController" pattern="gallery.html"/>
-			<url ServiceParameter="Links.LinksController" pattern="links.html"/>
+			<url ServiceParameter="ContentLoader.ContentLoaderController" pattern="content/{title}.html" parameters.title="\w+" />
+			
+			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}.html" parameters.action="\w+" />
+			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}/{key}.html" parameters.action="\w+" parameters.key="\w+" />
+			
 			<url ServiceParameter="Projects.ProjectsController" pattern="projects.html"/>
-			<url ServiceParameter="Login.Login" pattern="login.html" />
+			<url ServiceParameter="Projects.ViewProject.ViewProjectController" pattern="project/{title}.html" parameters.title="\w+" />
+			
 			
 			<!--  ################################################# -->
 			<!--  Admin Page 										-->

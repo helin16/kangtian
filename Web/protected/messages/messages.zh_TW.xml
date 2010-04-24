@@ -121,6 +121,40 @@
 					<target>請輸入電子郵件地址</target>
 				</trans-unit>
 			//-- end of news letter -----------------------------------------------------
+			
+			//-- start of pagination ----------------------------------------------------- 
+				<trans-unit>
+					<source>pagination.selectPage</source>
+					<target>Select Page</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>pagination.goToPage</source>
+					<target>Go To Page</target>
+				</trans-unit>
+			//-- end of pagination -----------------------------------------------------
+			
+			//-- start of project ----------------------------------------------------- 
+				<trans-unit>
+					<source>Project.viewDetailsBtn</source>
+					<target>Vew Details</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>project.houseInfo</source>
+					<target>House</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>project.houseDetails</source>
+					<target>Property Description</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>project.images</source>
+					<target>Property Images</target>
+				</trans-unit>
+			//-- end of project -----------------------------------------------------
 		</body>
     </file>
 </xliff>

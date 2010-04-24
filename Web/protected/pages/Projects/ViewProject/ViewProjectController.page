@@ -1,0 +1,47 @@
+<com:TContent ID="MainContent">
+	<div class="bodyWrapper">
+		<com:TLabel ID="title" />
+		<com:TPanel ID="ListingPanel" style="width:98%;">
+			<table width="100%" height="32">
+				<tr>
+					<td style="font-weight:bold;font-size:18px;padding-bottom:15px;Color:#BF3A17;">
+						<com:TLabel ID="address"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<com:TPanel GroupingText="<%[project.images]%>" style="width:100%;">
+						</com:TPanel>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<com:TPanel GroupingText="<%[project.houseInfo]%>" style="width:100%;">
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							<com:TImage  ImageUrl="/image/project/beds.png" ImageAlign="baseline"/> 
+							<com:TLabel ID="noOfBeds" />
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							
+							<com:TImage  ImageUrl="/image/project/baths.png" ImageAlign="baseline"/> 
+							<com:TLabel ID="noOfBaths" />
+							&nbsp;&nbsp;&nbsp;&nbsp;
+							
+							<com:TImage  ImageUrl="/image/project/parking_spaces.png" ImageAlign="baseline"/> 
+							<com:TLabel ID="noOfCars" />
+							&nbsp;&nbsp;&nbsp;&nbsp;
+						</com:TPanel>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding:5px 0 5px 0;">
+						<com:TPanel GroupingText="<%[project.houseDetails]%>">
+							<div style="width:96%;text-align:justify;padding:0px 2% 0px 2%;">
+								<com:TLabel ID="description"/>
+							</div>
+						</com:TPanel>
+					</td>
+				</tr>
+			</table>
+		</com:TPanel>		
+	</div>
+</com:TContent>
