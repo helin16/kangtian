@@ -11,6 +11,7 @@
 				<tr>
 					<td>
 						<com:TPanel GroupingText="<%[project.images]%>" style="width:100%;">
+							<com:Application.controls.ProjectImages.ProjectImagesControl ID="projectImages"/>
 						</com:TPanel>
 					</td>
 				</tr>

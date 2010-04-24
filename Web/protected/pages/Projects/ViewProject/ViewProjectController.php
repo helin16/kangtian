@@ -31,6 +31,7 @@ class ViewProjectController extends EshopPage
 		$project = $projects[0];
 		$address =trim($project->getAddress());
 		$this->address->Text = $address;
+		$this->projectImages->ProjectId=$project->getId();
 		$this->noOfBeds->Text = $project->getNoOfBeds();
 		$this->noOfBaths->Text = $project->getNoOfBaths();
 		$this->noOfCars->Text = $project->getNoOfCars();
