@@ -20,7 +20,7 @@ return array(
 					),
 				'email'=> array(
 					'contactUsReciever'=>'Administrator',
-					'contactUsRecieverEmail'=>'admin@localhost.com'
+					'contactUsRecieverEmail'=>'helin16@gmail.com'
 					),
 				'time'=>array(
 						'defaultTimeZone'=>'Australia/Melbourne'
