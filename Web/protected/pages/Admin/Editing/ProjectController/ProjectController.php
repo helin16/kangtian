@@ -86,6 +86,9 @@ class ProjectController extends AdminPage
     		
     		$content->setTitle(trim($this->title->Text));
     		$content->setDescription(trim($this->description->Text));
+    		$content->setNoOfBeds(trim($this->noOfBeds->Text));
+    		$content->setNoOfBaths(trim($this->noOfBaths->Text));
+    		$content->setNoOfCars(trim($this->noOfCars->Text));
     		$service->save($content);
     		
     		//get exsiting project images
