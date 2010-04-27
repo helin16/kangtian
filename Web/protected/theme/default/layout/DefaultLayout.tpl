@@ -109,5 +109,6 @@
 			</div>
 		</com:TForm>
 	<center>
+	<com:Application.controls.GoogleAnalytics.GoogleAnalyticsControl ID="analytics"/>
 </body>
 </html>
