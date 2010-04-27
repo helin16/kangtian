@@ -14,7 +14,7 @@ class CRUDPage extends AdminPage
 
     protected function lookupEntity($id)
     {
-    	$service = new BaseService($this->$entityName);
+    	$service = new BaseService($this->entityName);
     	return $service->get($id);
     }
     
