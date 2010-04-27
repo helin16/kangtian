@@ -20,7 +20,7 @@
 								<td align="left">
 									<a href='/' style='outline:none;'><img style="border:none;" src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/Logo2.png" Title="ARG Property Logo"/></a>
 								</td>
-								<td width="30%" align="right">
+								<td width="20%" align="right">
 									<com:Application.controls.LanguageChanger.LanguageChanger ID="langChanger"/>
 								</td>
 							</tr>

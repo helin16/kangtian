@@ -1,14 +1,26 @@
 <com:TPanel ID="langChangerPanel">
-	<table width="100%">
+	<style>
+		.changeLanguageBtn
+		{
+			color:#BF3A17;
+			text-decoration:none;
+			outline:none;
+		}
+		.changeLanguageBtn:hover
+		{
+			text-decoration:underline;
+		}
+	</style>
+	<table width="100%"">
 		<tr>
 			<td>
-				<com:TLinkButton OnCommand="changeLanguage" CommandParameter="en" Text='English'/>
+				<com:TLinkButton CssClass="changeLanguageBtn" OnCommand="changeLanguage" CommandParameter="en" Text='English'/>
 			</td>
 			<td>
-				<com:TLinkButton OnCommand="changeLanguage" CommandParameter="zh" Text='简体中文'/>
+				<com:TLinkButton CssClass="changeLanguageBtn" OnCommand="changeLanguage" CommandParameter="zh" Text='简体中文'/>
 			</td>
 			<td>
-				<com:TLinkButton OnCommand="changeLanguage" CommandParameter="zh_TW" Text='繁体中文'/>
+				<com:TLinkButton CssClass="changeLanguageBtn" OnCommand="changeLanguage" CommandParameter="zh_TW" Text='繁体中文'/>
 			</td>
 		</tr>
 	</table>	
