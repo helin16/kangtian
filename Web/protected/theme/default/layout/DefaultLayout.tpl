@@ -54,18 +54,18 @@
 							<table border='0' cellspacing="0" cellpadding="0" width="100%">
 								<tr valign='top'>
 									<td width='31%'>
-										<com:Application.classes.Content.ContentSnapshotControl ID="welcome" Title="welcome" SubTitle="success stories"/>
+										<com:Application.classes.Content.ContentSnapshotControl ID="welcome" Title="<%[content.customersays]%>" SubTitle="<%[content.successStories]%>"/>
 									</td>
 									<td width='3%'>&nbsp;</td>
 									<td width='31%'>
-										<com:Application.classes.Content.ContentSnapshotControl ID="whyus" Title="welcome" SubTitle="your benefits"/>
+										<com:Application.classes.Content.ContentSnapshotControl ID="whyus" Title="<%[content.whychooseus]%>" SubTitle="<%[content.yourBenifits]%>"/>
 									</td>
 									<td width='3%'>&nbsp;</td>
 									<td>
 										<table border='0' cellspacing="0" cellpadding="0" width="100%">
 											<tr valign='top'>
 												<td>
-													<com:Application.classes.Content.ContentListControl ID="headline" CategoryId="2" SubTitle="what's new"/>
+													<com:Application.classes.Content.ContentListControl ID="headline" NoOfItems="3" CategoryName="<%[content.newsHeadlines]%>" SubTitle="<%[content.whatsnew]%>"/>
 												</td>
 											</tr>
 											<tr valign='top'>
@@ -82,7 +82,23 @@
 				</com:TPanel>
 				<com:TPanel ID="footerPanel" CssClass="footer"  style="width:100%;">
 					<div class="innerWrapper">
-						<com:TPanel ID="footerContainer" />
+						<com:TPanel ID="footerContainer">
+							<table border='0' cellspacing="0" cellpadding="0" width="100%">
+								<tr valign='top'>
+									<td width='31%'>
+										<com:Application.classes.Content.ContentListControl ID="activityList" CategoryName="<%[content.activities]%>" />
+									</td>
+									<td width='3%'>&nbsp;</td>
+									<td width='31%'>
+										<com:Application.classes.Content.ContentListControl ID="serviceList" CategoryName="<%[content.popularServices]%>" />
+									</td>
+									<td width='3%'>&nbsp;</td>
+									<td>
+										<com:Application.classes.Content.ContentListControl ID="projectList" CategoryName="<%[content.projects]%>" />
+									</td>
+								</tr>
+							</table>
+						</com:TPanel>
 					</div>
 				</com:TPanel>
 				<div id="copyright" style="width:100%;">

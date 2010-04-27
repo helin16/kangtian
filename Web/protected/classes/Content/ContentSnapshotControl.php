@@ -4,7 +4,7 @@ class ContentSnapshotControl extends TPanel
 {
 	public $title;
 	public $subTitle="";
-	public $maxIntroLength=450;
+	public $maxIntroLength=350;
 	
 	/**
 	 * getter title

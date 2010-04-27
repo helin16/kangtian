@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<application id="KangTianProperty" mode="Debug">
+<application id="KangTianProperty" mode="Normal">
   <!-- alias definitions and namespace usings
   <paths>
     <alias id="myalias" path="./lib" />
@@ -27,13 +27,13 @@
 			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
 			<url ServiceParameter="Services.ServicesController" pattern="services.html"/>
-			<url ServiceParameter="ContentLoader.ContentLoaderController" pattern="content/{title}.html" parameters.title="\w+" />
+			<url ServiceParameter="ContentLoader.ContentLoaderController" pattern="content/{title}.html" parameters.title=".+" />
 			
 			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}.html" parameters.action="\w+" />
 			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}/{key}.html" parameters.action="\w+" parameters.key="\w+" />
 			
 			<url ServiceParameter="Projects.ProjectsController" pattern="projects.html"/>
-			<url ServiceParameter="Projects.ViewProject.ViewProjectController" pattern="project/{title}.html" parameters.title="\w+" />
+			<url ServiceParameter="Projects.ViewProject.ViewProjectController" pattern="project/{title}.html" parameters.title=".+" />
 			
 			
 			<!--  ################################################# -->

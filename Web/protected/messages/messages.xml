@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xliff version="1.0">
-    <file original="I18N Example IndexPage" source-language="EN" datatype="plaintext" date="2010-04-22T22:13:21Z">
+    <file original="I18N Example IndexPage" source-language="EN" datatype="plaintext" date="2010-04-27T20:32:43Z">
         <body>
         	//-- start of Menu ----------------------------------------------------- 
 				<trans-unit>
@@ -170,6 +170,58 @@
 					<target>Map</target>
 				</trans-unit>
 			//-- end of project -----------------------------------------------------
+			
+			//-- start of content title --------------------------------------------
+				<trans-unit>
+					<source>content.welcome</source>
+					<target>welcome</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.whychooseus</source>
+					<target>why choose us</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.successStories</source>
+					<target>success stories</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.yourBenifits</source>
+					<target>your benefits</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.newsHeadlines</source>
+					<target>News Headlines</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.whatsnew</source>
+					<target>what's new</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.customersays</source>
+					<target>customer says</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.projects</source>
+					<target>Projects</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.popularServices</source>
+					<target>Services</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.activities</source>
+					<target>Activities</target>
+				</trans-unit>
+			//-- end of content title --------------------------------------------
 		</body>
     </file>
 </xliff>

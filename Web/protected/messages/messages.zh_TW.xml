@@ -160,6 +160,58 @@
 					<target>Property Images</target>
 				</trans-unit>
 			//-- end of project -----------------------------------------------------
+			
+			//-- start of content title --------------------------------------------
+				<trans-unit>
+					<source>content.welcome</source>
+					<target>歡迎訪問迎</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.whychooseus</source>
+					<target>為什麼選擇我們</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.successStories</source>
+					<target>成功的故事</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.yourBenifits</source>
+					<target>您的利益</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.newsHeadlines</source>
+					<target>新聞標題</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.whatsnew</source>
+					<target>最新消息</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.customersays</source>
+					<target>客戶反饋</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.projects</source>
+					<target>最新項目</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.popularServices</source>
+					<target>熱門服務</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.activities</source>
+					<target>最新活動</target>
+				</trans-unit>
+			//-- end of content title --------------------------------------------
 		</body>
     </file>
 </xliff>

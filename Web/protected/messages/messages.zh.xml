@@ -160,6 +160,58 @@
 					<target>地图</target>
 				</trans-unit>
 			//-- end of project -----------------------------------------------------
+			
+			//-- start of content title --------------------------------------------
+				<trans-unit>
+					<source>content.welcome</source>
+					<target>欢迎访问</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.whychooseus</source>
+					<target>为什么选择我们</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.successStories</source>
+					<target>成功的故事</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.yourBenifits</source>
+					<target>您的利益</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.newsHeadlines</source>
+					<target>新闻标题</target>
+				</trans-unit>
+					
+				<trans-unit>
+					<source>content.whatsnew</source>
+					<target>最新消息</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.customersays</source>
+					<target>客户反馈</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.projects</source>
+					<target>最新项目</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.popularServices</source>
+					<target>受欢迎的服务</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.activities</source>
+					<target>最新活动</target>
+				</trans-unit>
+			//-- end of content title --------------------------------------------
 		</body>
     </file>
 </xliff>
