@@ -208,8 +208,8 @@
 				</trans-unit>
 				
 				<trans-unit>
-					<source>content.activities</source>
-					<target>最新活动</target>
+					<source>content.readmore</source>
+					<target>更多 ...</target>
 				</trans-unit>
 			//-- end of content title --------------------------------------------
 		</body>

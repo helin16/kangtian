@@ -211,6 +211,11 @@
 					<source>content.activities</source>
 					<target>最新活動</target>
 				</trans-unit>
+				
+				<trans-unit>
+					<source>content.readmore</source>
+					<target>更多 ...</target>
+				</trans-unit>
 			//-- end of content title --------------------------------------------
 		</body>
     </file>

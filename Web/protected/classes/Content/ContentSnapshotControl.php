@@ -104,7 +104,7 @@ class ContentSnapshotControl extends TPanel
 			$html .= "<tr>";
 				$html .= "<td>";
 					$title = str_replace(" ","_",trim($title));
-					$html .= "<a href='/content/$title.html' style=\"padding:5px;color:#BF3A17;font-size:12px;\">Read more</a>";
+					$html .= "<a href='/content/$title.html' style=\"padding:5px;color:#BF3A17;font-size:12px;\">".Prado::localize("content.readmore")."</a>";
 				$html .= "</td>";
 			$html .= "</tr>";
 		$html .= "</table>";
