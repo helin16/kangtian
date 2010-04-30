@@ -80,7 +80,7 @@
 									</ul>
 								</div>
 							</td>
-							<td width="20%">
+							<td width="24%">
 								<com:Application.controls.LanguageChanger.LanguageChanger ID="langChanger" RedirectPath="/admin"/>
 							</td>
 						</tr>
