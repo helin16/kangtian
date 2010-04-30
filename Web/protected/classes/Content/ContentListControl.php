@@ -102,8 +102,9 @@ class ContentListControl extends TPanel
 		
 		$html = "<table border='0' cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
 			$html .= "<tr>";
-				$html .= "<td style='font-weight:bold;color:#000000;font-family:\"Lucida Sans\",\"Lucida Grande\",\"Lucida Sans Unicode\",Lucida,Verdana,Tahoma,sans-serif;font-size:24px;padding: 10px 0 20px 0;'>";
-					$html .=$category->getName();
+				$html .= "<td style='padding: 10px 0 20px 0;'>";
+					$categoryName=$category->getName();
+					$html .= "<a href='/contentlist/category/".str_replace(" ","_",trim($categoryName)).".html' style='text-decoration:none;font-weight:bold;color:#000000;font-family:\"Lucida Sans\",\"Lucida Grande\",\"Lucida Sans Unicode\",Lucida,Verdana,Tahoma,sans-serif;font-size:24px;'>$categoryName</a>";;
 					if($subtitle!="")
 						$html .="<br /><i style='color:#AC7755;font-size:16px;font-family:cursive;font-weight:normal;'>$subtitle</i>";
 				$html .= "</td>";
@@ -134,7 +135,7 @@ class ContentListControl extends TPanel
 			$html .= "<tr>";
 				$html .= "<td>";
 					$categorytitle = str_replace(" ","_",trim($category->getName()));
-					$html .= "<a href='contentlist/category/$categorytitle.html' style=\"padding:5px;color:#BF3A17;font-size:12px;\">".Prado::localize("content.readmore")."</a>";
+					$html .= "<a href='/contentlist/category/$categorytitle.html' style=\"padding:5px;color:#BF3A17;font-size:12px;\">".Prado::localize("content.readmore")."</a>";
 				$html .= "</td>";
 			$html .= "</tr>";
 		$html .= "</table>";
