@@ -67,7 +67,7 @@ class ContentListItemControl extends TPanel
 		$maxIntroLength = $this->maxIntroLength;
 		$html="<table width='100%'>";
 			$html.="<tr>";
-				$html.="<td>";
+				$html.="<td align='left'>";
 					$title = $content->getTitle();
 					$html .="<a href='/content/".str_replace(" ","_",trim($title)).".html' style='font-size:16px;font-weight:bold;text-decoration:none;color:#BF3A17'>$title</a>";
 				$html.="</td>";
