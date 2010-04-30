@@ -20,8 +20,9 @@
 								<td align="left">
 									<a href='/' style='outline:none;'><img style="border:none;" src="/Theme/<%=$this->Page->getDefaultThemeName() %>/images/Logo2.png" Title="ARG Property Logo"/></a>
 								</td>
-								<td width="20%" align="right">
+								<td width="20%" align="right" valgin="top">
 									<com:Application.controls.LanguageChanger.LanguageChanger ID="langChanger"/>
+									<com:Application.controls.QuickSearch.QuickSearch ID="quickSearch"/>
 								</td>
 							</tr>
 						</table>
