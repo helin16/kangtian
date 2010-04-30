@@ -57,34 +57,5 @@ class ProjectsController extends EshopPage
     {
     	return false;
     }
-    
-    public function getDefaultImage(Project $project)
-    {
-    	$newDimension = array(
-    						"height"=>164,
-    						"width"=>295
-    					);
-    	$image =$project->getDefaultImage();
-    	if(!$image instanceof ProjectImage)
-    		return;
-    		
-    	$showingAsset = $image->getAsset();
-    	if(!$showingAsset instanceof Asset)
-    		return;
-    	$showingAssetId = $showingAsset->getAssetId();
-    	return "/asset/$showingAssetId/".serialize($newDimension);
-    }
-    
-	public function shortenText($text,$maxLength=150)
-    {
-    	if(strlen($text)>$maxLength)
-    		return substr($text,0,$maxLength)." ... ";
-    	return $text;
-    }
-    
-    public function getUrl($title)
-    {
-    	return str_replace(" ","_",strtolower(trim($title)));
-    }
 }
 ?>

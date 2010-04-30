@@ -15,62 +15,7 @@
 				<prop:ItemTemplate>
 						<tr>
 							<td>
-								<com:TPanel ID="projectListItem" GroupingText="<%# $this->DataItem->getTitle() %>" style='padding:5px;font-weight:normal;'>
-									<table width="100%">
-										<tr>
-											<td style="width:310px;">
-												<a href="/project/<%# $this->Page->getUrl($this->DataItem->getTitle()) %>.html">
-													<com:TImage ID="projectListItem_image" ImageUrl='<%# $this->Page->getDefaultImage($this->DataItem) %>' style="padding:0;margin:0;border:none;"/>
-												</a>
-											</td>
-											<td style="font-size:11px; font-weight:bold;" valign="top">
-												<table width="100%">
-													<tr>
-														<td>
-															<table width="100%">
-																<tr>
-																	<td>
-																		<%# $this->DataItem->getAddress() %>
-																	</td>
-																	<td align="right">
-																		<com:TImage  ImageUrl="/image/project/beds.png" ImageAlign="baseline"/> 
-																		<%# $this->DataItem->getNoOfBeds() %>
-																		&nbsp;&nbsp;&nbsp;&nbsp;
-																		
-																		<com:TImage  ImageUrl="/image/project/baths.png" ImageAlign="baseline"/> 
-																		<%# $this->DataItem->getNoOfBaths() %>
-																		&nbsp;&nbsp;&nbsp;&nbsp;
-																		
-																		<com:TImage  ImageUrl="/image/project/parking_spaces.png" ImageAlign="baseline"/> 
-																		<%# $this->DataItem->getNoOfCars() %>
-																		&nbsp;&nbsp;&nbsp;&nbsp;
-																	</td>
-																</tr>
-															</table>
-														</td>
-													</tr>
-													<tr>
-														<td style="font-weight:normal;padding: 0 15px 0 15px;text-align:justify;">
-															<%# $this->Page->shortenText($this->DataItem->getDescription(),450) %>
-														</td>
-													</tr>
-													<tr>
-														<td align="right" style="padding-right:15px;">
-															<a style="background:transparent url('/image/project/details.png') no-repeat right -90px; display:block; float:right; height:23px;margin:8px 0 0 2px;text-decoration:none !important;width:auto;" 
-																href="/project/<%# $this->Page->getUrl($this->DataItem->getTitle()) %>.html">
-																<span style="background:transparent url('/image/project/details.png') no-repeat left -60px;color:#ffffff;display:block;font-size:12px;font-weight:bold;margin-right:3px;padding:5px 1px 5px 5px;white-space:nowrap;">
-																	&nbsp;&nbsp;&nbsp;&nbsp;
-																		<%[Project.viewDetailsBtn]%>
-																	&nbsp;&nbsp;&nbsp;&nbsp;
-																</span>
-															</a>
-														</td>
-													</tr>
-												</table>
-											</td>
-										</tr>
-									</table>
-								</com:TPanel>							
+								<com:Application.classes.Content.ProjectListItemControl ID="projectListItem" ProjectId="<%# $this->DataItem->getId() %>" style='padding:5px;font-weight:normal;' />
 							</td>
 						</tr>
 				</prop:ItemTemplate>
