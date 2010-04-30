@@ -24,6 +24,8 @@
 			
 			<url ServiceParameter="Login.Login" pattern="login.html" />
 			
+			<url ServiceParameter="Search.SearchController" pattern="search/{searchcontent}" parameters.searchcontent=".+" />
+			
 			<url ServiceParameter="ContactUs.ContactUsController" pattern="contactus.html"/>
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
 			<url ServiceParameter="Services.ServicesController" pattern="services.html"/>
