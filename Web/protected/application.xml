@@ -28,6 +28,7 @@
 			<url ServiceParameter="AboutUs.AboutUsController" pattern="aboutus.html"/>
 			<url ServiceParameter="Services.ServicesController" pattern="services.html"/>
 			<url ServiceParameter="ContentLoader.ContentLoaderController" pattern="content/{title}.html" parameters.title=".+" />
+			<url ServiceParameter="ContentList.ContentListController" pattern="contentlist/category/{categorytitle}.html" parameters.categorytitle=".+" />
 			
 			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}.html" parameters.action="\w+" />
 			<url ServiceParameter="NewsLetter.NewsLetterController" pattern="newsletter/{action}/{key}.html" parameters.action="\w+" parameters.key="\w+" />

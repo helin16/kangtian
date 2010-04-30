@@ -42,6 +42,8 @@
 						<table width="100%">
 							<tr>
 								<td valign="top">
+									<com:TLabel ID="infoMsg" style="font-weight:bold;font-size:18px;color:green;"/>
+									<com:TLabel ID="errorMsg" style="font-weight:bold;font-size:18px;color:#ff0000;"/>
 									<com:TContentPlaceHolder ID="MainContent" />
 								</td>
 							</tr>

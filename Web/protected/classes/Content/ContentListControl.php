@@ -131,6 +131,12 @@ class ContentListControl extends TPanel
 					}
 				$html .= "</td>";
 			$html .= "</tr>";
+			$html .= "<tr>";
+				$html .= "<td>";
+					$categorytitle = str_replace(" ","_",trim($category->getName()));
+					$html .= "<a href='contentlist/category/$categorytitle.html' style=\"padding:5px;color:#BF3A17;font-size:12px;\">".Prado::localize("content.readmore")."</a>";
+				$html .= "</td>";
+			$html .= "</tr>";
 		$html .= "</table>";
 		return $html;
 	}
