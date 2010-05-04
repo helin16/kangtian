@@ -1,6 +1,6 @@
 <com:TContent ID="MainContent">
 	<div class="bodyWrapper">
-		<com:TPanel ID="loginForm">
+		<com:TPanel ID="loginForm" DefaultButton="loginBtn">
 			<div style="width:100%;">
 			<center>
 				<div style="text-align:left;width:400px;border:10px solid #888888;">
@@ -37,7 +37,7 @@
 						<tr>
 							<td>&nbsp;</td>
 							<td>
-								<com:TButton Text="Login" OnClick="validateUser" ValidationGroup="Group1"/>
+								<com:TButton ID="loginBtn" Text="Login" OnClick="validateUser" ValidationGroup="Group1"/>
 							</td>
 						</tr>
 					</table>
