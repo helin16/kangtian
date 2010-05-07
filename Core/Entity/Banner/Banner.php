@@ -69,9 +69,9 @@ class Banner extends HydraEntity
 	 *
 	 * @var description
 	 */
-	public function setdescription($description)
+	public function setDescription($description)
 	{
-		$this->Description = $description;
+		$this->description = $description;
 	}
 	
 	/**
@@ -81,6 +81,7 @@ class Banner extends HydraEntity
 	 */
 	public function getAsset()
 	{
+		$this->loadOneToOne('asset');
 		return $this->asset;
 	}
 	
@@ -91,7 +92,6 @@ class Banner extends HydraEntity
 	 */
 	public function setAsset($asset)
 	{
-		$this->loadOneToOne('asset');
 		$this->asset = $asset;
 	}
 	

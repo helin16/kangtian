@@ -131,7 +131,7 @@ class BannerRollerControl extends TTemplateControl
 			$url = ($url=="" ? "/" : $url);	
 			
 			$title=$this->shortenText($banner->getTitle(),20,"");
-			$subTitle = $banner->getSubTitle();
+			$subTitle = $banner->getDescription();
 			
 			$asset = $banner->getAsset();
 			//if there is no images at all, then don't even bother to show it
