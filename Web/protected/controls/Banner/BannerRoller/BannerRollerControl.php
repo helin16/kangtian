@@ -8,6 +8,21 @@ class BannerRollerControl extends TTemplateControl
 	public $timeOutSecs = 5;//the no of secs between each slide
 	public $pageLanguageId = 1;	
 	
+	public function __construct()
+	{
+		parent::__construct();
+		
+		try{
+			$sql = "select count(distinct id) `count` from banner where active=1 and assetId!=0 and languageId=".$this->pageLanguageId;
+			$result = Dao::getResultsNative($sql,array(),PDO::FETCH_ASSOC);
+			$this->noOfItems = $result[0]['count'];
+		}
+		catch(Exception $ex)
+		{
+			$this->noOfItems=0;
+		}
+	}
+	
 	/**
 	 * getter noOfItems
 	 *
@@ -25,6 +40,10 @@ class BannerRollerControl extends TTemplateControl
 	 */
 	public function setNoOfItems($noOfItems)
 	{
+		//if there are less banner in the database than wantted
+		//then only show the ones in D.B.
+		if($this->noOfItems<$noOfItems)
+			return;
 		$this->noOfItems = $noOfItems;
 	}
 	
@@ -119,7 +138,7 @@ class BannerRollerControl extends TTemplateControl
 	{
 		$service = new BaseService("Banner");
 		$banners = $service->findByCriteria("ba.assetId!=0 and ba.languageId=".$this->pageLanguageId,true,1,$this->noOfItems);
-		if(count($banners)==0) return "";
+		if(count($banners)==0 || $this->noOfItems==0) return "";
 		
 		$listItems = array();
 		$showingItems = array();
