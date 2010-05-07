@@ -28,6 +28,7 @@ class SystemCore
 			$base . '/Entity/Content/',
 			$base . '/Entity/Profiler/',
 			$base . '/Entity/Newsletter/',
+			$base . '/Entity/Banner/',
 			$base . '/Exception/',
 			$base . '/Services/',
 			$base . '/Utils/',
