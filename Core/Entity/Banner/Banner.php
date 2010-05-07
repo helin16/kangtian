@@ -9,6 +9,10 @@ class Banner extends HydraEntity
 	 * @var Asset
 	 */
 	protected $asset;
+	/**
+	 * @var PageLanguage
+	 */
+	protected $language;
 	
 	/**
 	 * getter url
@@ -91,6 +95,27 @@ class Banner extends HydraEntity
 		$this->asset = $asset;
 	}
 	
+	/**
+	 * getter language
+	 *
+	 * @return language
+	 */
+	public function getLanguage()
+	{
+		$this->loadManyToOne("language");
+		return $this->language;
+	}
+	
+	/**
+	 * setter language
+	 *
+	 * @var language
+	 */
+	public function setLanguage($language)
+	{
+		$this->language = $language;
+	}
+	
 	
 	public function __loadDaoMap()
 	{
@@ -100,7 +125,9 @@ class Banner extends HydraEntity
 		DaoMap::setStringType("description",'varchar',100);
 		DaoMap::setStringType("url",'varchar',255);
 		DaoMap::setOneToOne("asset","Asset",true,"ass");
+		DaoMap::setManyToOne("language","PageLanguage");
 		
+		DaoMap::defaultSortOrder("id",DaoMap::SORT_DESC);
 		DaoMap::commit();
 	}
 }
