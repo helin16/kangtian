@@ -164,7 +164,7 @@ class BannerRollerControl extends TTemplateControl
 				$showingItems[] = "<div id=\"showingItem_$i\" class=\"".($i==0 ? "showingItem_cur" :"showingItem")."\"  onMouseOver=\"$('pause').value=1;\" onMouseOut=\"$('pause').value=0;\" >
 						                <a href='$url' Title='$title'>
 							                <div style='border:none;height:{$this->height}px;width:{$this->width}px;background: transparent url($image_src) no-repeat bottom left;'>&nbsp;</div>
-							                <div class=\"showingItemTitle\">".$this->shortenText($subTitle,100)."</div>
+							                ".(trim($subTitle)=="" ? "" :"<div class=\"showingItemTitle\">".$this->shortenText($subTitle)."</div>")."
 							            </a>
 						           </div>
 									";
