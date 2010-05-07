@@ -118,7 +118,7 @@ class BannerRollerControl extends TTemplateControl
 	public function loadBanners()
 	{
 		$service = new BaseService("Banner");
-		$banners = $service->findByCriteria("ba.languageId=".$this->pageLanguageId,true,1,$this->noOfItems);
+		$banners = $service->findByCriteria("ba.assetId!=0 and ba.languageId=".$this->pageLanguageId,true,1,$this->noOfItems);
 		if(count($banners)==0) return "";
 		
 		$listItems = array();
