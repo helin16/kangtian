@@ -75,6 +75,9 @@
 											<a href="/admin/list/subscriber.html" <%= $this->changeId('subscribers') %>>Subscribers</a>
 										</li>
 										<li>
+											<a href="/admin/list/banners.html" <%= $this->changeId('banners') %>>Banners</a>
+										</li>
+										<li>
 											<com:TLinkButton ID="logout" OnClick="logout" Text="Logout"/>
 										</li>
 									</ul>

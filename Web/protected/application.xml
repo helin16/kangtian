@@ -45,6 +45,7 @@
 			<url ServiceParameter="Admin.Home.HomeController" pattern="admin/" />
 			
 			<!--  Content Page -->
+			<url ServiceParameter="Admin.Listing.ContentCategory.ContentCategoryController" pattern="admin/list/contentcategory.html" />
 			<url ServiceParameter="Admin.Listing.ContentController.ContentController" pattern="admin/list/content.html" />
 			<url ServiceParameter="Admin.Listing.ContentController.ContentController" pattern="admin/list/content/{searchby}/{id}.html" parameters.id="\d+" parameters.searchby="\w+"/>
 			<url ServiceParameter="Admin.Editing.ContentController.ContentController" pattern="admin/add/content.html" />
@@ -56,7 +57,7 @@
 			
 			<url ServiceParameter="Admin.Listing.SubscriberController.SubscriberController" pattern="admin/list/subscriber.html" />
 			
-			<url ServiceParameter="Admin.Listing.ContentCategory.ContentCategoryController" pattern="admin/list/contentcategory.html" />
+			<url ServiceParameter="Admin.Listing.BannerController.BannerController" pattern="admin/list/banners.html" />
 			
 			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>
