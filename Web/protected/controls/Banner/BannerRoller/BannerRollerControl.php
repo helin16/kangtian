@@ -11,8 +11,8 @@ class BannerRollerControl extends TTemplateControl
 	public function __construct()
 	{
 		parent::__construct();
-		
 		try{
+			$this->pageLanguageId = Core::getPageLanguage()->getId();
 			$sql = "select count(distinct id) `count` from banner where active=1 and assetId!=0 and languageId=".$this->pageLanguageId;
 			$result = Dao::getResultsNative($sql,array(),PDO::FETCH_ASSOC);
 			$this->noOfItems = $result[0]['count'];
@@ -136,9 +136,10 @@ class BannerRollerControl extends TTemplateControl
 	
 	public function loadBanners()
 	{
+		if($this->noOfItems==0) return;
 		$service = new BaseService("Banner");
 		$banners = $service->findByCriteria("ba.assetId!=0 and ba.languageId=".$this->pageLanguageId,true,1,$this->noOfItems);
-		if(count($banners)==0 || $this->noOfItems==0) return "";
+		if(count($banners)==0 ) return "";
 		
 		$listItems = array();
 		$showingItems = array();
