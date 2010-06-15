@@ -14,6 +14,14 @@
 			</td>
 		</tr>
 		<tr>
+			<td width="10%">
+				<b>SubTitle</b>
+			</td>
+			<td>
+				<com:TTextBox ID="subTitle" ValidationGroup="Group1"/>
+			</td>
+		</tr>
+		<tr>
 			<td valign="top">
 				<b>Categories</b>
 			</td>

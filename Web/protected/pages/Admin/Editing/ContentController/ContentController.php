@@ -38,6 +38,7 @@ class ContentController extends AdminPage
     	
     	$this->title->Text = $content->getTitle();
     	$this->description->Text = $content->getText();
+    	$this->subTitle->Text = $content->getSubTitle();
     	
     	$sql ="select distinct ca.id
     			from content_contentcategory x
@@ -65,6 +66,7 @@ class ContentController extends AdminPage
     		
     		$content->setTitle(trim($this->title->Text));
     		$content->setText(trim($this->description->Text));
+    		$content->setSubTitle(trim($this->subTitle->Text));
     		$service->save($content);
     		
     		$msg="Content Updated Successfully!";
@@ -75,6 +77,7 @@ class ContentController extends AdminPage
     		
     		$content->setTitle(trim($this->title->Text));
     		$content->setText(trim($this->description->Text));
+    		$content->setSubTitle(trim($this->subTitle->Text));
     		$content->setLanguage(Core::getPageLanguage());
     		$service->save($content);
     		
