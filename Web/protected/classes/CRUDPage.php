@@ -62,10 +62,10 @@ class CRUDPage extends AdminPage
     	return Dao::getTotalRows();
     }
     
-    protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
+    protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null,$searchActiveOnly=true)
     {
     	$service = new BaseService($this->entityName);
-    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),true,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),$searchActiveOnly,$pageNumber,$pageSize);
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }

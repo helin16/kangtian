@@ -44,14 +44,14 @@ class ContentController extends CRUDPage
 	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	if(!$focusObject instanceof ContentCategory)
-    		return parent::getAllOfEntity($focusObject,$pageNumber,$pageSize);
+    		return parent::getAllOfEntity($focusObject,$pageNumber,$pageSize,false);
     	
     	$sql = "select distinct con.id
     			from content_contentcategory x
     			inner join content con on (x.contentId=con.id)
     			where x.contentcategoryId = ".$focusObject->getId();
     	$service = new BaseService($this->entityName);
-    	$result =  $service->findByCriteria("id in ($sql ) and languageId=".$this->pageLanguage->getId(),true,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("id in ($sql ) and languageId=".$this->pageLanguage->getId(),false,$pageNumber,$pageSize);
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }
