@@ -1,5 +1,6 @@
 <com:TContent ID="MainContent">
 	<com:TPanel CssClass="bodyWrapper">
+		<com:TPanel ID="aboutus" />
 		<com:Application.controls.Contactus.ContactusControl/>
 	</com:TPanel>
 </com:TContent>
