@@ -35,7 +35,7 @@
 				</div>
 				<div id="banner" style="width:100%;">
 					<div class="innerWrapper">
-						<%= $this->Page->getBanner()%>
+						<%= $this->Page->getBanner() %>
 					</div>
 				</div>
 				<div id="body" style="width:100%;">
@@ -57,11 +57,11 @@
 							<table border='0' cellspacing="0" cellpadding="0" width="100%">
 								<tr valign='top'>
 									<td width='31%'>
-										<com:Application.classes.Content.ContentSnapshotControl ID="welcome" Title="<%[content.customersays]%>" SubTitle="<%[content.successStories]%>"/>
+										<com:Application.classes.Content.ContentSnapshotControl ID="left" />
 									</td>
 									<td width='3%'>&nbsp;</td>
 									<td width='31%'>
-										<com:Application.classes.Content.ContentSnapshotControl ID="whyus" Title="<%[content.whychooseus]%>" SubTitle="<%[content.yourBenifits]%>"/>
+										<com:Application.classes.Content.ContentSnapshotControl ID="right"/>
 									</td>
 									<td width='3%'>&nbsp;</td>
 									<td>
@@ -88,16 +88,20 @@
 						<com:TPanel ID="footerContainer">
 							<table border='0' cellspacing="0" cellpadding="0" width="100%">
 								<tr valign='top'>
-									<td width='31%'>
+									<td width='23%'>
 										<com:Application.classes.Content.ContentListControl ID="activityList" CategoryName="<%[content.activities]%>" />
 									</td>
-									<td width='3%'>&nbsp;</td>
-									<td width='31%'>
+									<td width='1%'>&nbsp;</td>
+									<td width='23%'>
 										<com:Application.classes.Content.ContentListControl ID="serviceList" CategoryName="<%[content.popularServices]%>" />
 									</td>
-									<td width='3%'>&nbsp;</td>
-									<td>
+									<td width='1%'>&nbsp;</td>
+									<td width='23%'>
 										<com:Application.classes.Content.ContentListControl ID="projectList" CategoryName="<%[content.projects]%>" />
+									</td>
+									<td width='1%'>&nbsp;</td>
+									<td>
+										<com:Application.classes.Content.ContentListControl ID="linksList" CategoryName="<%[content.usefullinks]%>" />
 									</td>
 								</tr>
 							</table>
