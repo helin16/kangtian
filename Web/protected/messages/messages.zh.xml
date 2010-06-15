@@ -9,13 +9,18 @@
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.services</source>
-					<target>我们的服务</target>
+					<source>Menu.buying</source>
+					<target>购买</target>
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.contactus</source>
-					<target>联系我们</target>
+					<source>Menu.selling</source>
+					<target>出售</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.renting</source>
+					<target>租赁</target>
 				</trans-unit>
 				
 				<trans-unit>
@@ -24,9 +29,20 @@
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.projects</source>
-					<target>开发项目</target>
+					<source>Menu.contactus</source>
+					<target>联系我们</target>
 				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.news</source>
+					<target>新闻</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.project</source>
+					<target>期房</target>
+				</trans-unit>
+				
         	//-- end of Menu ----------------------------------------------------- 
 			
 			//-- start of contact us ----------------------------------------------------- 
@@ -122,6 +138,18 @@
 				</trans-unit>
 			//-- end of news letter -----------------------------------------------------
 			
+			//-- start of content ----------------------------------------------------- 
+				<trans-unit>
+					<source>home.left</source>
+					<target>主页左</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>home.right</source>
+					<target>主页右</target>
+				</trans-unit>
+			//-- end of content -----------------------------------------------------
+			
 			//-- start of pagination ----------------------------------------------------- 
 				<trans-unit>
 					<source>pagination.selectPage</source>
@@ -203,6 +231,11 @@
 				</trans-unit>
 				
 				<trans-unit>
+					<source>content.usefullinks</source>
+					<target>相关链接</target>
+				</trans-unit>
+				
+				<trans-unit>
 					<source>content.popularServices</source>
 					<target>受欢迎的服务</target>
 				</trans-unit>
@@ -210,6 +243,11 @@
 				<trans-unit>
 					<source>content.readmore</source>
 					<target>更多 ...</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.activities</source>
+					<target>最新活动</target>
 				</trans-unit>
 			//-- end of content title --------------------------------------------
 		</body>

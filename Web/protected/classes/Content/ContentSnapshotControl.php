@@ -4,7 +4,7 @@ class ContentSnapshotControl extends TPanel
 {
 	public $title;
 	public $subTitle="";
-	public $maxIntroLength=350;
+	public $maxIntroLength=PHP_INT_MAX;
 	
 	/**
 	 * getter title
@@ -90,15 +90,18 @@ class ContentSnapshotControl extends TPanel
 		$content = $results[0];
 		$html = "<table border='0' cellspacing=\"0\" cellpadding=\"0\" width=\"100%\">";
 			$html .= "<tr>";
-				$html .= "<td style='padding: 10px 0 20px 0;'>";
+				$html .= "<td style='padding: 10px 0 0 0;'>";
 					$html .= "<a href='/content/".str_replace(" ","_",trim($title)).".html' style='text-decoration:none;font-weight:bold;color:#000000;font-family:\"Lucida Sans\",\"Lucida Grande\",\"Lucida Sans Unicode\",Lucida,Verdana,Tahoma,sans-serif;font-size:24px;'>$title</a>";;
 					if($subtitle!="")
 						$html .="<br /><i style='color:#AC7755;font-size:16px;font-family:cursive;font-weight:normal;'>$subtitle</i>";
 				$html .= "</td>";
 			$html .= "</tr>";
 			$html .= "<tr>";
-				$html .= "<td style='font-size:13px;text-align: justify;padding: 0 0 20px 0;font-family:\"Lucida Sans\",\"Lucida Grande\",\"Lucida Sans Unicode\",Lucida,Verdana,Tahoma,sans-serif;'>";
-					$html .=(strlen($content["text"])>$maxIntroLength ? substr($content["text"],0,$maxIntroLength)." ... " : $content["text"]);
+				$html .= "<td style='font-size:13px;text-align: justify;padding: 0 0 0 0;font-family:\"Lucida Sans\",\"Lucida Grande\",\"Lucida Sans Unicode\",Lucida,Verdana,Tahoma,sans-serif;'>";
+					if(strstr($content["text"],"{introStop}"))
+						$html .=substr($content["text"],0,strpos($content["text"],"{introStop}"))." ... ";
+					else
+						$html .=$content["text"];
 				$html .= "</td>";
 			$html .= "</tr>";
 			$html .= "<tr>";

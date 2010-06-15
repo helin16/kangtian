@@ -9,8 +9,18 @@
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.services</source>
-					<target>我們的服務</target>
+					<source>Menu.buying</source>
+					<target>購買</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.selling</source>
+					<target>出售</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.renting</source>
+					<target>租賃</target>
 				</trans-unit>
 				
 				<trans-unit>
@@ -18,15 +28,22 @@
 					<target>聯繫我們</target>
 				</trans-unit>
 				
+				
 				<trans-unit>
 					<source>Menu.aboutus</source>
 					<target>关于我們</target>
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.projects</source>
-					<target>開發項目</target>
+					<source>Menu.news</source>
+					<target>新聞</target>
 				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.project</source>
+					<target>期房</target>
+				</trans-unit>
+				
         	//-- end of Menu ----------------------------------------------------- 
 			
 			//-- start of contact us ----------------------------------------------------- 
@@ -122,6 +139,19 @@
 				</trans-unit>
 			//-- end of news letter -----------------------------------------------------
 			
+			//-- start of content ----------------------------------------------------- 
+				<trans-unit>
+					<source>home.left</source>
+					<target>主頁左</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>home.left</source>
+					<target>主頁右</target>
+				</trans-unit>
+			//-- end of content -----------------------------------------------------
+			
+			
 			//-- start of pagination ----------------------------------------------------- 
 				<trans-unit>
 					<source>pagination.selectPage</source>
@@ -200,6 +230,11 @@
 				<trans-unit>
 					<source>content.projects</source>
 					<target>最新項目</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.usefullinks</source>
+					<target>相關鏈接</target>
 				</trans-unit>
 				
 				<trans-unit>

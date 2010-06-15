@@ -9,8 +9,18 @@
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.services</source>
-					<target>Services</target>
+					<source>Menu.buying</source>
+					<target>Buying</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.selling</source>
+					<target>Selling</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.renting</source>
+					<target>Renting</target>
 				</trans-unit>
 				
 				<trans-unit>
@@ -24,19 +34,15 @@
 				</trans-unit>
 				
 				<trans-unit>
-					<source>Menu.projects</source>
+					<source>Menu.news</source>
+					<target>News</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>Menu.project</source>
 					<target>Projects</target>
 				</trans-unit>
 				
-				<trans-unit>
-					<source>Menu.gallery</source>
-					<target>Gallery</target>
-				</trans-unit>
-				
-				<trans-unit>
-					<source>Menu.links</source>
-					<target>Links</target>
-				</trans-unit>
         	//-- end of Menu ----------------------------------------------------- 
 			
 			//-- start of contact us ----------------------------------------------------- 
@@ -132,6 +138,18 @@
 				</trans-unit>
 			//-- end of news letter -----------------------------------------------------
 			
+			//-- start of content ----------------------------------------------------- 
+				<trans-unit>
+					<source>home.left</source>
+					<target>homepage left</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>home.right</source>
+					<target>homepage right</target>
+				</trans-unit>
+			//-- end of content -----------------------------------------------------
+			
 			//-- start of pagination ----------------------------------------------------- 
 				<trans-unit>
 					<source>pagination.selectPage</source>
@@ -210,6 +228,11 @@
 				<trans-unit>
 					<source>content.projects</source>
 					<target>Projects</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>content.usefullinks</source>
+					<target>Useful Links</target>
 				</trans-unit>
 				
 				<trans-unit>
