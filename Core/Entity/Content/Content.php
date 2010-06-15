@@ -3,6 +3,27 @@ class Content extends HydraEntity
 {
 	private $title;
 	private $text;
+	private $subTitle;
+	
+	/**
+	 * getter subTitle
+	 *
+	 * @return subTitle
+	 */
+	public function getSubTitle()
+	{
+		return $this->subTitle;
+	}
+	
+	/**
+	 * setter subTitle
+	 *
+	 * @var subTitle
+	 */
+	public function setSubTitle($subTitle)
+	{
+		$this->subTitle = $subTitle;
+	}
 	
 	/**
 	 * @var PageLanguage
@@ -82,6 +103,7 @@ class Content extends HydraEntity
 		
 		DaoMap::setStringType('title','varchar',256);
 		DaoMap::setStringType("text",'text');
+		DaoMap::setStringType('subTitle','varchar',256);
 		
 		DaoMap::setManyToOne("language","PageLanguage","pl");
 		
