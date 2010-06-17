@@ -1,6 +1,9 @@
 <?php
 class EshopPage extends TPage 
 {
+	public $menuItemName;
+	protected $title;
+	
 	public function __construct()
 	{
 		parent::__construct();
@@ -8,7 +11,6 @@ class EshopPage extends TPage
 		 $this->getApplication()->getGlobalization()->setCulture($_SESSION["language"]);
 	}
 	
-	public $menuItemName;
 	
 	public function onPreInit($param)
 	{
@@ -28,6 +30,8 @@ class EshopPage extends TPage
 		}
 		else
 			parent::setTitle($value.$extra);
+			
+		$this->title = $value;
 	}
 	
 	public function getDefaultThemeName()
@@ -37,7 +41,14 @@ class EshopPage extends TPage
 	
 	protected function getBanner()
 	{
-		return "";
+		$index = rand(1,2);
+		$html ="<div style='paddding:0px; marging:0px;position:relative;height:150px;'>";
+			$html .="<img src='/Theme/default/images/title_banner_bg_$index.jpg' />";
+			$html .="<div style='position: relative;top:-30px;-moz-opacity: 0.7;opacity:.70;filter: alpha(opacity=70);background-color: #eeeeee;color:#BF3A17;font-size:18px;font-weight:bold;height:20px;top:-33px;padding:5px 0 5px 20px;'>";
+				$html .=$this->title;
+			$html .="</div>";
+		$html .="</div>";
+		return $html;
 	}
 }
 ?>
