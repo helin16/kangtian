@@ -250,6 +250,18 @@
 					<target>最新活动</target>
 				</trans-unit>
 			//-- end of content title --------------------------------------------
+			
+			//-- start of propertyQuickSearch--------------------------------------------
+				<trans-unit>
+					<source>propertyQuickSearch.title</source>
+					<target>快速搜索</target>
+				</trans-unit>
+				
+				<trans-unit>
+					<source>propertyQuickSearch.submitBtn</source>
+					<target>提交</target>
+				</trans-unit>
+			//-- end of propertyQuickSearch--------------------------------------------
 		</body>
     </file>
 </xliff>
