@@ -21,6 +21,96 @@ class Project extends HydraEntity
 	private $noOfBaths;
 	private $noOfCars;
 	
+	private $price;
+	
+	protected $buildingType;
+	protected $propertyType;
+	protected $propertyStatus;
+	
+	
+	/**
+	 * getter price
+	 *
+	 * @return price
+	 */
+	public function getPrice()
+	{
+		return $this->price;
+	}
+	
+	/**
+	 * setter price
+	 *
+	 * @var price
+	 */
+	public function setPrice($price)
+	{
+		$this->price = $price;
+	}
+	
+	/**
+	 * getter buildingType
+	 *
+	 * @return buildingType
+	 */
+	public function getBuildingType()
+	{
+		$this->loadManyToOne("buildingType");
+		return $this->buildingType;
+	}
+	
+	/**
+	 * setter buildingType
+	 *
+	 * @var buildingType
+	 */
+	public function setBuildingType($buildingType)
+	{
+		$this->buildingType = $buildingType;
+	}
+	
+	/**
+	 * getter propertyType
+	 *
+	 * @return propertyType
+	 */
+	public function getPropertyType()
+	{
+		$this->loadManyToOne("propertyType");
+		return $this->propertyType;
+	}
+	
+	/**
+	 * setter propertyType
+	 *
+	 * @var propertyType
+	 */
+	public function setPropertyType($propertyType)
+	{
+		$this->propertyType = $propertyType;
+	}
+	
+	/**
+	 * getter propertyStatus
+	 *
+	 * @return propertyStatus
+	 */
+	public function getPropertyStatus()
+	{
+		$this->loadManyToOne("propertyStatus");
+		return $this->propertyStatus;
+	}
+	
+	/**
+	 * setter propertyStatus
+	 *
+	 * @var propertyStatus
+	 */
+	public function setPropertyStatus($propertyStatus)
+	{
+		$this->propertyStatus = $propertyStatus;
+	}
+	
 	/**
 	 * getter title
 	 *
@@ -251,8 +341,12 @@ class Project extends HydraEntity
 		DaoMap::setOneToMany("images","ProjectImage","pi");		
 		DaoMap::setManyToOne("address","Address","addr",true);	
 		DaoMap::setManyToOne("language","PageLanguage","pl");	
+		DaoMap::setStringType('price','varchar',200);
+		DaoMap::setManyToOne("buildingType","BuildingType","bt");	
+		DaoMap::setManyToOne("propertyType","PropertyType","pt");	
+		DaoMap::setManyToOne("propertyStatus","PropertyStatus","ps");	
 		
-		DaoMap::defaultSortOrder("title");
+		DaoMap::defaultSortOrder("updated",DaoMap::SORT_DESC);
 		DaoMap::commit();
 	}
 }
