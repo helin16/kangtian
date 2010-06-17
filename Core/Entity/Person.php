@@ -8,7 +8,7 @@ class Person extends HydraEntity
 	private $title;
 	private $position;
 	private $description;
-	private $personalImage;
+	protected $personalImage;
 	private $phone;
 	private $email;
 	private $mobile;
@@ -275,7 +275,7 @@ class Person extends HydraEntity
 		DaoMap::setOneToMany("userAccounts","UserAccount","ua");
 		DaoMap::setStringType('title','varchar',200,true,'');
 		DaoMap::setStringType('position','varchar',200,true,'');
-		DaoMap::setStringType('description','varchar',64000,true,'');
+		DaoMap::setStringType('description','text',20,true,'');
 		DaoMap::setManyToMany("projects","Project",DaoMap::RIGHT_SIDE,"pro",true);
 		DaoMap::setManyToOne("personalImage","Asset","asset",true);
 		
