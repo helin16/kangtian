@@ -1,0 +1,16 @@
+<com:TContent ID="MainContent">
+	<div class="bodyWrapper">
+		<com:TPanel ID="listPanel">
+		</com:TPanel>
+		
+		<com:TPanel ID="profilePanel" Visible="false">
+			<com:TLabel ID="name" style="font-size:14px; color:#BF3A17;font-weight:bold;"/>
+			<br clear="both"/>
+			<com:TImage ID="personalImage" style="float:left; margin: 15px 15px 15px 0;"/>
+			
+			<com:TLabel ID="position" />
+			<com:TLabel ID="contactMethods" />
+			<com:TLabel ID="descripton" />
+		</com:TPanel>
+	</div>
+</com:TContent>

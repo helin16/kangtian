@@ -38,6 +38,8 @@
 			<url ServiceParameter="Projects.ProjectsController" pattern="projects.html"/>
 			<url ServiceParameter="Projects.ViewProject.ViewProjectController" pattern="project/{title}.html" parameters.title=".+" />
 			
+			<url ServiceParameter="StaffProfiles.StaffProfilesController" pattern="staffprofiles.html"/>
+			<url ServiceParameter="StaffProfiles.StaffProfilesController" pattern="staffprofiles/{id}.html" parameters.id="\d+" />
 			
 			<!--  ################################################# -->
 			<!--  Admin Page 										-->
