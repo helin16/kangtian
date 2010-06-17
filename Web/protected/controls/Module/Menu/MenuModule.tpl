@@ -4,22 +4,22 @@
 			<a href="/" <%= $this->changeId('home') %>><%[Menu.home]%></a>
 		</td>
 		<td class="topmenulink" width="12%">
-			<a href="/aboutus.html" <%= $this->changeId('buying') %>><%[Menu.buying]%></a>
+			<a href="/buying.html" <%= $this->changeId('buying') %>><%[Menu.buying]%></a>
 		</td>
 		<td class="topmenulink" width="12%">
-			<a href="/services.html" <%= $this->changeId('selling') %>><%[Menu.selling]%></a>
+			<a href="/selling.html" <%= $this->changeId('selling') %>><%[Menu.selling]%></a>
 		</td>
 		<td class="topmenulink" width="12%">
-			<a href="/projects.html" <%= $this->changeId('renting') %>><%[Menu.renting]%></a>
+			<a href="/renting.html" <%= $this->changeId('renting') %>><%[Menu.renting]%></a>
 		</td>
 		<td class="topmenulink" width="12%">
 			<a href="/projects.html" <%= $this->changeId('project') %>><%[Menu.project]%></a>
 		</td>
 		<td class="topmenulink" width="12%">
-			<a href="/projects.html" <%= $this->changeId('news') %>><%[Menu.news]%></a>
+			<a href="/news.html" <%= $this->changeId('news') %>><%[Menu.news]%></a>
 		</td>
 		<td class="topmenulink" width="14%">
-			<a href="/projects.html" <%= $this->changeId('aboutus') %>><%[Menu.aboutus]%></a>
+			<a href="/aboutus.html" <%= $this->changeId('aboutus') %>><%[Menu.aboutus]%></a>
 		</td>
 		<td>
 			<a href="/contactus.html" <%= $this->changeId('contactus') %>><%[Menu.contactus]%></a>
