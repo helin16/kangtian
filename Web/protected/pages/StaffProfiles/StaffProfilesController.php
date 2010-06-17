@@ -12,6 +12,9 @@ class StaffProfilesController extends ContentLoaderController
 	{
 		if(isset($this->Request["id"]) && $this->Request["id"]>0)
 			$this->loadProfile($this->Request["id"]);
+			
+		else
+			$this->listProfiles();
 	}
 	
 	public function loadProfile($id)
@@ -24,6 +27,7 @@ class StaffProfilesController extends ContentLoaderController
 		if(!$person instanceof Person )
 			return;
 
+		$this->title="Staff Profiles: ".$person->getFullName();
 		$this->name->Text  = $person->getTitle(). " ". $person->getFullName();
 		$this->position->Text  = "<b>".$person->getPosition()."</b><br />";
 		
@@ -44,6 +48,18 @@ class StaffProfilesController extends ContentLoaderController
 		$asset = $person->getPersonalImage();
 		if($asset instanceof Asset)
 			$this->personalImage->ImageUrl = "/asset/".$asset->getAssetId()."/".serialize(array("height"=>240,"width"=>200));
+	}
+	
+	public function listProfiles()
+	{
+		$this->title="Staff Profiles";
+		$this->listPanel->Visible=true;
+		$this->profilePanel->Visible=false;
+		
+		$sql = "select distinct id from person where active = 1";
+		$result = Dao::getResultsNative($sql);
+		$this->DataList->DataSource = $result;
+		$this->DataList->DataBind();
 	}
 }
 ?>

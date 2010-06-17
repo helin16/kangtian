@@ -1,6 +1,19 @@
 <com:TContent ID="MainContent">
 	<div class="bodyWrapper">
 		<com:TPanel ID="listPanel">
+			<com:TDataList
+			     ID="DataList"
+			     EnableViewState="false"
+			     RepeatColumns="3"
+			     RepeatDirection="Horizontal"
+			     >
+				<prop:HeaderTemplate />
+				<prop:FooterTemplate />
+				
+				<prop:ItemTemplate>
+					<com:Application.classes.Content.StaffProfileControl personId="<%# $this->DataItem[0]%>" />
+				</prop:ItemTemplate>
+			</com:TDataList>
 		</com:TPanel>
 		
 		<com:TPanel ID="profilePanel" Visible="false">
