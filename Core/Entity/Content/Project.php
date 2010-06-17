@@ -26,7 +26,28 @@ class Project extends HydraEntity
 	protected $buildingType;
 	protected $propertyType;
 	protected $propertyStatus;
+	protected $contacts;
 	
+	/**
+	 * getter contacts
+	 *
+	 * @return contacts
+	 */
+	public function getContacts()
+	{
+		$this->loadManyToMany("contacts");
+		return $this->contacts;
+	}
+	
+	/**
+	 * setter contacts
+	 *
+	 * @var contacts
+	 */
+	public function setContacts($contacts)
+	{
+		$this->contacts = $contacts;
+	}
 	
 	/**
 	 * getter price
@@ -345,6 +366,7 @@ class Project extends HydraEntity
 		DaoMap::setManyToOne("buildingType","BuildingType","bt");	
 		DaoMap::setManyToOne("propertyType","PropertyType","pt");	
 		DaoMap::setManyToOne("propertyStatus","PropertyStatus","ps");	
+		DaoMap::setManyToMany("contacts","Person",DaoMap::LEFT_SIDE,"p",true);
 		
 		DaoMap::defaultSortOrder("updated",DaoMap::SORT_DESC);
 		DaoMap::commit();
