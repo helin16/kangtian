@@ -21,7 +21,7 @@ class DefaultLayout extends TTemplateControl
 	public function getCategory($categoryName,&$panel)
 	{
 		$service = new BaseService("ContentCategory");
-		$cate = $service->findByCriteria("name ='$categoryName'");
+		$cate = $service->findByCriteria("name ='$categoryName' and languageId=".Core::getPageLanguage()->getId());
 		if(count($cate)==0)
 			return;
 		
