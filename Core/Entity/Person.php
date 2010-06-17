@@ -9,8 +9,93 @@ class Person extends HydraEntity
 	private $position;
 	private $description;
 	private $personalImage;
+	private $phone;
+	private $email;
+	private $mobile;
+	private $fax;
 	
 	protected $projects;
+	
+	
+	/**
+	 * getter fax
+	 *
+	 * @return fax
+	 */
+	public function getFax()
+	{
+		return $this->fax;
+	}
+	
+	/**
+	 * setter fax
+	 *
+	 * @var fax
+	 */
+	public function setFax($fax)
+	{
+		$this->fax = $fax;
+	}
+	
+	/**
+	 * getter mobile
+	 *
+	 * @return mobile
+	 */
+	public function getMobile()
+	{
+		return $this->mobile;
+	}
+	
+	/**
+	 * setter mobile
+	 *
+	 * @var mobile
+	 */
+	public function setMobile($mobile)
+	{
+		$this->mobile = $mobile;
+	}
+	
+	/**
+	 * getter email
+	 *
+	 * @return email
+	 */
+	public function getEmail()
+	{
+		return $this->email;
+	}
+	
+	/**
+	 * setter email
+	 *
+	 * @var email
+	 */
+	public function setEmail($email)
+	{
+		$this->email = $email;
+	}
+	
+	/**
+	 * getter phone
+	 *
+	 * @return phone
+	 */
+	public function getPhone()
+	{
+		return $this->phone;
+	}
+	
+	/**
+	 * setter phone
+	 *
+	 * @var phone
+	 */
+	public function setPhone($phone)
+	{
+		$this->phone = $phone;
+	}
 	
 	/**
 	 * getter personalImage
@@ -193,6 +278,11 @@ class Person extends HydraEntity
 		DaoMap::setStringType('description','varchar',64000,true,'');
 		DaoMap::setManyToMany("projects","Project",DaoMap::RIGHT_SIDE,"pro",true);
 		DaoMap::setManyToOne("personalImage","Asset","asset",true);
+		
+		DaoMap::setStringType('phone','varchar',100,true,'');
+		DaoMap::setStringType('email','varchar',100,true,'');
+		DaoMap::setStringType('mobile','varchar',100,true,'');
+		DaoMap::setStringType('fax','varchar',100,true,'');
 		DaoMap::commit();
 	}
 }
