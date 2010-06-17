@@ -63,6 +63,9 @@
 											<a href="/admin/" <%= $this->changeId('home') %>>Admin Home</a>
 										</li>
 										<li>
+											<a href="/admin/list/contacts.html" <%= $this->changeId('contacts') %>>Contacts</a>
+										</li>
+										<li>
 											<a href="/admin/list/content.html" <%= $this->changeId('contents') %>>Contents</a>
 										</li>
 										<li>
