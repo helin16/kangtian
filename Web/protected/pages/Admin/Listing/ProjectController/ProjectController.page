@@ -57,9 +57,13 @@
 				<prop:ItemTemplate>
 					<table width="100%">
 						<tr>
-							<td width="20%">
-								<b><%#$this->DataItem->getTitle()%></b><br />
-								<i style="font-size:10px;"><%#$this->DataItem->getAddress()%></i><br />
+							<td width="20%" style="font-size:10px;">
+								<b  style="font-size:12px;"><%#$this->DataItem->getTitle()%></b><br />
+								<i><%#$this->DataItem->getAddress()%></i><br /><br />
+								Price: <%#$this->DataItem->getPrice()%><br />
+								Type: <%#$this->DataItem->getPropertyType()%><br />
+								Building: <i><%#$this->DataItem->getBuildingType()%><br />
+								Status: <i><%#$this->DataItem->getPropertyStatus()%><br />
 								<%# $this->Page->listImages($this->DataItem) %>
 							</td>
 							<td>

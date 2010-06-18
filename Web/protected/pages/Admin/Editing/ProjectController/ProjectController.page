@@ -67,6 +67,67 @@
 			</td>
 		</tr>
 		<tr>
+			<td width="10%">
+				<b>Price:</b>
+			</td>
+			<td>
+				<com:TTextBox ID="price" />
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="price"
+					Display="Dynamic"
+					Text="* required" />
+			</td>
+		</tr>
+		<tr>
+			<td width="10%">
+				<b>Type:</b>
+			</td>
+			<td>
+				<com:TDropDownList ID="propertyType" 
+					DataTextField="name" 
+					DataValueField="id"
+					ValidationGroup="group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="propertyType"
+					Display="Dynamic"
+					Text="* required" />
+			</td>
+		</tr>
+		<tr>
+			<td width="10%">
+				<b>Building:</b>
+			</td>
+			<td>
+				<com:TDropDownList ID="buildingType" 
+					DataTextField="name" 
+					DataValueField="id"
+					ValidationGroup="group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="buildingType"
+					Display="Dynamic"
+					Text="* required" />
+			</td>
+		</tr>
+		<tr>
+			<td width="10%">
+				<b>Status:</b>
+			</td>
+			<td>
+				<com:TDropDownList ID="propertyStatus" 
+					DataTextField="name" 
+					DataValueField="id"
+					ValidationGroup="group1"/>
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="propertyStatus"
+					Display="Dynamic"
+					Text="* required" />
+			</td>
+		</tr>
+		<tr>
 			<td colspan="2">
 				<com:Application.controls.Address.AddressControl ID="address" ValidationGroup="group1" GroupingText="Address"/>
 				<br /><br />

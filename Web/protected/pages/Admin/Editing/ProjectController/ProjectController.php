@@ -36,20 +36,36 @@ class ProjectController extends AdminPage
     public function loadContent($id)
     {
     	$service = new BaseService("Project");
-    	$content = $service->get($id);
+    	$project = $service->get($id);
     	
-    	$this->title->Text = $content->getTitle();
-    	$this->description->Text = $content->getDescription();
+    	$this->title->Text = $project->getTitle();
+    	$this->description->Text = $project->getDescription();
     	
-    	$this->noOfBeds->Text = $content->getNoOfBeds();
-    	$this->noOfBaths->Text = $content->getNoOfBaths();
-    	$this->noOfCars->Text = $content->getNoOfCars();
+    	$this->noOfBeds->Text = $project->getNoOfBeds();
+    	$this->noOfBaths->Text = $project->getNoOfBaths();
+    	$this->noOfCars->Text = $project->getNoOfCars();
     	
-    	$address = $content->getAddress();
+    	$this->price->Text = $project->getPrice();
+    	$this->bindEntity($this->propertyType,"PropertyType");
+    	$type = $project->getPropertyType();
+    	if($type instanceof PropertyType)
+    		$this->propertyType->setSelectedValue($type->getId());
+    		
+    	$this->bindEntity($this->buildingType,"BuildingType");
+    	$type1 = $project->getBuildingType();
+    	if($type1 instanceof BuildingType)
+    		$this->buildingType->setSelectedValue($type1->getId());
+    		
+    	$this->bindEntity($this->propertyStatus,"PropertyStatus");
+    	$status = $project->getPropertyStatus();
+    	if($status instanceof PropertyStatus)
+    		$this->propertyStatus->setSelectedValue($status->getId());
+    	
+    	$address = $project->getAddress();
     	if($address instanceof Address)
     	{
     		$this->address->address->Text = $address->getLine1();
-    		$this->address->suburb->Text = $address->getSuburb();
+    		$this->address->suburb->setSelectedValue(strtoupper(trim($address->getSuburb())));
     		$state = $address->getState();
     		if($state instanceof State)
     			$this->address->stateList->setSelectedValue($state->getId());
@@ -69,6 +85,13 @@ class ProjectController extends AdminPage
     	$this->loadImages();
     }
     
+	public function bindEntity(&$list, $entityName)
+	{
+		$service = new BaseService($entityName);
+		$list->DataSource = $service->findAll();
+		$list->DataBind();
+	}
+    
     public function save($sender,$param)
     {
     	$this->setInfoMessage("");
@@ -82,14 +105,15 @@ class ProjectController extends AdminPage
     	//editing an exsiting content
     	if($this->id!==null)
     	{
-    		$content = $service->get($this->id);
+    		$project = $service->get($this->id);
     		
-    		$content->setTitle(trim($this->title->Text));
-    		$content->setDescription(trim($this->description->Text));
-    		$content->setNoOfBeds(trim($this->noOfBeds->Text));
-    		$content->setNoOfBaths(trim($this->noOfBaths->Text));
-    		$content->setNoOfCars(trim($this->noOfCars->Text));
-    		$service->save($content);
+    		$project->setTitle(trim($this->title->Text));
+    		$project->setDescription(trim($this->description->Text));
+    		$project->setNoOfBeds(trim($this->noOfBeds->Text));
+    		$project->setNoOfBaths(trim($this->noOfBaths->Text));
+    		$project->setNoOfCars(trim($this->noOfCars->Text));
+    		$project->setLanguage(Core::getPageLanguage());
+    		$service->save($project);
     		
     		//get exsiting project images
     		$e_assetIds = array();
@@ -104,7 +128,7 @@ class ProjectController extends AdminPage
     			{
     				$projectImage = new ProjectImage();
     				$projectImage->setAsset($assetServer->getAsset($assetId));
-    				$projectImage->setProject($content);
+    				$projectImage->setProject($project);
     				$projectImage->setIsDefault(count($e_assetIds)==0);
     				$imagesService->save($projectImage);
     			}
@@ -114,22 +138,22 @@ class ProjectController extends AdminPage
     	}
     	else
     	{
-    		$content = new Project();
+    		$project = new Project();
     		
-    		$content->setTitle(trim($this->title->Text));
-    		$content->setDescription(trim($this->description->Text));
-    		$content->setNoOfBeds(trim($this->noOfBeds->Text));
-    		$content->setNoOfBaths(trim($this->noOfBaths->Text));
-    		$content->setNoOfCars(trim($this->noOfCars->Text));
-    		$content->setLanguage(Core::getPageLanguage());
-    		$service->save($content);
+    		$project->setTitle(trim($this->title->Text));
+    		$project->setDescription(trim($this->description->Text));
+    		$project->setNoOfBeds(trim($this->noOfBeds->Text));
+    		$project->setNoOfBaths(trim($this->noOfBaths->Text));
+    		$project->setNoOfCars(trim($this->noOfCars->Text));
+    		$project->setLanguage(Core::getPageLanguage());
+    		$service->save($project);
     		
     		$firtOne=true;
     		foreach($assetIds as $assetId)
     		{
     			$projectImage = new ProjectImage();
     			$projectImage->setAsset($assetServer->getAsset($assetId));
-    			$projectImage->setProject($content);
+    			$projectImage->setProject($project);
     			$projectImage->setIsDefault($firtOne);
     			$imagesService->save($projectImage);
     			$firtOne=false;
@@ -138,12 +162,27 @@ class ProjectController extends AdminPage
     		$msg="Project Created Successfully!";
     	}
     	
-    	$address = $this->getAddress(trim($this->address->address->Text),trim($this->address->suburb->Text),$this->address->stateList->getSelectedValue(),trim($this->address->postcode->Text), true);
-    	$content->setAddress($address);
-    	$service->save($content);
+    	$address = $this->getAddress(trim($this->address->address->Text),trim($this->address->suburb->getSelectedValue()),$this->address->stateList->getSelectedValue(),trim($this->address->postcode->Text), true);
+    	$project->setAddress($address);
+    	
+    	$project->setPrice(trim($this->price->Text));
+    	$this->getListObject($project,"setPropertyStatus",$this->propertyStatus,"PropertyStatus");
+    	$this->getListObject($project,"setPropertyType",$this->propertyType,"PropertyType");
+    	$this->getListObject($project,"setBuildingType",$this->buildingType,"BuildingType");
+    	$service->save($project);
     	
     	$this->setInfoMessage($msg);
     }
+    	
+    private function getListObject(&$object,$setFunctionName,$list,$entityName)
+    {
+    	$id = $list->getSelectedValue();
+    	$service = new BaseService($entityName);
+    	$obj = $service->get($id);
+    	if($obj instanceof $entityName)
+    		$object->$setFunctionName($obj);
+    }
+    
     
     public function loadImages()
     {
