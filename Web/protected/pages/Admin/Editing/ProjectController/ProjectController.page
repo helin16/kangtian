@@ -29,16 +29,23 @@
 	<com:TActiveButton  ID="deleteImageBtn" OnClick="Page.deleteImage" style="display:none;"/>
 	<table id="contentTable" border='0' cellspacing="0" cellpadding="0" width="90%" style="text-align:left;">
 		<tr>
-			<td width="10%">
-				<b>Title</b>
-			</td>
 			<td style='vertical-align:bottom;'>
+				<b>Title</b>
 				<com:TTextBox ID="title"  style='width:200px;' ValidationGroup="group1"/>
 				<com:TRequiredFieldValidator    
 					ValidationGroup="group1"
 					ControlToValidate="title"
 					Display="Dynamic"
 					Text="* required" />
+				
+				<b>Price:</b>
+				<com:TTextBox ID="price" />
+				<com:TRequiredFieldValidator    
+					ValidationGroup="group1"
+					ControlToValidate="price"
+					Display="Dynamic"
+					Text="* required" />
+					
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<com:TImage  ImageUrl="/image/project/beds.png" ImageAlign="baseline"/> 
 				<com:TTextBox ID="noOfBeds" style ="width:20px;" ValidationGroup="group1"/>
@@ -63,27 +70,11 @@
 					ControlToValidate="noOfCars"
 					Display="Dynamic"
 					Text="* required" />
-				<br /><br />
 			</td>
 		</tr>
 		<tr>
-			<td width="10%">
-				<b>Price:</b>
-			</td>
 			<td>
-				<com:TTextBox ID="price" />
-				<com:TRequiredFieldValidator    
-					ValidationGroup="group1"
-					ControlToValidate="price"
-					Display="Dynamic"
-					Text="* required" />
-			</td>
-		</tr>
-		<tr>
-			<td width="10%">
 				<b>Type:</b>
-			</td>
-			<td>
 				<com:TDropDownList ID="propertyType" 
 					DataTextField="name" 
 					DataValueField="id"
@@ -93,13 +84,8 @@
 					ControlToValidate="propertyType"
 					Display="Dynamic"
 					Text="* required" />
-			</td>
-		</tr>
-		<tr>
-			<td width="10%">
+					
 				<b>Building:</b>
-			</td>
-			<td>
 				<com:TDropDownList ID="buildingType" 
 					DataTextField="name" 
 					DataValueField="id"
@@ -109,13 +95,8 @@
 					ControlToValidate="buildingType"
 					Display="Dynamic"
 					Text="* required" />
-			</td>
-		</tr>
-		<tr>
-			<td width="10%">
+					
 				<b>Status:</b>
-			</td>
-			<td>
 				<com:TDropDownList ID="propertyStatus" 
 					DataTextField="name" 
 					DataValueField="id"
@@ -128,13 +109,22 @@
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<com:Application.controls.Address.AddressControl ID="address" ValidationGroup="group1" GroupingText="Address"/>
-				<br /><br />
+			<td style="padding:20px 0 20px 0;">
+				<table width="100%">
+					<tr>
+						<td width="48%">
+							<com:Application.controls.Address.AddressControl ID="address" ValidationGroup="group1" GroupingText="Address"/>
+						</td>
+						<td>
+							<com:Application.pages.Admin.Editing.ProjectController.InspectionTimeAdditionPanel.InspectionTimeAdditionPanel 
+									ID="inspectTimes" GroupingText="Inspection Times"/>
+						</td>
+					</tr>
+				</table>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
+			<td>
 				<b>Description: </b><br />
 				<com:THtmlArea ID="description" width="100%">
 					<prop:Options>
@@ -164,7 +154,7 @@
 			</td>
 		</tr>
 		<tr>
-			<td width="10%" colspan="2">
+			<td>
 				<com:TPanel GroupingText="Images" >
 					<table width="100%">
 						<tr>
@@ -184,9 +174,6 @@
 			</td>
 		</tr>
 		<tr>
-			<td width="10%">
-				&nbsp;
-			</td>
 			<td>
 				<br /><br />
 				<com:TButton Id="saveBtn" Text="Save" OnClick="Page.save" style="width:120px;" ValidationGroup="group1"/>

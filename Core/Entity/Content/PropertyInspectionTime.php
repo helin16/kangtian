@@ -11,6 +11,7 @@ class PropertyInspectionTime extends HydraEntity
 	 */
 	public function getProject()
 	{
+		$this->loadManyToOne("project");
 		return $this->project;
 	}
 	
@@ -21,7 +22,6 @@ class PropertyInspectionTime extends HydraEntity
 	 */
 	public function setProject($project)
 	{
-		$this->loadManyToOne("project");
 		$this->project = $project;
 	}
 	/**

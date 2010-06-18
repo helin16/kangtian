@@ -83,6 +83,9 @@ class ProjectController extends AdminPage
     	
     	$this->assetIds->Value = serialize($assetIds);
     	$this->loadImages();
+    	
+    	//load inspection times
+    	$this->inspectTimes->loadInspectTimes($id);
     }
     
 	public function bindEntity(&$list, $entityName)
@@ -170,6 +173,18 @@ class ProjectController extends AdminPage
     	$this->getListObject($project,"setPropertyType",$this->propertyType,"PropertyType");
     	$this->getListObject($project,"setBuildingType",$this->buildingType,"BuildingType");
     	$service->save($project);
+    	
+    	//save inspection times:
+    	$timeService = new BaseService("PropertyInspectionTime");
+    	$sql="delete from propertyinspectiontime where projectId = ".$project->getId();
+    	Dao::execSql($sql);
+    	foreach($this->inspectTimes->inspectTimes->Items as $item)
+    	{
+    		$inspectTime = new PropertyInspectionTime();
+    		$inspectTime->setTime(trim($item->getValue()));
+    		$inspectTime->setProject($project);
+    		$timeService->save($inspectTime);
+    	}
     	
     	$this->setInfoMessage($msg);
     }
