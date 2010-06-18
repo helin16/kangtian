@@ -92,8 +92,7 @@ class InspectionTimeAdditionPanel extends TTemplateControl
 			try{
 				$time = trim($row[0]);
 				$date = new HydraDate($time);
-				$date = $date->getDateTime()->format('( D ) j/ M/ Y g:i:s a');
-				$array[] = array($row,$date);
+				$array[] = array($time,$date->getDateTime()->format('( D ) j/ M/ Y g:i:s a'));
 			}
 			catch(Exceptoin $ex)
 			{continue;}
