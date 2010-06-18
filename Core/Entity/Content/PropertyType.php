@@ -22,6 +22,12 @@ class PropertyType extends HydraEntity
 	{
 		$this->name = $name;
 	}
+	
+	public function __toString()
+	{
+		return $this->name;
+	}
+	
 	public function __loadDaoMap()
 	{
 		DaoMap::begin($this, 'pt');

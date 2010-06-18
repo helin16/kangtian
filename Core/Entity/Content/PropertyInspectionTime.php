@@ -44,6 +44,11 @@ class PropertyInspectionTime extends HydraEntity
 		$this->time = $time;
 	}
 	
+	public function __toString()
+	{
+		return $this->time;
+	}
+	
 	public function __loadDaoMap()
 	{
 		DaoMap::begin($this, 'inspTime');
