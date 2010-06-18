@@ -12,7 +12,15 @@ class AddressControl extends TTemplateControl
 			$service = new BaseService("State");
 	        $this->stateList->DataSource = $service->findAll();
 	        $this->stateList->DataBind();
+	        $this->bindSuburb($this->suburb);
 		}
+	}
+	
+	public function bindSuburb(&$list)
+	{
+		$sql="select distinct ucase(suburb) `suburb` from address where active = 1 order by suburb";
+		$list->DataSource =Dao::getResultsNative($sql,array(),PDO::FETCH_ASSOC);
+		$list->DataBind();
 	}
 	
 	/**

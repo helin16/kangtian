@@ -13,7 +13,10 @@
 				Suburb:
 			</td>
 			<td>
-				<com:TTextBox ID="suburb" ValidationGroup="<%= $this->validationGroup%>"/>
+				<com:TDropDownList ID="suburb" 
+					DataTextField="suburb" 
+					DataValueField="suburb"
+					ValidationGroup="<%= $this->validationGroup%>"/>
 				<com:TRequiredFieldValidator    
 					ValidationGroup="<%= $this->getValidationGroup()%>"
 					ControlToValidate="suburb"
