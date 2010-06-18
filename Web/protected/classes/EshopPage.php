@@ -50,5 +50,15 @@ class EshopPage extends TPage
 		$html .="</div>";
 		return $html;
 	}
+	
+	public function setInfoMsg($msg)
+	{
+		$this->getPage()->getMaster()->infoMsg->Text = $msg;
+	}
+	
+	public function setErrorMsg($msg)
+	{
+		$this->getPage()->getMaster()->errorMsg->Text = $msg;
+	}
 }
 ?>

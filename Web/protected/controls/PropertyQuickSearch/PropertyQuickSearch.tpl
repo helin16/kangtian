@@ -2,8 +2,12 @@
 	<script type="text/javascript">
 		function quickSearch_<%= $this->getClientId()%>()
 		{
-			var searchValue =$('searchText').value;
-			window.location='/search/'+searchValue;
+			var propertyTypeId =$('<%= $this->propertyTypeList->getClientId()%>').value;
+			var buildingTypeId =$('<%= $this->buildingTypeList->getClientId()%>').value;
+			var maxPrice =$('<%= $this->maxPrice->getClientId()%>').value;
+			var minPrice =$('<%= $this->minPrice->getClientId()%>').value;
+			var suburb =$('<%= $this->suburbList->getClientId()%>').value;
+			window.location='project/search/'+propertyTypeId + '/' + buildingTypeId + '/all/' + maxPrice + '/' + minPrice + '/' + suburb;
 		}
 	</script>
 	<style>

@@ -39,6 +39,17 @@
 			<url ServiceParameter="Projects.ProjectsController" pattern="{searchby}.html" parameters.searchby="buying"/>
 			<url ServiceParameter="Projects.ProjectsController" pattern="{searchby}.html" parameters.searchby="selling"/>
 			<url ServiceParameter="Projects.ProjectsController" pattern="{searchby}.html" parameters.searchby="renting"/>
+			
+			<url ServiceParameter="Projects.ProjectsController" 
+						pattern="project/{searchby}/{propertyTypeIds}/{buildingTypeIds}/{buildingStatusIds}/{maxPrice}/{minPrice}/{suburbs}" 
+						parameters.searchby="search"
+						parameters.propertyTypeIds="((\w+)|(\d+)|(,))+"
+						parameters.buildingTypeIds="((\w+)|(,))+"
+						parameters.buildingStatusIds="((\w+)|(\d+)|(,))+"
+						parameters.maxPrice="((\w+)|(\d+)|(,))+"
+						parameters.minPrice="((\w+)|(\d+)|(,))+"
+						parameters.suburbs="((\w+)|(,)|( ))+"
+						/>
 			<url ServiceParameter="Projects.ViewProject.ViewProjectController" pattern="project/{title}.html" parameters.title=".+" />
 			
 			<url ServiceParameter="StaffProfiles.StaffProfilesController" pattern="staffprofiles.html"/>
