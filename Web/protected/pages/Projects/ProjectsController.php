@@ -5,8 +5,16 @@ class ProjectsController extends EshopPage
 	public function __construct()
 	{
 		parent::__construct();
-		$this->menuItemName="projects";
 		$this->totalRows=0;
+		
+		if(isset($this->Request["searchby"]) && trim($this->Request["searchby"])!="")
+			$this->title = ucfirst(trim($this->Request["searchby"]));
+		else
+			$this->title = "Search Result";
+			
+		$this->menuItemName="projects";
+		if(in_array(strtolower($this->title),array("buying","selling","renting","projects")))
+			$this->menuItemName=strtolower($this->title);
 	}
 	
 	public function onLoad($param)

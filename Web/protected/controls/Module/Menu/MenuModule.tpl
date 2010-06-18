@@ -13,7 +13,7 @@
 			<a href="/renting.html" <%= $this->changeId('renting') %>><%[Menu.renting]%></a>
 		</td>
 		<td class="topmenulink" width="12%">
-			<a href="/projects.html" <%= $this->changeId('project') %>><%[Menu.project]%></a>
+			<a href="/projects.html" <%= $this->changeId('projects') %>><%[Menu.project]%></a>
 		</td>
 		<td class="topmenulink" width="12%">
 			<a href="/news.html" <%= $this->changeId('news') %>><%[Menu.news]%></a>
