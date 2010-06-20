@@ -3,7 +3,7 @@
 class BannerRollerControl extends TTemplateControl  
 {
 	public $noOfItems=4;
-	public $height=240;
+	public $height=253;
 	public $width=685;
 	public $timeOutSecs = 5;//the no of secs between each slide
 	public $pageLanguageId = 1;	
@@ -136,10 +136,19 @@ class BannerRollerControl extends TTemplateControl
 	
 	public function loadBanners()
 	{
-		if($this->noOfItems==0) return;
+		$this->noOfItems=0;
+		if($this->noOfItems==0) 
+		{
+			$this->canvas->getControls()->add("<img src='/Theme/default/images/banner.jpg'/>");
+			return;
+		}
 		$service = new BaseService("Banner");
 		$banners = $service->findByCriteria("ba.assetId!=0 and ba.languageId=".$this->pageLanguageId,true,1,$this->noOfItems);
-		if(count($banners)==0 ) return "";
+		if(count($banners)==0 ) 
+		{
+			$this->canvas->getControls()->add("<img src='/Theme/default/images/banner.jpg'/>");
+			return "";
+		}
 		
 		$listItems = array();
 		$showingItems = array();
@@ -150,7 +159,7 @@ class BannerRollerControl extends TTemplateControl
 			$url =trim($banner->getUrl());
 			$url = ($url=="" ? "/" : $url);	
 			
-			$title=$this->shortenText($banner->getTitle(),20,"");
+			$title=$banner->getTitle();
 			$subTitle = $banner->getDescription();
 			
 			$asset = $banner->getAsset();
@@ -164,14 +173,14 @@ class BannerRollerControl extends TTemplateControl
 				$showingItems[] = "<div id=\"showingItem_$i\" class=\"".($i==0 ? "showingItem_cur" :"showingItem")."\"  onMouseOver=\"$('pause').value=1;\" onMouseOut=\"$('pause').value=0;\" >
 						                <a href='$url' Title='$title'>
 							                <div style='border:none;height:{$this->height}px;width:{$this->width}px;background: transparent url($image_src) no-repeat bottom left;'>&nbsp;</div>
-							                ".(trim($subTitle)=="" ? "" :"<div class=\"showingItemTitle\">".$this->shortenText($subTitle)."</div>")."
+							                ".(trim($subTitle)=="" ? "" :"<div class=\"showingItemTitle\">".$subTitle."</div>")."
 							            </a>
 						           </div>
 									";
 				$listItems[] = "<a id='link_$i' href=\"$url\" onMouseOver=\"showBanner($i);$('pause').value=1;\" onMouseOut=\" $('pause').value=0;\" class='".($i==0 ? "listItem_cur" :"listItem")."'>
 									<span class='listItem_img'><img src='$thumb_image_src' Title='$title' style='border:none;'/></span>
 									<span class='listItem_title'>$title</span>
-									<span class='listItem_subtitle'>".$this->shortenText($subTitle,30,"")."</span>
+									<span class='listItem_subtitle'>".$subTitle."</span>
 								</a>";
 				$i++;
 			}
@@ -179,13 +188,6 @@ class BannerRollerControl extends TTemplateControl
 		}
 		$this->canvas->getControls()->add(implode("",$showingItems));
 		$this->list->getControls()->add(implode("",$listItems));
-	}
-	
-	private function shortenText($text,$maxLength=PHP_INT_MAX,$padding="...")
-	{
-		if(strlen($text)>$maxLength)
-			$text = substr($text,0,$maxLength).$padding;
-		return $text;
 	}
 }
 
