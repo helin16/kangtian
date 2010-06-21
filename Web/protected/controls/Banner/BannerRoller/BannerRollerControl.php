@@ -1,12 +1,12 @@
 <?php
 
-class BannerRollerControl extends TTemplateControl  
+class BannerRollerControl extends TPanel  
 {
 	public $noOfItems=4;
-	public $height=253;
-	public $width=685;
 	public $timeOutSecs = 5;//the no of secs between each slide
 	public $pageLanguageId = 1;	
+	
+	private $defaultBanner ="<img src='/Theme/default/images/banner.jpg'/>";
 	
 	public function __construct()
 	{
@@ -45,46 +45,6 @@ class BannerRollerControl extends TTemplateControl
 		if($this->noOfItems<$noOfItems)
 			return;
 		$this->noOfItems = $noOfItems;
-	}
-	
-	/**
-	 * getter height
-	 *
-	 * @return height
-	 */
-	public function getHeight()
-	{
-		return $this->height;
-	}
-	
-	/**
-	 * setter height
-	 *
-	 * @var height
-	 */
-	public function setHeight($height)
-	{
-		$this->height = $height;
-	}
-	
-	/**
-	 * getter width
-	 *
-	 * @return width
-	 */
-	public function getWidth()
-	{
-		return $this->width;
-	}
-	
-	/**
-	 * setter width
-	 *
-	 * @var width
-	 */
-	public function setWidth($width)
-	{
-		$this->width = $width;
 	}
 	
 	/**
@@ -127,67 +87,54 @@ class BannerRollerControl extends TTemplateControl
 		$this->pageLanguageId = $pageLanguageId;
 	}
 	
-	
-	public function onLoad($param)
+	public function renderEndTag($writer)
 	{
-		parent::onLoad($param);
-		$this->loadBanners();
+		$writer->write($this->loadBanners($this->noOfItems,$this->getWidth(),$this->getHeight()));
+		parent::renderEndTag($writer);
 	}
 	
-	public function loadBanners()
+	public function loadBanners($noOfItems=4,$width=685,$height=253)
 	{
-		$this->noOfItems=0;
-		if($this->noOfItems==0) 
-		{
-			$this->canvas->getControls()->add("<img src='/Theme/default/images/banner.jpg'/>");
-			return;
-		}
+		$width = trim($width);
+		$width = ($width=="" ? 685 : $width);
+		
+		$height = trim($height);
+		$height = ($height=="" ? 253 : $height);
+		
+		if($noOfItems==0) 
+			return $this->defaultBanner;
+			
 		$service = new BaseService("Banner");
-		$banners = $service->findByCriteria("ba.assetId!=0 and ba.languageId=".$this->pageLanguageId,true,1,$this->noOfItems);
+		$banners = $service->findByCriteria("ba.assetId!=0 and ba.languageId=".$this->pageLanguageId,true,1,$noOfItems,array("Banner.updated"=>"desc"));
 		if(count($banners)==0 ) 
-		{
-			$this->canvas->getControls()->add("<img src='/Theme/default/images/banner.jpg'/>");
-			return "";
-		}
-		
-		$listItems = array();
-		$showingItems = array();
-		
-		$i=0;
-		foreach($banners as $banner)
-		{
-			$url =trim($banner->getUrl());
-			$url = ($url=="" ? "/" : $url);	
+			return $this->defaultBanner;
 			
-			$title=$banner->getTitle();
-			$subTitle = $banner->getDescription();
-			
-			$asset = $banner->getAsset();
-			//if there is no images at all, then don't even bother to show it
-			if($asset instanceof Asset)
+		$clientId = $this->getClientID();
+		
+		
+		//cavas div
+		$html="<div id='cavas_$clientId' style='width:{$width}px;height:{$height}px;margin:0px;padding:0px;position:relative;'>";
+			$dimenstion = array("width"=>$width,"height"=>$height);
+			$index=1;
+			foreach($banners as $banner)
 			{
-				$thumb_image_params = array("height"=>30,"width"=>50);
-				$thumb_image_src = "/asset/".$asset->getAssetId()."/".serialize($thumb_image_params);
-				$image_src = "/asset/".$asset->getAssetId()."/".serialize(array());
-				
-				$showingItems[] = "<div id=\"showingItem_$i\" class=\"".($i==0 ? "showingItem_cur" :"showingItem")."\"  onMouseOver=\"$('pause').value=1;\" onMouseOut=\"$('pause').value=0;\" >
-						                <a href='$url' Title='$title'>
-							                <div style='border:none;height:{$this->height}px;width:{$this->width}px;background: transparent url($image_src) no-repeat bottom left;'>&nbsp;</div>
-							                ".(trim($subTitle)=="" ? "" :"<div class=\"showingItemTitle\">".$subTitle."</div>")."
-							            </a>
-						           </div>
-									";
-				$listItems[] = "<a id='link_$i' href=\"$url\" onMouseOver=\"showBanner($i);$('pause').value=1;\" onMouseOut=\" $('pause').value=0;\" class='".($i==0 ? "listItem_cur" :"listItem")."'>
-									<span class='listItem_img'><img src='$thumb_image_src' Title='$title' style='border:none;'/></span>
-									<span class='listItem_title'>$title</span>
-									<span class='listItem_subtitle'>".$subTitle."</span>
-								</a>";
-				$i++;
+				$assetId = $banner->getAsset()->getAssetId();
+				$url = $banner->getUrl();
+				$html.="<div id='image_{$clientId}_{$index}' style='width:{$width}px;height:{$height}px; margin:0px;padding:0px;position:relative;".($index==1 ? "" : "display:none;")."'>";
+					$html.="<a href='$url'>";
+						$html.="<img src='/asset/$assetId/".serialize($dimenstion)."' style='border:none;margin:0px;padding:0px;'/>";
+					$html.="</a>";
+					
+					$html .="<div style='position: relative;top:-30px;-moz-opacity: 0.7;opacity:.70;filter: alpha(opacity=70);background-color: #eeeeee;color:#BF3A17;font-size:18px;font-weight:bold;height:20px;top:-33px;padding:5px 0 5px 20px;'>";
+						$html .=$banner->getDescription();
+					$html .="</div>";
+				$html.="</div>";
+				$index++;
 			}
-			
-		}
-		$this->canvas->getControls()->add(implode("",$showingItems));
-		$this->list->getControls()->add(implode("",$listItems));
+		
+		$html.="</div>";
+		
+		return $html;
 	}
 }
 
