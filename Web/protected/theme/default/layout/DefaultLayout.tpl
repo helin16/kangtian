@@ -33,11 +33,11 @@
 						<com:Application.controls.Module.Menu.MenuModule ID="topMenu"/>
 					</div>
 				</div>
-				<div id="banner" style="width:100%;">
+				<com:TPanel id="banner" style="width:100%;">
 					<div class="innerWrapper">
 						<%= $this->Page->getBanner() %>
 					</div>
-				</div>
+				</com:TPanel>
 				<div id="body" style="width:100%;">
 					<div class="innerWrapper">
 						<table width="100%">

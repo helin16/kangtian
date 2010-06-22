@@ -110,29 +110,122 @@ class BannerRollerControl extends TPanel
 			return $this->defaultBanner;
 			
 		$clientId = $this->getClientID();
-		
+		$javascript ="
+					<style>
+						ul#slide-images-$clientId
+						{
+							position:relative;
+							display:block;
+							margin:0px;
+							padding:0px;
+							width:{$width}px;
+							height:{$height}px;
+							overflow:hidden;
+						}
+						ul#slide-images-$clientId li
+						{
+							position:absolute;
+							display:block;
+							list-style-type:none;
+							margin:0px;
+							padding:0px;
+							width:{$width}px;
+							height:{$height}px;
+							background-color:#FFFFFF;
+							top:0px;
+						}
+						
+						ul#slide-images-$clientId li a,
+						ul#slide-images-$clientId li a img
+						{
+							display:block;
+							background-color:#FFFFFF;
+							margin:0px;
+							padding:0px;
+							height:{$height}px;
+							width:{$width}px;
+						}
+						
+						div.slide-images-title-$clientId
+						{
+							position: relative;
+							top:-30px;
+							-moz-opacity: 0.7;
+							opacity:.70;
+							filter: alpha(opacity=70);
+							background-color: #eeeeee;
+							color:#BF3A17;
+							font-size:18px;
+							font-weight:bold;
+							height:20px;
+							top:-33px;
+							padding:5px 0 5px 20px;
+							width:{$width}px;
+						}
+					</style>
+							
+					<script type='text/javascript'>
+						var delay_$clientId = {$this->timeOutSecs} * 1000;
+						var start_frame_$clientId = 0;
+						
+						function init() 
+						{
+							var lis = $('slide-images-$clientId').getElementsByTagName('li');
+							for( i=0; i < lis.length; i++)
+							{
+								if(i!=0)
+								{
+									lis[i].style.display = 'none';
+								}
+							}
+							end_frame = lis.length -1;
+							start_slideshow(start_frame_$clientId, end_frame, delay_$clientId, lis);
+						}
+						function start_slideshow(start_frame, end_frame, delay, lis) 
+						{
+							setTimeout(fadeInOut(start_frame,start_frame,end_frame, delay, lis), delay);
+						}
+						
+						function fadeInOut(frame, start_frame, end_frame, delay, lis) 
+						{
+							return (function() 
+							{
+								lis = $('slide-images-$clientId').getElementsByTagName('li');
+								Effect.Fade(lis[frame]);
+								if (frame == end_frame) { frame = start_frame; } else { frame++; }
+								lisAppear = lis[frame];
+								setTimeout(\"Effect.Appear(lisAppear);\", 0);
+								setTimeout(fadeInOut(frame, start_frame, end_frame, delay), delay + 1850);
+							})
+							
+						}
+						
+						Event.observe(window, 'load', init, false);
+					</script>
+					";
 		
 		//cavas div
-		$html="<div id='cavas_$clientId' style='width:{$width}px;height:{$height}px;margin:0px;padding:0px;position:relative;'>";
+		$html="$javascript
+			<ul id='slide-images-$clientId'>";
 			$dimenstion = array("width"=>$width,"height"=>$height);
 			$index=1;
 			foreach($banners as $banner)
 			{
 				$assetId = $banner->getAsset()->getAssetId();
 				$url = $banner->getUrl();
-				$html.="<div id='image_{$clientId}_{$index}' style='width:{$width}px;height:{$height}px; margin:0px;padding:0px;position:relative;".($index==1 ? "" : "display:none;")."'>";
-					$html.="<a href='$url'>";
-						$html.="<img src='/asset/$assetId/".serialize($dimenstion)."' style='border:none;margin:0px;padding:0px;'/>";
-					$html.="</a>";
-					
-					$html .="<div style='position: relative;top:-30px;-moz-opacity: 0.7;opacity:.70;filter: alpha(opacity=70);background-color: #eeeeee;color:#BF3A17;font-size:18px;font-weight:bold;height:20px;top:-33px;padding:5px 0 5px 20px;'>";
-						$html .=$banner->getDescription();
-					$html .="</div>";
-				$html.="</div>";
+					$html.="<li>";
+						$html.="<a href='$url'>";
+							$html.="<img src='/asset/$assetId/".serialize($dimenstion)."' style='border:none;margin:0px;padding:0px;'/>";
+						$html.="</a>";
+						$html .="<div class='slide-images-title-$clientId'>";
+							$html .=$banner->getDescription();
+						$html .="</div>";
+						
+					$html.="</li>";
 				$index++;
 			}
 		
-		$html.="</div>";
+		$html.="</ul>";
 		
 		return $html;
 	}

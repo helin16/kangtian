@@ -12,6 +12,7 @@ class Home extends EshopPage
 	
 	protected function getBanner()
 	{
+		$this->getPage()->getMaster()->banner->Visible=false;
 		return "";
 	}
 }
