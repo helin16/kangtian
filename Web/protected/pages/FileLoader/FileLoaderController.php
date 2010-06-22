@@ -36,7 +36,7 @@ class FileLoaderController extends EshopPage
 				
 			$newWidth = $wanttedWidth;
 			$newHeight = $wanttedHeight;
-			if ($width_orig <= $height_orig) 
+			if ($newWidth <= $newHeight) 
 			{
 				$newWidth = $newHeight*$radio;
 				$param["newX"]=($newWidth-$wanttedWidth)/2;
