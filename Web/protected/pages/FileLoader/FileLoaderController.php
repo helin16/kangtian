@@ -64,8 +64,8 @@ class FileLoaderController extends EshopPage
 			$img_r = imagecreatefrompng($src);
 			$dst_r = ImageCreateTrueColor( round($wanttedWidth), round($wanttedHeight) );
 
-			$background = imagecolorallocate($dst_r,255,255,255);
-			imageFilledRectangle($dst_r, 0, 0, $newWidth - 1, $newHeight - 1, $background);			
+			$background = imagecolorallocate($dst_r,255,0,0);
+			imageFilledRectangle($dst_r, 0, 0, $newWidth - 1, $newHeight - 1, $background);		
 			imagecopyresampled($dst_r,$img_r,0,0,$newPos_x,$newPos_y,$newWidth,$newHeight,$width_orig,$height_orig);
 
 			header('Content-type: image/jpeg');
