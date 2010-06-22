@@ -76,6 +76,8 @@
 			<url ServiceParameter="Admin.Listing.BannerController.BannerController" pattern="admin/list/banners.html" />
 			<url ServiceParameter="Admin.Listing.ContactController.ContactController" pattern="admin/list/contacts.html" />
 			
+			<url ServiceParameter="Admin.Listing.ImageUploader.ImageUploaderController" pattern="admin/list/imageuploader.html" />
+			
 			<url ServiceId='stream' ServiceParameter="" pattern="stream" />
 		</module>
 	
