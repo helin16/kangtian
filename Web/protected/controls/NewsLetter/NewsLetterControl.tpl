@@ -17,9 +17,9 @@
 						<td>&nbsp;</td>
 					</tr>
 					<tr>
-						<td>
+						<td width="200px" valign="top" style='height:20px;background:transparent url(<%=$this->imageRootPath%>images/newsletter_input.png) no-repeat left top;padding:2px 0 2px 5px;'>
 							<com:TActiveTextBox ID="subscribe_email" 
-									style='border:none;height:20px;width:200px;margin:0px;padding:2px 0 2px 5px;background:transparent url(<%=$this->imageRootPath%>images/newsletter_input.png) no-repeat left top;' />
+									style='border:none;height:15px;width:180px;margin:0px;padding:2px 0 2px 5px;' />
 						</td>
 						<td>
 							<com:TActiveImageButton ID="subscribeBtn" style='padding:0 5px 2px 0;outline:none;' OnClick="subscribe" 
