@@ -32,7 +32,15 @@ class BannerController extends CRUDPage
 	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Banner");
-    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId()." and (description like '%$searchString%')",true,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId()." and (description like '%$searchString%')",false,$pageNumber,$pageSize);
+    	$this->totalRows = $service->totalNoOfRows;
+    	return $result;
+    }
+    
+	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null,$searchActiveOnly=true)
+    {
+    	$service = new BaseService($this->entityName);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),false,$pageNumber,$pageSize);
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }

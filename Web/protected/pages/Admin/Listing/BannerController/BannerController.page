@@ -80,7 +80,7 @@
 						<tr align="left">
 							<td>Email</td>
 							<td width="20%">Created</td>
-							<td width="25%">&nbsp;</td>
+							<td width="25%">Active</td>
 						</tr>
 					</table>
 				</prop:HeaderTemplate>
@@ -98,6 +98,7 @@
 								<b>@:</b> <%# $this->DataItem->getCreated() %>
 							</td>
 							<td width="25%">
+								<com:TCheckBox Id="Active" Checked="<%#$this->DataItem->getActive()%>"  AutoPostBack="true" OnCheckedChanged="Page.toggleActive"/>
 								<com:TImageButton ID="EditButton" ImageUrl="../../../image/edit.png" CommandName="edit" ToolTip="Edit Record" />
 							</td>
 						</tr>
