@@ -1,5 +1,5 @@
 <script type="text/javascript">
-	function loadSubscriptionMsg()
+	function loadSubscriptionMsg_<%= $this->getClientId()%>()
 	{
 		if($('<%= $this->subscripionErrorMsg->getClientId()%>').value!='')
 			alert($('<%= $this->subscripionErrorMsg->getClientId()%>').value);
@@ -11,7 +11,7 @@
 		<tr valign='top'>
 			<td style="width:6px;background:transparent url(<%=$this->imageRootPath%>images/newsletter_left.png) no-repeat right top;">&nbsp;</td>
 			<td style="background:transparent url(<%=$this->imageRootPath%>images/newsletter_mid.png) repeat-x left top;">
-				<table border='0' cellspacing="0" cellpadding="0" style='padding: 10px 0 0 20px;'>
+				<table border='0' cellspacing="0" cellpadding="0" style='margin: 10px 0 0 20px;'>
 					<tr>
 						<td style='color:#ffffff;font-size:24px;padding: 0 0 5px 0;'><%[NewsLetter.newsletter]%></td>
 						<td>&nbsp;</td>
@@ -25,7 +25,7 @@
 							<com:TActiveImageButton ID="subscribeBtn" style='padding:0 5px 2px 0;outline:none;' OnClick="subscribe" 
 									ImageUrl="/Theme/<%=$this->Page->getDefaultThemeName()%>/images/newsletter_button.png">
 								<prop:ClientSide OnLoading="$('<%= $this->subscribeBtn->getClientId()%>').hide();$('subscribe_loading').show();"
-											OnComplete="$('<%= $this->subscribeBtn->getClientId()%>').show();$('subscribe_loading').hide();loadSubscriptionMsg();" />
+											OnComplete="$('<%= $this->subscribeBtn->getClientId()%>').show();$('subscribe_loading').hide();loadSubscriptionMsg_<%= $this->getClientId()%>();" />
 							</com:TActiveImageButton>
 							<img id='subscribe_loading' src='/image/ajax-loader.gif' style='display:none;'/>
 						</td>
