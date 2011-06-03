@@ -27,8 +27,12 @@ class ProjectController extends AdminPage
         {
         	$this->assetIds->Value = serialize(array());
 	    	if($this->id!==null)
-	        {
 	        	$this->loadContent($this->id);
+	        else
+	        {
+	        	$this->bindEntity($this->propertyType,"PropertyType");
+	        	$this->bindEntity($this->buildingType,"BuildingType");
+	        	$this->bindEntity($this->propertyStatus,"PropertyStatus");
 	        }
         }
     }

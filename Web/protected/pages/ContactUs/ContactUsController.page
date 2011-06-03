@@ -1,6 +1,19 @@
 <com:TContent ID="MainContent">
 	<com:TPanel CssClass="bodyWrapper">
 		<com:TPanel ID="aboutus" />
+		<table width="100%" height>
+			<tr valign="top">
+				<td>
+					<h3>Australian Realty Group (ARG)</h3>
+					<b>Addr.:</b>152 Peel Street North,Melbourne, VIC 3051<br />
+					<b>Tel.:</b> +61 3 9328 8820 or +61 3 8683 7223<br />
+					<b>Fax:</b> +61 3 9329 4582<br />
+				</td>
+				<td wdith="300px">
+					<com:Application.controls.GoogleMap.GoogleMapControl ID="map" Height="300" Width="300" Address="152 Peel Street North,Melbourne, VIC 3051"/>
+				</td>
+			</tr>
+		</table>
 		<com:Application.controls.Contactus.ContactusControl/>
 	</com:TPanel>
 </com:TContent>
