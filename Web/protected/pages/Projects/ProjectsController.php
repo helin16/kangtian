@@ -38,6 +38,11 @@ class ProjectsController extends EshopPage
 						$this->searchCriteira["propertyTypeIds"]=array(3);
 						break;
 					}
+				case "projects":
+					{
+						$this->searchCriteira["propertyTypeIds"]=array(4);
+						break;
+					}
 			}
 		}
 			
