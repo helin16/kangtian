@@ -30,7 +30,7 @@ class ProjectController extends CRUDPage
 	protected function searchEntity($searchString,&$focusObject = null,$pageNumber=null,$pageSize=null)
     {
     	$service = new BaseService("Project");
-    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId()."(pro.title like '%$searchString%' or pro.intro like '%$searchString%' or pro.fullText like '%$searchString%')",false,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId()."(pro.title like '%$searchString%' or pro.intro like '%$searchString%' or pro.fullText like '%$searchString%')",false,$pageNumber,$pageSize,array("Project.active"=>"desc"));
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }
@@ -38,13 +38,14 @@ class ProjectController extends CRUDPage
 	protected function getAllOfEntity(&$focusObject = null,$pageNumber=null,$pageSize=null,$searchActiveOnly=true)
     {
     	$service = new BaseService($this->entityName);
-    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),false,$pageNumber,$pageSize);
+    	$result =  $service->findByCriteria("languageId=".$this->pageLanguage->getId(),false,$pageNumber,$pageSize,array("Project.active"=>"desc"));
     	$this->totalRows = $service->totalNoOfRows;
     	return $result;
     }
     
     public function shortenText($text,$maxLength=150)
     {
+    	$text = strip_tags($text);
     	if(strlen($text)>$maxLength)
     		return substr($text,0,$maxLength)." ... ";
     	return $text;
@@ -52,6 +53,7 @@ class ProjectController extends CRUDPage
     
     public function listImages(Project $project)
     {
+    	return;
     	$service = new BaseService("Asset");
     	$images = $service->findByCriteria("id in (select distinct pi.assetId from projectimage pi where pi.active = 1 and pi.projectId=".$project->getId().")");
     	

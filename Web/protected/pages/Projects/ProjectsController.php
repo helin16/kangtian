@@ -98,7 +98,7 @@ class ProjectsController extends EshopPage
     	$minPrice = $this->searchCriteira["minPrice"];
     	$suburbs = $this->searchCriteira["suburbs"];    	
 
-    	$where = "pro.active = 1";
+    	$where = "pro.active = 1 and languageId=".Core::getPageLanguage()->getId();
     	
     	if($propertyTypeIds !="all" && count($propertyTypeIds)!=0)
     		$where .= " AND pro.propertyTypeId in (".implode(",",$propertyTypeIds).")";
